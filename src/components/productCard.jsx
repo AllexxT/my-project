@@ -33,8 +33,8 @@ const ProductImageContainer = styled.div`
     }
 `
 const ProductImageWrapper = styled.div`
-    margin:.5em 10px .5em 8px;
-	overflow:hidden; /* this is important */
+    margin: .5em 10px .5em 8px;
+	overflow: hidden; /* this is important */
     border-bottom:3px solid #ccc;
     width: 130px;
 `
