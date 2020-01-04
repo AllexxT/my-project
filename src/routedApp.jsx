@@ -5,7 +5,7 @@ import {
     Route,
 } from 'react-router-dom'
 import App from './app';
-import NewsList from './news';
+import NewsContainer from './news';
 
 const Exposition = () => {
     return (
@@ -32,7 +32,7 @@ const RoutedApp = () => (
     <BrowserRouter>
         <App>
             <Switch>
-                <Route exact path='/' component={NewsList} />
+                <Route exact path='/' component={NewsContainer} />
                 <Route path='/exposition' component={Exposition} />
                 <Route path='/products' component={Products} />
                 <Route path='/services' component={Services} />

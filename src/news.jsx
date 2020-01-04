@@ -1,26 +1,23 @@
-import React from 'react';
+import React from 'react'; // { useMemo } 
 // import styled, { css } from 'styled-components'
 import ProductCard from './productCard';
-import { connect } from 'react-redux'
-import { addNews } from "./actions/actionCreator";
+import { useSelector } from 'react-redux' // useDispatch 
 
-
-
-
-
-
-const NewsList = (props) => {
-
-    const { news } = props;
-    const isNewsExist = news && news.length > 0;
+const NewsContainer = () => {
+    const news = useSelector(state => state.news)
     return (
-        <div>
-            { isNewsExist && news.map((current) => <News key={current.id} newsProp={current} />) }
-        </div>
+            <NewsList news={news} />
     )
 }
 
-
+const NewsList = ({news}) => {
+    const isNewsExist = news && news.length > 0;
+    return (
+        <div>
+            {isNewsExist && news.map((current) => <News key={current.id} newsProp={current} />)}
+        </div>
+    )
+}
 
 const News = (current) => {
     const { id, news_text, date, card_id } = current.newsProp
@@ -37,6 +34,4 @@ const News = (current) => {
     )
 }
 
-export default connect(state => ({
-    news: state.news,
-}), { addNews })(NewsList);
+export default NewsContainer;
