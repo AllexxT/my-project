@@ -84,6 +84,7 @@ const ContentRow = styled.div`
 const ContentAside = styled.aside`
 `
 const ContentMain = styled.main`
+    
 `
 // Footer
 const Footer = styled.div`
@@ -138,7 +139,6 @@ const App = ({ children }) => {
                             <Menu />
                         </ContentAside>
                         <ContentMain>
-                            <h1>Content block</h1>
                             {children}
                         </ContentMain>
                     </ContentRow>
