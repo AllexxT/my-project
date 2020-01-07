@@ -48,7 +48,7 @@ const ProductDescriprionContainer = styled.div`
     margin: -5px 5px 5px;
 `
 
-const ProductCard = ({ description, price=69, image=prodImg, ...props }) => {
+const ProductCard = ({ description, price=69, image=prodImg }) => {
     return (
         <ProductImageContainer data-text={`${price} грн`}>
             <ProductImageWrapper>

@@ -1,22 +1,23 @@
 import { ADD_NEWS } from "../constants";
+import uuid from 'uuid/v4'
 
 
 
 const NEWS = [
     {
-        id: 1,
+        id: uuid(),
         card_id: 'Card_id',
         news_text: 'OOOrem ipsum dolor sit amet.',
         date: 'Today',
     },
     {
-        id: 2,
+        id: uuid(),
         card_id: 'Card_id',
         news_text: 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
         date: 'Tomorrow',
     },
     {
-        id: 3,
+        id: uuid(),
         card_id: 'Card_id',
         news_text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero, sit?',
         date: 'Yesterday',

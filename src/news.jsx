@@ -19,8 +19,8 @@ const NewsList = ({news}) => {
     )
 }
 
-const News = (current) => {
-    const { id, news_text, date, card_id } = current.newsProp
+const News = ({newsProp}) => {
+    const { id, news_text, date, card_id } = newsProp
     return (
         <div style={{ display: 'flex' }}>
             <ProductCard />
