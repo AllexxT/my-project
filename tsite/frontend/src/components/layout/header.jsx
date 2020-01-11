@@ -1,43 +1,52 @@
-import React, { useEffect, useState, useMemo, useCallback } from 'react'
-import axios from 'axios'
-
+import React, { useEffect, useState } from 'react'
+import { useSelector, useDispatch, connect, useStore } from 'react-redux'
+import { getProducts } from '../../actions/products'
 
 const Header = () => {
-    const [cards, setCards] = useState([])
-
+    const products = useSelector(state => state.products.products)
+    const dispatch = useDispatch()
     useEffect(() => {
-        axios.get(`${location.href}api/products/`)
-            .then(res => {
-                const data = res.data
-                setCards(crd => data)
-            })
-    }, [cards.length])
-
-    const handler = () => {
-        console.log(cards);
-        forceUpdate
-    }
+        dispatch(getProducts())
+    }, [products.length])
+    console.log(products)
     return (
         <div>
             <p>Hello from header </p>
-            <button onClick={handler}>refresh</button>
-        </div>
-    )
-}
-
-const Card = ({ id, name, description, price, discount }) => {
-    console.log(id)
-    return (
-        <div>
-            <ul>
-                <li>Id - {id}</li>
-                <li>Name - {name}</li>
-                <li>Description - {description}</li>
-                <li>Price - {price}</li>
-                {discount && <li>Discount is here!</li>}
-            </ul>
+            <button onClick={()=>dispatch(getProducts())}>Update</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Descr</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Discount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {products.map(product => (
+                        <tr key={product.id}>
+                            <td>{product.id}</td>
+                            <td>{product.name}</td>
+                            <td>{product.description}</td>
+                            <td>{product.image}</td>
+                            <td>{product.price}</td>
+                            <td>{product.discount}</td>
+                            <td><button /></td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     )
 }
 
 export default Header;
+
+// const mapStateToProps = state => ({
+    // products: state.products.products,
+// })
+
+// export default connect(mapStateToProps, { getProducts })(Header);
