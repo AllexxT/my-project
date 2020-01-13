@@ -6,7 +6,6 @@ class ProductCard(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(max_length=500)
     image = models.ImageField(blank=True, null=True)
-    # price = models.IntegerField()
     discount = models.BooleanField(blank=True)
 
     @property

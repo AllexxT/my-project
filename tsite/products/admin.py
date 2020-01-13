@@ -15,7 +15,6 @@ class ProductCardAdmin(admin.ModelAdmin):
         'id',
         'description',
         'image',
-        # 'price',
         'discount'
     )
     list_display = (
@@ -23,7 +22,6 @@ class ProductCardAdmin(admin.ModelAdmin):
         'id',
         'description',
         'image',
-        # 'price',
         'discount',
     )
 
