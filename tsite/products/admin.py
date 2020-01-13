@@ -1,3 +1,40 @@
 from django.contrib import admin
+from products.models import ProductCard, Prices
 
-# Register your models here.
+
+@admin.register(ProductCard)
+class ProductCardAdmin(admin.ModelAdmin):
+
+    class PricesInline(admin.TabularInline):
+        model = Prices
+        extra = 0
+    inlines = [PricesInline]
+
+    fields = (
+        'name',
+        'id',
+        'description',
+        'image',
+        # 'price',
+        'discount'
+    )
+    list_display = (
+        'name',
+        'id',
+        'description',
+        'image',
+        # 'price',
+        'discount',
+    )
+
+
+@admin.register(Prices)
+class PricesAdmin(admin.ModelAdmin):
+    fields = (
+        'product',
+        'price',
+    )
+    list_display = (
+        'product',
+        'price',
+    )

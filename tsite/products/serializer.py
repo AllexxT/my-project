@@ -1,13 +1,34 @@
 from rest_framework import serializers
-from products.models import ProductCard
+from drf_writable_nested.serializers import WritableNestedModelSerializer
+# from drf_writable_nested.mixins import UniqueFieldsMixin
+from products.models import ProductCard, Prices
 
 
-class ProductCardSerializer(serializers.ModelSerializer):
-    # image_url = serializers.SerializerMethodField('get_image')
+class PriceSerializer(serializers.ModelSerializer):
 
-    # def get_image(self, obj):
-    #     return obj.image.url
+    class Meta:
+        model = Prices
+        fields = [
+            'id',
+            'product',
+            'price'
+        ]
+        read_only_fields = ('product',)
+
+
+class ProductCardSerializer(WritableNestedModelSerializer):
+    # prices serializer
+    prices = PriceSerializer(many=True, allow_null=True)
 
     class Meta:
         model = ProductCard
-        fields = '__all__'
+        fields = (
+            'id',
+            'name',
+            'description',
+            'image',
+            'discount',
+            'prices'
+        )
+        # depth allows to see nested view
+        # depth = 1

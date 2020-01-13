@@ -9,12 +9,3 @@ router = routers.DefaultRouter()
 router.register('api/products', ProductCardViewSet, 'products')
 
 urlpatterns = router.urls
-
-
-# urlpatterns += static(
-#     settings.STATIC_URL,
-#     document_root=settings.STATIC_ROOT
-# )
-
-# other
-# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
