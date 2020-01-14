@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch, connect, useStore } from 'react-redux'
 import { getProducts } from '../../actions/products'
 
+
 const Header = () => {
     const products = useSelector(state => state.products.products)
     const dispatch = useDispatch()
@@ -12,7 +13,7 @@ const Header = () => {
     return (
         <div>
             <p>Hello from header </p>
-            <button onClick={()=>dispatch(getProducts())}>Update</button>
+            <button onClick={() => dispatch(getProducts())}>Update</button>
             <table>
                 <thead>
                     <tr>
@@ -42,6 +43,21 @@ const Header = () => {
         </div>
     )
 }
+
+// const Div = () => {
+//     const [state, setState] = useState('')
+//     const handler = (e) => {
+//         console.log('content was updated')
+//         setState(e.target.value)
+//     }
+//     console.log(state)
+//     return (
+//         <div>
+//             <textarea onChange={e=>handler(e)}></textarea>
+//             <div>{state}</div>
+//         </div>
+//     )
+// }
 
 export default Header;
 
