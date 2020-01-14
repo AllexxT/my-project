@@ -18,6 +18,23 @@
 .env.test.local
 .env.production.local
 
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+media
+*.py[cod]
+*$py.class
+
+# C extensions
+*.co
+
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/.vscode
