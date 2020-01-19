@@ -1,17 +1,40 @@
 import { GET_PRODUCTS } from '../actions/types'
-import axios from 'axios'
 
 const initialState = {
-    products: [
-        {
-            "id": 222,
-            "name": "test",
-            "description": "test",
-            "image": "test",
-            "price": 333,
-            "discount": false
-        }
-    ]
+    products: {
+        "id": 1,
+        "name": "",
+        "description": "",
+        "discount": false,
+        "prices": [
+            {
+                "id": 1,
+                "product": 1,
+                "priceName": "",
+                "price": 69
+            }
+        ],
+        "news": [
+            {
+                "id": 0,
+                "title": "",
+                "body": "",
+                "product": 1
+            }
+        ],
+        "photos": [
+            {
+                "product": 1,
+                "id": 1,
+                "photo": {
+                    "full_size": "",
+                    "thumbnail": "",
+                    "small_square_crop": "",
+                    "medium_square_crop": ""
+                }
+            }
+        ]
+    }
 }
 
 export default (state = initialState, action) => {
