@@ -1,36 +1,37 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import styled from 'styled-components' // { css } 
-import { useLocation, useHistory, useRouteMatch } from "react-router-dom";
-import { Link } from 'react-router-dom'
+import { useLocation, useHistory } from "react-router-dom";
 
 
 const Ul_Container = styled.ul`
     display: flex;
-    flex-direction: row;
 `;
 const SEPARATOP = '->'
 
 const Breadcrumbs = () => {
     const location = useLocation()
-    let history = useHistory();
+    const history = useHistory();
     const splittedPath = location.pathname.split('/').slice(1)
-    const isSeparator = index => index === 0 ? true : false        // First separator flag
-    const homeHandler = (e) => {
+    
+    const linkHandler = (e) => {
+        const target = e.target.innerHTML.toLowerCase()
+        const locatArray = location.pathname.split('/')
+        const destionation = locatArray.slice(0, locatArray.indexOf(target) + 1).join('/')
         e.preventDefault()
-        history.push('/')
+        history.push(destionation)
     }
     return (
         <Ul_Container>
             <Li_Container>
-                <a href='' onClick={(e) => homeHandler(e)}>Home</a>
+                <a href='' onClick={(e) => linkHandler(e)}>Home</a>
             </Li_Container>
             {SEPARATOP}
             {splittedPath.map((path, index) => (
                 <Breadcrumb
                     key={index}
-                    isSeparator={isSeparator(index)}
+                    id={index}
                     pathLabel={path}
-                    location={location}
+                    callback={linkHandler}
                 />
             ))}
         </Ul_Container>
@@ -38,23 +39,16 @@ const Breadcrumbs = () => {
 }
 
 const Li_Container = styled.li`
-    display: flex;
     font-size: 16px;
 `;
 
-export const Breadcrumb = ({ location, pathLabel, isSeparator }) => {
-    let history = useHistory();
+export const Breadcrumb = ({ callback, pathLabel, id }) => {
     const label = pathLabel.length > 1 ?
-        pathLabel[0].toUpperCase() + pathLabel.slice(1) :
-        ''
-    const linkHandler = (e) => {
-        e.preventDefault()
-        history.push(location)
-    }
+        pathLabel[0].toUpperCase() + pathLabel.slice(1) : ''
     return (
         <Li_Container>
-            {isSeparator || SEPARATOP}
-            <a href='' onClick={(e) => linkHandler(e) } >{`${label}`}</a>
+            {id === 0 || SEPARATOP}
+            <a href='' onClick={(e) => callback(e)} >{`${label}`}</a>
         </Li_Container>
     )
 }

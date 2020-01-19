@@ -141,7 +141,7 @@ const App = ({ children }) => {
                     <Breadcrumbs />   {/* component */}
                     <ContentRow>
                         <ContentAside>
-                            <h1>Aside Navigation block</h1>
+                            <h1>Aside</h1>
                             <Menu />
                         </ContentAside>
                         <ContentMain>

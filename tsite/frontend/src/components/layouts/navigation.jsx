@@ -5,9 +5,14 @@ import { Link, useRouteMatch } from 'react-router-dom'
 const StyledLi = styled.li`
     & a {
         display: block;
+        line-height: 20px;
         ${props => props.match && css`
             border: 2px solid yellow;
         `}
+    }
+    &:nth-child(4),
+    &:nth-child(5){
+        padding: 0 0 0 15px;
     }
     
 `
