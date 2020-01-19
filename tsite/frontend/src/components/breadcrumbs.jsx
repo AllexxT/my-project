@@ -6,13 +6,14 @@ import { useLocation, useHistory } from "react-router-dom";
 const Ul_Container = styled.ul`
     display: flex;
 `;
-const SEPARATOP = '->'
+
+const SEPARATOP = "➤"
 
 const Breadcrumbs = () => {
     const location = useLocation()
     const history = useHistory();
     const splittedPath = location.pathname.split('/').slice(1)
-    
+
     const linkHandler = (e) => {
         const target = e.target.innerHTML.toLowerCase()
         const locatArray = location.pathname.split('/')
@@ -21,25 +22,31 @@ const Breadcrumbs = () => {
         history.push(destionation)
     }
     return (
-        <Ul_Container>
-            <Li_Container>
-                <a href='' onClick={(e) => linkHandler(e)}>Home</a>
-            </Li_Container>
-            {SEPARATOP}
-            {splittedPath.map((path, index) => (
-                <Breadcrumb
-                    key={index}
-                    id={index}
-                    pathLabel={path}
-                    callback={linkHandler}
-                />
-            ))}
-        </Ul_Container>
+        <div>
+            <Ul_Container>
+                <Li_Container>
+                    <a href='' onClick={(e) => linkHandler(e)}>Home</a>
+                </Li_Container>
+                {SEPARATOP}
+                {splittedPath.map((path, index) => (
+                    <Breadcrumb
+                        key={index}
+                        id={index}
+                        pathLabel={path}
+                        callback={linkHandler}
+                    />
+                ))}
+            </Ul_Container>
+        </div>
     )
 }
 
 const Li_Container = styled.li`
     font-size: 16px;
+    /* Realization separator with Before and props */
+    /* &:not(:first-child)::before { */
+        /* content: "${props=>props.separator ? props.separator : '-'}";       */
+    /* } */
 `;
 
 export const Breadcrumb = ({ callback, pathLabel, id }) => {

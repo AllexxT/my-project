@@ -26,7 +26,7 @@ const Company = styled.div`
 `
 const CompanyRow = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 5px 0;
     flex-wrap: wrap;
 `
