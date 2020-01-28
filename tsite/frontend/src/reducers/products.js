@@ -6,6 +6,8 @@ const initialState = {
         "name": "",
         "description": "",
         "discount": false,
+        "sizes": "",
+        "sertificate": false,
         "prices": [
             {
                 "id": 1,
@@ -40,7 +42,6 @@ const initialState = {
 export default (state = initialState, action) => {
     switch (action.type) {
         case GET_PRODUCTS:
-            console.log('ProductReducer')
             return {
                 ...state,
                 products: action.payload

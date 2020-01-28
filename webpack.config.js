@@ -13,8 +13,8 @@ module.exports = {
                 use: [
                     {
                         loader: 'url-loader',
-                        options:{
-                            limit: 8192,
+                        options: {
+                            limit: 999999,
                         }
                     }
                 ]

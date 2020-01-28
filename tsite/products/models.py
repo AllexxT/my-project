@@ -1,12 +1,15 @@
 from django.db import models
 from versatileimagefield.fields import VersatileImageField, PPOIField
+from datetime import date
 
 
 class ProductCard(models.Model):
-    id = models.IntegerField(primary_key=True, unique=True)
+    id = models.CharField(max_length=30, primary_key=True, unique=True)
     name = models.CharField(max_length=100, unique=True)
-    description = models.TextField(max_length=500)
+    description = models.TextField(max_length=1000)
     discount = models.BooleanField(blank=True)
+    sertificate = models.BooleanField(blank=True, default=False)
+    sizes = models.TextField(max_length=400, blank=True, default='..X..')
 
     def news(self):
         return self.news_set.all()
@@ -28,7 +31,8 @@ class Prices(models.Model):
         ProductCard, on_delete=models.CASCADE, null=True
     )
     price = models.IntegerField(verbose_name='Price', blank=True)
-    priceName = models.CharField(max_length=20, default='69')
+    color = models.CharField(max_length=100, default='gray')
+    depth = models.CharField(max_length=15, blank=True)
 
     def __str__(self):
         return str(self.price)
@@ -57,6 +61,8 @@ class News(models.Model):
 
     title = models.CharField(max_length=50, null=True)
     body = models.TextField(max_length=500, null=True)
+    changed = models.DateField(auto_now=True, blank=True)
+    created = models.DateField(auto_now_add=True, blank=True)
 
     def __str__(self):
         return self.title

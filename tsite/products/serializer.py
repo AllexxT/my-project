@@ -15,7 +15,9 @@ class NewsSerializer(WritableNestedModelSerializer):
             'id',
             'title',
             'body',
-            'product'
+            'product',
+            'changed',
+            'created',
         )
 ##############################################################################
 # ProductCard#
@@ -49,8 +51,9 @@ class PriceSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'product',
-            'priceName',
-            'price'
+            'color',
+            'price',
+            'depth'
         ]
         read_only_fields = ('product',)
 
@@ -60,7 +63,7 @@ class ProductCardSerializer(WritableNestedModelSerializer):
     prices = PriceSerializer(many=True, allow_null=True)
     # Photos serializer
     photos = PhotosSerializer(many=True, allow_null=True)
-    NewsSerializer.deph = None
+
     news = NewsSerializer(many=True, allow_null=True)
 
     class Meta:
@@ -68,6 +71,8 @@ class ProductCardSerializer(WritableNestedModelSerializer):
         fields = (
             'id',
             'name',
+            'sertificate',
+            'sizes',
             'description',
             'discount',
             'prices',

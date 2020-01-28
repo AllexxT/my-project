@@ -22,13 +22,17 @@ class ProductCardAdmin(admin.ModelAdmin):
         'name',
         'id',
         'description',
-        'discount'
+        'discount',
+        'sizes',
+        'sertificate',
     )
     list_display = (
         'name',
         'id',
         'description',
         'discount',
+        'sizes',
+        'sertificate',
     )
 
 
@@ -37,12 +41,14 @@ class PricesAdmin(admin.ModelAdmin):
     fields = (
         'product',
         'price',
-        'priceName',
+        'color',
+        'depth',
     )
     list_display = (
         'product',
         'price',
-        'priceName',
+        'color',
+        'depth',
     )
 
 
@@ -57,6 +63,11 @@ class PhotosAdmin(admin.ModelAdmin):
 @admin.register(News)
 class NewsAdmin(admin.ModelAdmin):
     fields = (
+        'product',
+        'title',
+        'body',
+    )
+    list_display = (
         'product',
         'title',
         'body',

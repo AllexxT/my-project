@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components' // { css } 
+import { ellipsis } from 'react-multiline-ellipsis'
 
 import stock from './discount.png'
 import placeholder from './placeholder.jpeg'
-
+import sertificated from './ser.jpeg'
 
 const PWrapper = styled.div`
     display: flex;
@@ -80,16 +81,27 @@ const C_Link = styled.a`
     max-height: 150px;
 
 `;
-const C_LinkName = styled(C_Link)`
+const C_LinkHolder = styled.div`
+    min-height: 50px;
+    flex: 1 1 auto;
+`
+const C_LinkName = styled.a`
+    display: flex;
     justify-content: flex-start;
+    cursor: pointer;
     font-size: 18px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin: 15px 0 15px;
+    margin: 15px 0 0 0;
     font-weight: bold;
     color: #323232;
     transition: color 0.2s linear;
     align-self: flex-start;
-    flex: 1 1 auto;
+    position: relative;
+    /* & p {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    } */
     &:hover {
         color: #b28c1a;
     }
@@ -101,6 +113,13 @@ const C_StockImg = styled.img`
     position: absolute;
     top: -5px;
     left: -7px;
+`;
+const C_SertifImg = styled.img`
+    position: absolute;
+    top: -5px;
+    right: -7px;
+    width: 30px;
+    box-shadow: 0px 5px 10px yellow;
 `;
 const C_OldPrice = styled.div`
     visibility: ${props => props.oldPrice ? "visible" : "hidden"};
@@ -138,9 +157,25 @@ const C_Button = styled.div`
         }
     }
 `;
+const C_ExpandableName = styled.div `
+    position: absolute;
+    background: whitesmoke;
+    text-decoration: underline;
+`
 
-const Card = ({ card }) => {
-    const { name, discount, photos, prices, id } = card
+class MyTextBox extends React.Component {
+    render() {
+        return <C_LinkName href=''>{this.props.text}</C_LinkName>
+    }
+}
+
+const MyTxtBox = ellipsis(MyTextBox, 2, '')
+
+export const Card = ({ card }) => {
+    // local state of expandable {name} block
+    const [expand, setExpand] = useState(false)
+    const { name, discount, sertificate, photos, prices, id } = card
+    // render calculated lower price
     const lowerPrice = () => {
         if (prices.length > 0) {
             return prices.reduce((lower, curr) => {
@@ -150,17 +185,36 @@ const Card = ({ card }) => {
     }
     const availablePrice = lowerPrice() ? `от ${lowerPrice()} грн.` : 'нет информации'
     const availablePhoto = photos.length ? photos[0].photo.medium_square_crop : placeholder
+    // Handler of expandable {name} block
+    const expandHandler = (e) => {
+        e.type === 'mouseover' ? setExpand(true) : setExpand(false)
+    }
+    // nameExpand render full {name} text if expand === true
+    const nameExpand = expand ?
+        <C_LinkName absolute href=''>{name}</C_LinkName> :
+        <MyTxtBox text={name}></MyTxtBox>
     return (
         <C_Wrapper>
             <C_Content>
                 <C_ImageBlock>
                     <C_Link href=''>
+                        {/* Product image */}
                         <C_Image src={availablePhoto} alt='Card image' />
+                        {/* Sertificate image */}
+                        {sertificate && <C_SertifImg src={sertificated} />}
                     </C_Link>
+                    {/* Discount image */}
                     {discount && <C_StockImg src={stock} alt='Discount' />}
                 </C_ImageBlock>
-                <C_LinkName href=''>{name}</C_LinkName>
-                <C_OldPrice oldPrice={id % 2 == 0 ? true : false}>old price</C_OldPrice>
+                <C_LinkHolder>
+                    <C_ExpandableName
+                        onMouseOver={(e) => expandHandler(e)}
+                        onMouseOut={(e) => expandHandler(e)}
+                    >
+                        {nameExpand}
+                    </C_ExpandableName>
+                </C_LinkHolder>
+                <C_OldPrice oldPrice={true}>old price id</C_OldPrice>
                 <C_Price>{availablePrice} </C_Price>
                 <C_Button>
                     <C_Link>Подробнее</C_Link>
