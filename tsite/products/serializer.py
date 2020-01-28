@@ -8,19 +8,16 @@ from products.models import ProductCard, Prices, Photos, News
 # News #
 
 
-class NewsSerializMeta(serializers.SerializerMetaclass):
-    def __init__(cls, class_name, base_classes, attributes):
-        super(NewsSerializMeta, cls).__init__(class_name, base_classes, attributes)
-
-
-class NewsSerializer(WritableNestedModelSerializer, metaclass=NewsSerializMeta):
+class NewsSerializer(WritableNestedModelSerializer):
     class Meta:
         model = News
         fields = (
             'id',
             'title',
             'body',
-            'product'
+            'product',
+            'changed',
+            'created',
         )
 ##############################################################################
 # ProductCard#
@@ -54,8 +51,9 @@ class PriceSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'product',
-            'priceName',
-            'price'
+            'color',
+            'price',
+            'depth'
         ]
         read_only_fields = ('product',)
 
@@ -65,7 +63,7 @@ class ProductCardSerializer(WritableNestedModelSerializer):
     prices = PriceSerializer(many=True, allow_null=True)
     # Photos serializer
     photos = PhotosSerializer(many=True, allow_null=True)
-    NewsSerializer.deph = None
+
     news = NewsSerializer(many=True, allow_null=True)
 
     class Meta:
@@ -73,6 +71,8 @@ class ProductCardSerializer(WritableNestedModelSerializer):
         fields = (
             'id',
             'name',
+            'sertificate',
+            'sizes',
             'description',
             'discount',
             'prices',

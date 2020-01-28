@@ -25,7 +25,7 @@ SECRET_KEY = 'k*24pyuy(i2c*mdjy(ety=b3*o(476ln#wp7u4s)_n75tzdmft'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
 
 
 # Application definition
