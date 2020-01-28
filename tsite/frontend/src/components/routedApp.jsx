@@ -5,7 +5,7 @@ import {
     Route,
 } from 'react-router-dom'
 import App from './App';
-import NewsContainer from './containers/newsContainer';
+import NewsContainer from './containers/news/newsContainer';
 import ProductsContainer from './containers/productsContainer';
 
 const Exposition = () => {

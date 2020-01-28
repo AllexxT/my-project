@@ -13,13 +13,21 @@ export const getNews = () => dispatch => {
         .catch(err => console.log(err))
 }
 
-export const getCard = (id) => dispatch => {
-    axios.get(`api/products/${id}/`)
-        .then(res => {
-            dispatch({
-                type: GET_CARD,
-                payload: res.data
+export const getCard = (ids) => dispatch => {
+    let payload = []
+    ids.map(id => {
+        axios.get(`api/products/${id}/`)
+            .then(res => {
+                payload = [...payload, res.data]
             })
-        })
-        .catch(err => console.log(err))
+            .then(() => {
+                payload.length === ids.length ?
+                    dispatch({
+                        type: GET_CARD,
+                        payload: payload
+                    }) : ''
+            })
+            .catch(err => console.log(err))
+    })
+
 }

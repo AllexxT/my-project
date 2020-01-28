@@ -20,10 +20,9 @@ const PContent = styled.ul`
     display: flex;
     flex-wrap: wrap;
     margin: 10px;
-    /* &:after{
-        content: "";
-        flex:auto;
-    } */
+    &>div {             /* Cards margin */
+        margin: 15px 15px 15px 15px;    
+    }
 `
 
 const Products = ({ data }) => {
@@ -59,7 +58,6 @@ const C_Wrapper = styled.div`
     justify-content: space-between;
     flex-direction: column;
     background: whitesmoke;
-    margin: 15px 15px 15px 15px;
     justify-content: space-between;
     box-shadow: 0px 5px 10px gray;
     animation: ${slide} 0.2s linear;
@@ -97,11 +95,6 @@ const C_LinkName = styled.a`
     transition: color 0.2s linear;
     align-self: flex-start;
     position: relative;
-    /* & p {
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-    } */
     &:hover {
         color: #b28c1a;
     }
@@ -157,7 +150,7 @@ const C_Button = styled.div`
         }
     }
 `;
-const C_ExpandableName = styled.div `
+const C_ExpandableName = styled.div`
     position: absolute;
     background: whitesmoke;
     text-decoration: underline;
@@ -172,11 +165,10 @@ class MyTextBox extends React.Component {
 const MyTxtBox = ellipsis(MyTextBox, 2, '')
 
 export const Card = ({ card }) => {
-    // local state of expandable {name} block
-    const [expand, setExpand] = useState(false)
+    const [expand, setExpand] = useState(false)     // local state of expandable {name} block
     const { name, discount, sertificate, photos, prices, id } = card
-    // render calculated lower price
-    const lowerPrice = () => {
+
+    const lowerPrice = () => {          // render calculated lower price
         if (prices.length > 0) {
             return prices.reduce((lower, curr) => {
                 return lower > curr.price ? curr.price : lower
@@ -185,12 +177,13 @@ export const Card = ({ card }) => {
     }
     const availablePrice = lowerPrice() ? `от ${lowerPrice()} грн.` : 'нет информации'
     const availablePhoto = photos.length ? photos[0].photo.medium_square_crop : placeholder
-    // Handler of expandable {name} block
-    const expandHandler = (e) => {
+
+    const expandHandler = (e) => {      // Handler of expandable {name} block
+        e.preventDefault()
         e.type === 'mouseover' ? setExpand(true) : setExpand(false)
     }
-    // nameExpand render full {name} text if expand === true
-    const nameExpand = expand ?
+
+    const nameExpand = expand ?         // nameExpand render full {name} text if expand === true
         <C_LinkName absolute href=''>{name}</C_LinkName> :
         <MyTxtBox text={name}></MyTxtBox>
     return (
@@ -210,6 +203,7 @@ export const Card = ({ card }) => {
                     <C_ExpandableName
                         onMouseOver={(e) => expandHandler(e)}
                         onMouseOut={(e) => expandHandler(e)}
+                        // onTouchStart={(e) => expandHandler(e)}
                     >
                         {nameExpand}
                     </C_ExpandableName>

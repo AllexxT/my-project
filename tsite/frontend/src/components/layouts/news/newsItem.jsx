@@ -3,9 +3,26 @@ import NewsItemStyle from './newsItemStyles'
 import { Card } from '../products/products'
 
 
-const NewsItem = ({ newsItem }) => {
+const NewsItem = ({ newsItem, card }) => {
     const { id, title, body, product, created, changed } = newsItem.newsItem
-    const test = {
+    return (
+        <NewsItemStyle.Container>
+            <NewsItemStyle.Container__row>
+                <NewsItemStyle.Card>
+                    <Card card={card} />
+                </NewsItemStyle.Card>
+                    <NewsItemStyle.News>
+                        <NewsItemStyle.News__title>{title}</NewsItemStyle.News__title>
+                        <NewsItemStyle.News__time>{created}</NewsItemStyle.News__time>
+                        <NewsItemStyle.News__body>{body}</NewsItemStyle.News__body>
+                    </NewsItemStyle.News>
+            </NewsItemStyle.Container__row>
+        </NewsItemStyle.Container>
+    )
+}
+
+NewsItem.defaultProps = {
+    card: {
         name: 'test',
         discount: true,
         sertificate: true,
@@ -13,20 +30,6 @@ const NewsItem = ({ newsItem }) => {
         prices: [],
         id: 'test'
     }
-    return (
-        <NewsItemStyle.Container>
-            <NewsItemStyle.Container__row>
-                <div className="card">
-                    <Card card={newsItem.crd || test} />
-                </div>
-                <div className="newsContainer">
-                    <div className="title">{title}</div>
-                    <div className="body">{body}</div>
-                    <div className="date">{created}</div>
-                </div>
-            </NewsItemStyle.Container__row>
-        </NewsItemStyle.Container>
-    )
 }
 
 export default NewsItem;

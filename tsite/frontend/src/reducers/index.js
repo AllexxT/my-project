@@ -4,5 +4,5 @@ import newsReducer from './news'
 
 export default combineReducers({
     productsReducer,
-    newsReducer
+    newsReducer,
 })
