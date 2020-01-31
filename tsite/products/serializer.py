@@ -4,21 +4,7 @@ from versatileimagefield.serializers import VersatileImageFieldSerializer
 # from drf_writable_nested.mixins import UniqueFieldsMixin
 from products.models import ProductCard, Prices, Photos, News
 
-##############################################################################
-# News #
 
-
-class NewsSerializer(WritableNestedModelSerializer):
-    class Meta:
-        model = News
-        fields = (
-            'id',
-            'title',
-            'body',
-            'product',
-            'changed',
-            'created',
-        )
 ##############################################################################
 # ProductCard#
 
@@ -64,8 +50,6 @@ class ProductCardSerializer(WritableNestedModelSerializer):
     # Photos serializer
     photos = PhotosSerializer(many=True, allow_null=True)
 
-    news = NewsSerializer(many=True, allow_null=True)
-
     class Meta:
         model = ProductCard
         fields = (
@@ -76,8 +60,40 @@ class ProductCardSerializer(WritableNestedModelSerializer):
             'description',
             'discount',
             'prices',
-            'news',
             'photos',
         )
         # depth allows to see nested view
         # depth = 1
+
+
+##############################################################################
+# News #
+
+
+class NewsSerializer(serializers.ModelSerializer):
+    product = ProductCardSerializer(required=False)
+
+    class Meta:
+        model = News
+        fields = (
+            'id',
+            'title',
+            'body',
+            'product',
+            'changed',
+            'created',
+        )
+
+
+class NewsPostSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = News
+        fields = (
+            'id',
+            'title',
+            'body',
+            'product',
+            'changed',
+            'created',
+        )

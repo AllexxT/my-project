@@ -1,6 +1,8 @@
 from products.models import ProductCard, News
 from rest_framework import viewsets, permissions
-from .serializer import ProductCardSerializer, NewsSerializer
+from .serializer import (
+    ProductCardSerializer, NewsSerializer, NewsPostSerializer
+)
 
 
 class ProductCardViewSet(viewsets.ModelViewSet):
@@ -16,4 +18,10 @@ class NewsViewSet(viewsets.ModelViewSet):
     permissions_classes = [
         permissions.AllowAny
     ]
-    serializer_class = NewsSerializer
+    # serializer_class = NewsSerializer
+
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return NewsPostSerializer
+        else:
+            return NewsSerializer

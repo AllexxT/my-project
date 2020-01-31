@@ -1,7 +1,7 @@
 {
-    "python.pythonPath": "/home/altom/.local/share/virtualenvs/my-proj-epMTgXQl/bin/python",
+    "python.pythonPath": "/home/altom/.local/share/virtualenvs/my-project-sYCvZ44j/bin/python",
     "python.linting.enabled": true,
-    "python.linting.pep8Enabled": true,
+    "python.linting.pycodestyleEnabled": true,
     "python.jediEnabled": false,
     "python.envFile": "${workspaceFolder}/.env",
 }
