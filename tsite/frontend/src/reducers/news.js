@@ -1,8 +1,7 @@
-import { GET_NEWS, GET_CARD } from '../actions/types'
+import { GET_NEWS } from '../actions/types'
 
 const initialState = {
     news: [],
-    cards: []
 }
 
 export default (state = initialState, action) => {
@@ -12,11 +11,6 @@ export default (state = initialState, action) => {
                 ...state,
                 news: action.payload
             };
-        case GET_CARD:
-            return {
-                ...state,
-                cards: action.payload
-            }
         default:
             return state;
     }

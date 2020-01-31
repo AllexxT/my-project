@@ -1,4 +1,4 @@
-import { GET_NEWS, GET_CARD } from './types'
+import { GET_NEWS } from './types'
 import axios from 'axios'
 
 
@@ -11,23 +11,4 @@ export const getNews = () => dispatch => {
             })
         })
         .catch(err => console.log(err))
-}
-
-export const getCard = (ids) => dispatch => {
-    let payload = []
-    ids.map(id => {
-        axios.get(`api/products/${id}/`)
-            .then(res => {
-                payload = [...payload, res.data]
-            })
-            .then(() => {
-                payload.length === ids.length ?
-                    dispatch({
-                        type: GET_CARD,
-                        payload: payload
-                    }) : ''
-            })
-            .catch(err => console.log(err))
-    })
-
 }
