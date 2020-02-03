@@ -2,13 +2,32 @@ from rest_framework import serializers
 from drf_writable_nested.serializers import WritableNestedModelSerializer
 from versatileimagefield.serializers import VersatileImageFieldSerializer
 # from drf_writable_nested.mixins import UniqueFieldsMixin
-from products.models import ProductCard, Prices, Photos, News
+from products.models import ProductCard, Prices, Photos, News, Type, Subtype
+
+
+##############################################################################
+# News #
+class SubtypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subtype
+        fields = [
+            'subtype',
+        ]
+
+
+class TypeSerializer(serializers.ModelSerializer):
+    subtype = SubtypeSerializer()
+
+    class Meta:
+        model = Type
+        fields = [
+            'product_type',
+            'subtype',
+        ]
 
 
 ##############################################################################
 # ProductCard#
-
-
 class PhotosSerializer(serializers.ModelSerializer):
     """Photos serializer"""
     photo = VersatileImageFieldSerializer(
@@ -50,10 +69,13 @@ class ProductCardSerializer(WritableNestedModelSerializer):
     # Photos serializer
     photos = PhotosSerializer(many=True, allow_null=True)
 
+    storage = TypeSerializer(allow_null=True)
+
     class Meta:
         model = ProductCard
         fields = (
             'id',
+            'storage',
             'name',
             'sertificate',
             'sizes',
@@ -68,8 +90,6 @@ class ProductCardSerializer(WritableNestedModelSerializer):
 
 ##############################################################################
 # News #
-
-
 class NewsSerializer(serializers.ModelSerializer):
     product = ProductCardSerializer(required=False)
 

@@ -3,14 +3,33 @@ from versatileimagefield.fields import VersatileImageField, PPOIField
 from datetime import date
 
 
+class Subtype(models.Model):
+    subtype = models.CharField(max_length=30, primary_key=True)
+
+    def __str__(self):
+        return f'{self.subtype}'
+
+
+class Type(models.Model):
+    product_type = models.CharField(max_length=30, primary_key=True)
+    subtype = models.ForeignKey(Subtype, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.product_type}'
+
+
 class ProductCard(models.Model):
     id = models.CharField(max_length=30, primary_key=True, unique=True)
+    storage = models.ForeignKey(
+        Type, on_delete=models.SET_NULL, null=True
+    )
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(max_length=1000)
     discount = models.BooleanField(blank=True)
     sertificate = models.BooleanField(blank=True, default=False)
     sizes = models.TextField(max_length=400, blank=True, default='..X..')
 
+    @property
     def news(self):
         return self.news_set.all()
 

@@ -1,5 +1,5 @@
 from products.models import ProductCard, News
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, generics
 from .serializer import (
     ProductCardSerializer, NewsSerializer, NewsPostSerializer
 )
@@ -10,6 +10,14 @@ class ProductCardViewSet(viewsets.ModelViewSet):
     permissions_classes = [
         permissions.AllowAny
     ]
+
+    def get_queryset(self):
+        if self.request.query_params.get('type'):
+            filter = self.request.query_params.get('type')
+            return ProductCard.objects.filter(storage__product_type=filter)
+        else:
+            return ProductCard.objects.all()
+
     serializer_class = ProductCardSerializer
 
 
