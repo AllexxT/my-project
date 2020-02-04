@@ -1,5 +1,7 @@
 from django.contrib import admin
-from products.models import ProductCard, Prices, Photos, News, Type, Subtype
+from products.models import (
+    ProductCard, Prices, Photos, News, Type, Subtype, Storage
+)
 
 
 @admin.register(ProductCard)
@@ -40,14 +42,11 @@ class ProductCardAdmin(admin.ModelAdmin):
 
 @admin.register(Type)
 class TypeAdmin(admin.ModelAdmin):
-
     fields = (
-        'product_type',
-        'subtype'
+        'ptype',
     )
     list_display = (
-        'product_type',
-        'subtype'
+        'ptype',
     )
 
 
@@ -57,6 +56,26 @@ class SubtypeAdmin(admin.ModelAdmin):
         'subtype',
     )
     list_display = (
+        'subtype',
+    )
+
+
+@admin.register(Storage)
+class StorageAdmin(admin.ModelAdmin):
+    # class SubtypeInline(admin.TabularInline):
+    #     model = Subtype
+    #     extra = 0
+
+    # class TypeInline(admin.TabularInline):
+    #     model = Type
+    #     extra = 0
+    # inlines = [SubtypeInline, TypeInline]
+    fields = (
+        'ptype',
+        'subtype',
+    )
+    list_display = (
+        'ptype',
         'subtype',
     )
 

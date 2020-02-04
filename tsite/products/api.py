@@ -1,7 +1,7 @@
 from products.models import ProductCard, News
 from rest_framework import viewsets, permissions, generics
 from .serializer import (
-    ProductCardSerializer, NewsSerializer, NewsPostSerializer
+    ProductCardSerializer, NewsSerializer, NewsPostSerializer,
 )
 
 
@@ -14,11 +14,15 @@ class ProductCardViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.request.query_params.get('type'):
             filter = self.request.query_params.get('type')
-            return ProductCard.objects.filter(storage__product_type=filter)
+            return ProductCard.objects.filter(storage__ptype=filter)
         else:
             return ProductCard.objects.all()
 
-    serializer_class = ProductCardSerializer
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return ProductCardSerializer
+        else:
+            return ProductCardSerializer
 
 
 class NewsViewSet(viewsets.ModelViewSet):
@@ -26,7 +30,6 @@ class NewsViewSet(viewsets.ModelViewSet):
     permissions_classes = [
         permissions.AllowAny
     ]
-    # serializer_class = NewsSerializer
 
     def get_serializer_class(self):
         if self.action == 'create':
