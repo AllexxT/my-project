@@ -1,6 +1,6 @@
 from django.contrib import admin
 from products.models import (
-    ProductCard, Prices, Photos, News, Type, Subtype, Storage
+    ProductCard, Prices, Photos, News, Page, Article
 )
 
 
@@ -23,7 +23,7 @@ class ProductCardAdmin(admin.ModelAdmin):
     fields = (
         'name',
         'id',
-        'storage',
+        'article',
         'description',
         'discount',
         'sizes',
@@ -32,7 +32,7 @@ class ProductCardAdmin(admin.ModelAdmin):
     list_display = (
         'name',
         'id',
-        'storage',
+        'article',
         'description',
         'discount',
         'sizes',
@@ -40,43 +40,32 @@ class ProductCardAdmin(admin.ModelAdmin):
     )
 
 
-@admin.register(Type)
-class TypeAdmin(admin.ModelAdmin):
-    fields = (
-        'ptype',
-    )
-    list_display = (
-        'ptype',
-    )
+@admin.register(Page)
+class PageAdmin(admin.ModelAdmin):
 
-
-@admin.register(Subtype)
-class SubtypeAdmin(admin.ModelAdmin):
-    fields = (
-        'subtype',
-    )
-    list_display = (
-        'subtype',
-    )
-
-
-@admin.register(Storage)
-class StorageAdmin(admin.ModelAdmin):
-    # class SubtypeInline(admin.TabularInline):
-    #     model = Subtype
+    # class ArticleInline(admin.TabularInline):
+    #     model = Article
     #     extra = 0
 
-    # class TypeInline(admin.TabularInline):
-    #     model = Type
-    #     extra = 0
-    # inlines = [SubtypeInline, TypeInline]
+    # inlines = [ArticleInline]
+
     fields = (
-        'ptype',
-        'subtype',
+        'page',
     )
     list_display = (
-        'ptype',
-        'subtype',
+        'page',
+    )
+
+
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    fields = (
+        'page',
+        'article',
+    )
+    list_display = (
+        'page',
+        'article',
     )
 
 

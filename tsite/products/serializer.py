@@ -3,51 +3,29 @@ from drf_writable_nested.serializers import WritableNestedModelSerializer
 from versatileimagefield.serializers import VersatileImageFieldSerializer
 from drf_writable_nested.mixins import UniqueFieldsMixin
 from products.models import (
-    ProductCard, Prices, Photos, News, Type, Subtype, Storage
+    ProductCard, Prices, Photos, News, Page, Article
 )
 
 
 ##############################################################################
 # News #
-class SubtypeSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
+class PageSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
 
     class Meta:
-        model = Subtype
+        model = Page
         fields = [
-            'subtype',
+            'page',
         ]
 
 
-class TypeSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
+class ArticleSerializer(UniqueFieldsMixin, WritableNestedModelSerializer):
+    page = PageSerializer()
 
     class Meta:
-        model = Type
+        model = Article
         fields = [
-            'ptype',
-        ]
-
-
-class StorageSerializer(WritableNestedModelSerializer):
-    subtype = SubtypeSerializer()
-    ptype = TypeSerializer()
-
-    class Meta:
-        model = Storage
-        fields = [
-            'id',
-            'subtype',
-            'ptype',
-        ]
-
-
-class StoragePostSerializer(WritableNestedModelSerializer):
-
-    class Meta:
-        model = Storage
-        fields = [
-            'id',
-            'subtype',
-            'ptype',
+            'article',
+            'page',
         ]
 
 
@@ -94,13 +72,13 @@ class ProductCardSerializer(WritableNestedModelSerializer):
     # Photos serializer
     photos = PhotosSerializer(many=True, allow_null=True)
 
-    storage = StorageSerializer(allow_null=True)
+    article = ArticleSerializer(allow_null=True)
 
     class Meta:
         model = ProductCard
         fields = (
             'id',
-            'storage',
+            'article',
             'name',
             'sertificate',
             'sizes',
