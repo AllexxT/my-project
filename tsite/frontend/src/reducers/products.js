@@ -1,50 +1,22 @@
-import { GET_PRODUCTS } from '../actions/types'
+import { GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS } from '../actions/types'
 
 const initialState = {
-    products: {
-        "id": 1,
-        "name": "",
-        "description": "",
-        "discount": false,
-        "sizes": "",
-        "sertificate": false,
-        "prices": [
-            {
-                "id": 1,
-                "product": 1,
-                "priceName": "",
-                "price": 69
-            }
-        ],
-        "news": [
-            {
-                "id": 0,
-                "title": "",
-                "body": "",
-                "product": 1
-            }
-        ],
-        "photos": [
-            {
-                "product": 1,
-                "id": 1,
-                "photo": {
-                    "full_size": "",
-                    "thumbnail": "",
-                    "small_square_crop": "",
-                    "medium_square_crop": ""
-                }
-            }
-        ]
-    }
+    products: [],
+    fetching: false
 }
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case GET_PRODUCTS:
+        case GET_PRODUCTS_REQUEST:
             return {
                 ...state,
-                products: action.payload
+                fetching: true
+            }
+        case GET_PRODUCTS_SUCCESS:
+            return {
+                ...state,
+                products: action.payload,
+                fetching: false
             };
         default:
             return state;

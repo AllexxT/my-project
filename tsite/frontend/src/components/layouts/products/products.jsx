@@ -11,35 +11,47 @@ const PWrapper = styled.div`
   flex: 1 1 auto;
   flex-direction: column;
 `;
+const PTitleAnimation = keyframes`
+    from {
+        opacity: 0;
+        top: -20px;
+    }
+    to {
+        opacity: 1;
+        top: 0px;
+    }
+`;
 const PTitle = styled.div`
-  margin: 10px 0 10px 20px;
+  padding: 10px 0 10px 50px;
   font-size: 26px;
   line-height: 16px;
+  animation: ${PTitleAnimation} 1s linear;
 `;
 const PContent = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  margin: 10px;
   & > div {
     /* Cards margin */
     margin: 15px 15px 15px 15px;
   }
 `;
 
-const Products = ({ data }) => {
-  const isProductsExist = data && data.products.length > 0; //Object.keys(data).length
+const Products = ({ data, title }) => {
+  const isProductsExist = data && data.products.length > 0;
   return (
     <PWrapper>
-      <PTitle>Тротуарная Плитка</PTitle>
+      <PTitle>{isProductsExist && title}</PTitle>
       <PContent>
-        {isProductsExist &&
-          data.products.map(product => (
-            <Card key={product.id} card={product} />
-          ))}
+        {data.fetching
+          ? "LOADING..."
+          : data.products.map(product => (
+              <Card key={product.id} card={product} />
+            ))}
       </PContent>
     </PWrapper>
   );
 };
+
 const slide = keyframes`
     from {
         opacity: 0;
@@ -230,14 +242,13 @@ export const Card = ({ card }) => {
 
 Card.DefaultProps = {
   card: {
-    name: 'name', 
-    discount: false, 
-    sertificate: false, 
-    photos: [], 
+    name: "name",
+    discount: false,
+    sertificate: false,
+    photos: [],
     prices: {},
-    id: ''
+    id: ""
   }
-}
-
+};
 
 export default Products;
