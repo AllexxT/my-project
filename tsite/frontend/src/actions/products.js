@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 export const getProducts = () => dispatch => {
-    axios.get('api/products/')
+    axios.get('/api/products/?page=sett')
         .then(res => {
             dispatch({
                 type: GET_PRODUCTS,

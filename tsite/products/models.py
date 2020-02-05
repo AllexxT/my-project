@@ -1,6 +1,7 @@
 from django.db import models
 from versatileimagefield.fields import VersatileImageField, PPOIField
 from datetime import date
+import uuid
 
 
 class Page(models.Model):
@@ -18,11 +19,11 @@ class Article(models.Model):
     page = models.ForeignKey(Page, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.article}, {self.page}'
+        return f'{self.page}, {self.article}'
 
 
 class ProductCard(models.Model):
-    id = models.CharField(max_length=30, primary_key=True, unique=True)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     article = models.ForeignKey(
         Article, on_delete=models.SET_NULL, null=True
     )

@@ -12,9 +12,9 @@ class ProductCardViewSet(viewsets.ModelViewSet):
     ]
 
     def get_queryset(self):
-        if self.request.query_params.get('type'):
-            filter = self.request.query_params.get('type')
-            return ProductCard.objects.filter(storage__ptype=filter)
+        if self.request.query_params.get('page'):
+            filter = self.request.query_params.get('page')
+            return ProductCard.objects.filter(article__page=filter)
         else:
             return ProductCard.objects.all()
 

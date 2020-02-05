@@ -3,6 +3,12 @@ import { GET_PRODUCTS } from '../actions/types'
 const initialState = {
     products: {
         "id": 1,
+        "article": {
+            "article": "",
+            "page": {
+                "page": ""
+            }
+        },
         "name": "",
         "description": "",
         "discount": false,
