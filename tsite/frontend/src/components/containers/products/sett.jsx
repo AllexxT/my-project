@@ -19,8 +19,9 @@ const Sett = () => {
   const borders = products.products.filter(
     art => art.article.article === "borders"
   );
-
-  console.log(products);
+  const example = products.products
+  
+  console.log(example);
   return (
     <>
       <Products
