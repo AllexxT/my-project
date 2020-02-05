@@ -6,6 +6,7 @@ const StyledLi = styled.li`
   & a {
     display: block;
     line-height: 20px;
+    padding: 0 5px 0 0;
     ${props =>
       props.match &&
       css`
@@ -36,14 +37,14 @@ const Menu = () => {
   return (
     <nav>
       <ul>
-        <Slink active={true} to="/" label="Home" />
-        <Slink to="/products" label="Products" />
-        <Slink to="/products/sett" label="Sett" />
-        <Slink to="/products/fence" label="Fence" />
-        <Slink to="/products/brick" label="Brick" />
-        <Slink to="/products/monuments" label="monuments" />
-        <Slink to="/services" label="Services" />
-        <Slink to="/exposition" label="Exposition" />
+        <Slink active={true} to="/" label="ДОМАШНЯЯ" />
+        <Slink to="/products" label="ТОВАРЫ" />
+        <Slink to="/products/sett" label="ТРОТУАРНАЯ ПЛИТКА И БОРДЮР" />
+        <Slink to="/products/fence" label="ЕВРОЗАБОР" />
+        <Slink to="/products/brick" label="КОЛОТЫЙ БЛОК И КИРПИЧ" />
+        <Slink to="/products/monuments" label="ПАМЯТНИКИ" />
+        <Slink to="/services" label="НАШИ УСЛУГИ" />
+        <Slink to="/exposition" label="НАШИ РАБОТЫ" />
       </ul>
     </nav>
   );
