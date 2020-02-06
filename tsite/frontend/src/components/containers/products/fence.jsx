@@ -2,7 +2,7 @@ import React from "react";
 import ProductsContainer from "./productsContainer";
 
 const Fence = () => {
-  return <ProductsContainer filter={"fence"} />;
+  return <ProductsContainer page={"fence"} />;
 };
 
 export default Fence;

@@ -6,6 +6,7 @@ import Sett from "./containers/products/sett";
 import Fence from "./containers/products/fence";
 import Brick from "./containers/products/brick";
 import Monuments from "./containers/products/monuments";
+import Parapet from "./containers/products/parapet";
 
 const Exposition = () => {
   return <h1>Our works</h1>;
@@ -37,6 +38,7 @@ const RoutedApp = () => (
         <Route exact path="/products/fence" component={Fence} />
         <Route exact path="/products/brick" component={Brick} />
         <Route exact path="/products/monuments" component={Monuments} />
+        <Route exact path="/products/parapet" component={Parapet} />
         <Route path="/products" component={ProductsBoard} />
         <Route exact path="/services" component={Services} />
         <Route path="/*" component={Error} />

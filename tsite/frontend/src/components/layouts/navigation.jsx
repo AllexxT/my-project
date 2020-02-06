@@ -16,7 +16,8 @@ const StyledLi = styled.li`
   &:nth-child(3),
   &:nth-child(4),
   &:nth-child(5),
-  &:nth-child(6) {
+  &:nth-child(6),
+  &:nth-child(7) {
     padding: 0 0 0 15px;
   }
 `;
@@ -42,6 +43,7 @@ const Menu = () => {
         <Slink to="/products/sett" label="ТРОТУАРНАЯ ПЛИТКА И БОРДЮР" />
         <Slink to="/products/fence" label="ЕВРОЗАБОР" />
         <Slink to="/products/brick" label="КОЛОТЫЙ БЛОК И КИРПИЧ" />
+        <Slink to="/products/parapet" label="КРЫШКИ И ПАРАПЕТЫ" />
         <Slink to="/products/monuments" label="ПАМЯТНИКИ" />
         <Slink to="/services" label="НАШИ УСЛУГИ" />
         <Slink to="/exposition" label="НАШИ РАБОТЫ" />

@@ -26,6 +26,7 @@ class ArticleSerializer(UniqueFieldsMixin, WritableNestedModelSerializer):
         fields = [
             'article',
             'title',
+            'unit',
             'page',
         ]
 
@@ -60,6 +61,7 @@ class PriceSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'product',
+            'oldPrice',
             'color',
             'price',
             'depth'

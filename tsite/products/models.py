@@ -15,12 +15,14 @@ class Page(models.Model):
 
 
 class Article(models.Model):
-    article = models.CharField('Article', max_length=30, primary_key=True)
-    title = models.CharField('Title', max_length=100, default='Заголовок')
+    article = models.CharField(
+        'Тип продукта(не изменять)', max_length=30, primary_key=True)
+    title = models.CharField('Заголовок', max_length=100, default='Заголовок')
     page = models.ForeignKey(Page, on_delete=models.CASCADE)
+    unit = models.CharField('Единица измерения', max_length=10, blank=True)
 
     def __str__(self):
-        return f'{self.page}, {self.article}'
+        return f'{self.title}, {self.article}'
 
 
 class ProductCard(models.Model):
@@ -57,6 +59,8 @@ class Prices(models.Model):
     price = models.IntegerField(verbose_name='Price', blank=True)
     color = models.CharField(max_length=100, default='gray')
     depth = models.CharField(max_length=15, blank=True)
+    oldPrice = models.BooleanField(
+        'Только одна цена может быть старой', default=False)
 
     def __str__(self):
         return str(self.price)

@@ -41,11 +41,11 @@ class ProductCardAdmin(admin.ModelAdmin):
 @admin.register(Page)
 class PageAdmin(admin.ModelAdmin):
 
-    # class ArticleInline(admin.TabularInline):
-    #     model = Article
-    #     extra = 0
+    class ArticleInline(admin.TabularInline):
+        model = Article
+        extra = 0
 
-    # inlines = [ArticleInline]
+    inlines = [ArticleInline]
 
     fields = (
         'page',
@@ -57,15 +57,22 @@ class PageAdmin(admin.ModelAdmin):
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
+    class ProductCardInline(admin.StackedInline):
+        model = ProductCard
+        extra = 0
+    inlines = [ProductCardInline]
+
     fields = (
         'page',
         'article',
         'title',
+        'unit',
     )
     list_display = (
         'page',
         'article',
         'title',
+        'unit',
     )
 
 
@@ -74,12 +81,14 @@ class PricesAdmin(admin.ModelAdmin):
     fields = (
         'product',
         'price',
+        'oldPrice',
         'color',
         'depth',
     )
     list_display = (
         'product',
         'price',
+        'oldPrice',
         'color',
         'depth',
     )

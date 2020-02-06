@@ -38,15 +38,14 @@ const PContent = styled.ul`
 
 const Products = ({ data }) => {
   const isProductsExist = data && data.products.length > 0;
-  const title = data.products[0].article.title
-  console.log('render')
+  const title = data.products[0].article.title;
   return (
     <PWrapper>
       <PTitle>{isProductsExist && title}</PTitle>
       <PContent>
         {data.products.map(product => (
-              <Card key={product.id} card={product} />
-            ))}
+          <Card key={product.id} card={product} />
+        ))}
       </PContent>
     </PWrapper>
   );
@@ -89,11 +88,10 @@ const C_Link = styled.a`
   display: flex;
   justify-content: center;
   cursor: pointer;
-  max-height: 150px;
+  max-height: 165px;
 `;
 const C_LinkHolder = styled.div`
-  min-height: 50px;
-  flex: 1 1 auto;
+  flex: 1 1 35px;
 `;
 const C_LinkName = styled.a`
   display: flex;
@@ -101,7 +99,7 @@ const C_LinkName = styled.a`
   cursor: pointer;
   font-size: 18px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: 15px 0 0 0;
+  margin: 15px 2px 0 0;
   font-weight: bold;
   color: #323232;
   transition: color 0.2s linear;
@@ -174,32 +172,35 @@ class MyTextBox extends React.Component {
   }
 }
 
-const MyTxtBox = ellipsis(MyTextBox, 2, "");
+const MyTxtBox = ellipsis(MyTextBox, 1, "");
 
 export const Card = ({ card }) => {
   const [expand, setExpand] = useState(false); // local state of expandable {name} block
-  const { name, discount, sertificate, photos, prices, id } = card;
+  const { name, discount, sertificate, photos, prices, article } = card;
+  // render calculated lower price
+  const lowerPrice =
+    prices.length > 0 &&
+    prices.reduce((lower, curr) => {
+      return lower > curr.price ? curr.price : lower;
+    }, 9999);
 
-  const lowerPrice = () => {
-    // render calculated lower price
-    if (prices.length > 0) {
-      return prices.reduce((lower, curr) => {
-        return lower > curr.price ? curr.price : lower;
-      }, 9999);
+  const availablePrice = () => {
+    if (prices.length == 1) {
+      return `${prices[0].price} грн.`;
+    } else {
+      return lowerPrice ? `от ${lowerPrice} грн.` : "нет информации";
     }
   };
-  const availablePrice = lowerPrice()
-    ? `от ${lowerPrice()} грн.`
-    : "нет информации";
+
   const availablePhoto = photos.length
     ? photos[0].photo.medium_square_crop
     : placeholder;
 
-  const expandHandler = e => {
-    // Handler of expandable {name} block
-    e.preventDefault();
-    e.type === "mouseover" ? setExpand(true) : setExpand(false);
-  };
+  const oldPriceProduct =
+    prices.length > 0 &&
+    prices.reduce((past, curr) => {
+      return curr.oldPrice == true && curr;
+    }, {});
 
   const nameExpand = expand ? ( // nameExpand render full {name} text if expand === true
     <C_LinkName absolute href="">
@@ -223,15 +224,19 @@ export const Card = ({ card }) => {
         </C_ImageBlock>
         <C_LinkHolder>
           <C_ExpandableName
-            onMouseOver={e => expandHandler(e)}
-            onMouseOut={e => expandHandler(e)}
-            // onTouchStart={(e) => expandHandler(e)}
+            onMouseOver={() => setExpand(true)}
+            onMouseOut={() => setExpand(false)}
           >
             {nameExpand}
           </C_ExpandableName>
         </C_LinkHolder>
-        <C_OldPrice oldPrice={true}>old price id</C_OldPrice>
-        <C_Price>{availablePrice} </C_Price>
+        <C_OldPrice oldPrice={oldPriceProduct.oldPrice}>
+          {oldPriceProduct.price} грн.
+        </C_OldPrice>
+        <C_Price>
+          {availablePrice()}
+          {article.unit && prices.length > 0 && `/${article.unit}`}
+        </C_Price>
         <C_Button>
           <C_Link>Подробнее</C_Link>
         </C_Button>

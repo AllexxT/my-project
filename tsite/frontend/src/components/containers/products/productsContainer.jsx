@@ -2,12 +2,17 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../../../actions/products";
 import Products from "../../layouts/products/products";
+import styled, { keyframes } from "styled-components";
 
-const ProductsContainer = ({ filter }) => {
+const Preloader = () => {
+  return <div>LOADING...</div>;
+};
+
+const ProductsContainer = ({ page }) => {
   const products = useSelector(state => state.productsReducer);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getProducts(filter));
+    dispatch(getProducts(page));
   }, [products.length]);
 
   const data = products.products;
@@ -30,11 +35,13 @@ const ProductsContainer = ({ filter }) => {
 
   return (
     <>
-      {products.fetching
-          ? "LOADING..."
-          : productsArray.map((product, index) => (
-        <Products key={index} data={{ products: product }} />
-      ))}
+      {products.fetching ? (
+        <Preloader />
+      ) : (
+        productsArray.map((product, index) => (
+          <Products key={index} data={{ products: product }} />
+        ))
+      )}
     </>
   );
 };
