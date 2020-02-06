@@ -25,6 +25,7 @@ class ArticleSerializer(UniqueFieldsMixin, WritableNestedModelSerializer):
         model = Article
         fields = [
             'article',
+            'title',
             'page',
         ]
 

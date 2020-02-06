@@ -36,15 +36,15 @@ const PContent = styled.ul`
   }
 `;
 
-const Products = ({ data, title }) => {
+const Products = ({ data }) => {
   const isProductsExist = data && data.products.length > 0;
+  const title = data.products[0].article.title
+  console.log('render')
   return (
     <PWrapper>
       <PTitle>{isProductsExist && title}</PTitle>
       <PContent>
-        {data.fetching
-          ? "LOADING..."
-          : data.products.map(product => (
+        {data.products.map(product => (
               <Card key={product.id} card={product} />
             ))}
       </PContent>

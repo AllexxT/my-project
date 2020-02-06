@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import App from "./App";
 import NewsContainer from "./containers/news/newsContainer";
-import ProductsContainer from "./containers/products/productsContainer";
 import Sett from "./containers/products/sett";
 import Fence from "./containers/products/fence";
 import Brick from "./containers/products/brick";

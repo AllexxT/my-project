@@ -60,10 +60,12 @@ class ArticleAdmin(admin.ModelAdmin):
     fields = (
         'page',
         'article',
+        'title',
     )
     list_display = (
         'page',
         'article',
+        'title',
     )
 
 

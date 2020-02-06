@@ -16,6 +16,7 @@ class Page(models.Model):
 
 class Article(models.Model):
     article = models.CharField('Article', max_length=30, primary_key=True)
+    title = models.CharField('Title', max_length=100, default='Заголовок')
     page = models.ForeignKey(Page, on_delete=models.CASCADE)
 
     def __str__(self):

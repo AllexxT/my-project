@@ -9,7 +9,34 @@ const ProductsContainer = ({ filter }) => {
   useEffect(() => {
     dispatch(getProducts(filter));
   }, [products.length]);
-  return <Products data={products} />;
+
+  const data = products.products;
+  let articlesArray = [];
+  let productsArray = [];
+
+  data.forEach(product => {
+    const art = product.article.article;
+    !articlesArray.includes(art) && articlesArray.push(art);
+  });
+
+  articlesArray.forEach(article => {
+    let prodSubArray = [];
+    data.forEach(product => {
+      const art = product.article.article;
+      article == art && prodSubArray.push(product);
+    });
+    productsArray.push(prodSubArray);
+  });
+
+  return (
+    <>
+      {products.fetching
+          ? "LOADING..."
+          : productsArray.map((product, index) => (
+        <Products key={index} data={{ products: product }} />
+      ))}
+    </>
+  );
 };
 
 export default ProductsContainer;
