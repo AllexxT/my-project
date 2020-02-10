@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../../../actions/products";
 import Products from "../../layouts/products/products";
-import styled, { keyframes } from "styled-components";
 
 const Preloader = () => {
   return <div>LOADING...</div>;

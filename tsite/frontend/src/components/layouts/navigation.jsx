@@ -45,6 +45,9 @@ const Menu = () => {
         <Slink to="/products/brick" label="КОЛОТЫЙ БЛОК И КИРПИЧ" />
         <Slink to="/products/parapet" label="КРЫШКИ И ПАРАПЕТЫ" />
         <Slink to="/products/monuments" label="ПАМЯТНИКИ" />
+        <Slink to="/products/sett#borders" label="БОРДЮР" />
+        <Slink to="/products/sett#vibrocast" label="ВИБРОЛИТАЯ" />
+        <Slink to="/products/sett#vibropressed" label="ВИБРОПРЕСС" />
         <Slink to="/services" label="НАШИ УСЛУГИ" />
         <Slink to="/exposition" label="НАШИ РАБОТЫ" />
       </ul>

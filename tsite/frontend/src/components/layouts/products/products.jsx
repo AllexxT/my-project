@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components"; // { css }
 import { ellipsis } from "react-multiline-ellipsis";
 
 import stock from "./discount.png";
 import placeholder from "./placeholder.jpeg";
 import sertificated from "./ser.jpeg";
+import { useHistory, useLocation } from "react-router";
 
 const PWrapper = styled.div`
   display: flex;
@@ -37,11 +38,26 @@ const PContent = styled.ul`
 `;
 
 const Products = ({ data }) => {
-  const isProductsExist = data && data.products.length > 0;
-  const title = data.products[0].article.title;
+  const location = useLocation();
+  console.log(location.username);
+  // const isProductsExist = data && data.products.length > 0;
+  const { title, article: articleAnchor } = data.products[0].article;
+
+  useEffect(() => {
+    if (location.hash) {
+      window.location.href = location.hash;
+      // var top = document.getElementById(articleAnchor).offsetTop;
+      // window.scrollTo(0, top);
+      // document.getElementById(articleAnchor).scrollIntoView({
+      //   behavior: "smooth",
+      //   block: "start",
+      //   inline: "nearest"
+      // });
+    }
+  }, []);
   return (
     <PWrapper>
-      <PTitle>{isProductsExist && title}</PTitle>
+      <PTitle id={articleAnchor}>{title}</PTitle>
       <PContent>
         {data.products.map(product => (
           <Card key={product.id} card={product} />
