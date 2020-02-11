@@ -4,13 +4,14 @@ import { Link, useRouteMatch } from "react-router-dom";
 
 const StyledLi = styled.li`
   & a {
+    color: black;
     display: block;
-    line-height: 20px;
-    padding: 0 5px 0 0;
+    line-height: 13px;
+    padding: 8px 5px 0 0;
     ${props =>
       props.match &&
       css`
-        border: 2px solid yellow;
+        color: rgb(142, 120, 29);
       `}
   }
   &:nth-child(3),
@@ -45,9 +46,9 @@ const Menu = () => {
         <Slink to="/products/brick" label="КОЛОТЫЙ БЛОК И КИРПИЧ" />
         <Slink to="/products/parapet" label="КРЫШКИ И ПАРАПЕТЫ" />
         <Slink to="/products/monuments" label="ПАМЯТНИКИ" />
-        <Slink to="/products/sett#borders" label="БОРДЮР" />
+        {/* <Slink to="/products/sett#borders" label="БОРДЮР" />
         <Slink to="/products/sett#vibrocast" label="ВИБРОЛИТАЯ" />
-        <Slink to="/products/sett#vibropressed" label="ВИБРОПРЕСС" />
+        <Slink to="/products/sett#vibropressed" label="ВИБРОПРЕСС" /> */}
         <Slink to="/services" label="НАШИ УСЛУГИ" />
         <Slink to="/exposition" label="НАШИ РАБОТЫ" />
       </ul>

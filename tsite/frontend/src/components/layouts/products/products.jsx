@@ -39,8 +39,7 @@ const PContent = styled.ul`
 
 const Products = ({ data }) => {
   const location = useLocation();
-  console.log(location.username);
-  // const isProductsExist = data && data.products.length > 0;
+
   const { title, article: articleAnchor } = data.products[0].article;
 
   useEffect(() => {

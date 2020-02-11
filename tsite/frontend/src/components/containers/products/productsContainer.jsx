@@ -14,6 +14,10 @@ const ProductsContainer = ({ page }) => {
     dispatch(getProducts(page));
   }, [products.length]);
 
+  ////////////////////////////////////////////////////////////////
+  //////////// This block transforms api response to
+  //////////// array of category arrays for mapping each product
+  //////////// in their category
   const data = products.products;
   let articlesArray = [];
   let productsArray = [];
@@ -31,7 +35,7 @@ const ProductsContainer = ({ page }) => {
     });
     productsArray.push(prodSubArray);
   });
-
+  ///////////////////////////////////////////////////////////////////
   return (
     <>
       {products.fetching ? (
