@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import GlobalStyle from "./globalStyle";
-import Menu from "./layouts/navigation";
+import Menu from "./layouts/navigation/navigation";
 import Breadcrumbs from "./breadcrumbs";
 
 import addressLogo from "./address.png";
