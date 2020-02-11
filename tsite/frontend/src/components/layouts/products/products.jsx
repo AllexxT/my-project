@@ -39,10 +39,7 @@ const PContent = styled.ul`
 
 const Products = ({ data }) => {
   const location = useLocation();
-<<<<<<< HEAD
 
-=======
->>>>>>> backup
   const { title, article: articleAnchor } = data.products[0].article;
 
   useEffect(() => {
