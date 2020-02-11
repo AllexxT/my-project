@@ -9,7 +9,9 @@ const Container__row = styled.div`
     background-color: #f1f0ef;
     display: flex;
     width: 100%;
-
+    @media (max-width: 300px) {
+        flex-direction: column;
+    }
 `
 const Card = styled.div`
     margin: 5px;

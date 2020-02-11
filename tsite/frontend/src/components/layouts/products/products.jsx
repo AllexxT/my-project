@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import styled, { keyframes } from "styled-components"; // { css }
+import styled, { keyframes } from "styled-components";
 import { ellipsis } from "react-multiline-ellipsis";
 
 import stock from "./discount.png";
 import placeholder from "./placeholder.jpeg";
 import sertificated from "./ser.jpeg";
-import { useHistory, useLocation } from "react-router";
+import { useLocation } from "react-router";
 
 const PWrapper = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ const PTitleAnimation = keyframes`
     }
 `;
 const PTitle = styled.div`
-  padding: 10px 0 10px 50px;
+  padding: 10px 0 10px 30px;
   font-size: 26px;
   line-height: 16px;
   animation: ${PTitleAnimation} 1s linear;
@@ -39,7 +39,10 @@ const PContent = styled.ul`
 
 const Products = ({ data }) => {
   const location = useLocation();
+<<<<<<< HEAD
 
+=======
+>>>>>>> backup
   const { title, article: articleAnchor } = data.products[0].article;
 
   useEffect(() => {
