@@ -239,8 +239,8 @@ export const Card = ({ card }) => {
         </C_ImageBlock>
         <C_LinkHolder>
           <C_ExpandableName
-            onMouseOver={() => setExpand(true)}
-            onMouseOut={() => setExpand(false)}
+            onMouseEnter={() => setExpand(true)}
+            onMouseLeave={() => setExpand(false)}
           >
             {nameExpand}
           </C_ExpandableName>

@@ -65,14 +65,14 @@ const ProductsSubmenu = () => {
       <Styled_Link submenu={true} to="/products/monuments" label="ПАМЯТНИКИ">
         <PopUpMenu>
           <PopUpLink
+            to="/products/monuments#granite"
+            label="Гранитные памятники"
+          />
+          <PopUpLink
             to="/products/monuments#capital"
             label="Бетонные памятники"
           />
           <PopUpLink to="/products/monuments#coverplate" label="Отмостка" />
-          <PopUpLink
-            to="/products/monuments#granite"
-            label="Гранитные памятники"
-          />
           <PopUpLink
             to="/products/monuments#nameplate"
             label="Овалы и таблички"
