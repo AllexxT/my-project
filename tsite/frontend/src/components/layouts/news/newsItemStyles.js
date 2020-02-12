@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 
 const Container = styled.div`
+position: relative;
     display: flex;
     margin: 10px 0 10px 0;
     max-width: 1060px;
+    /* z-index: -1; */
 `
 const Container__row = styled.div`
     background-color: #f1f0ef;
@@ -14,6 +16,7 @@ const Container__row = styled.div`
     }
 `
 const Card = styled.div`
+    position: relative;
     margin: 5px;
 `
 const News = styled.div`

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import { ellipsis } from "react-multiline-ellipsis";
 
@@ -29,6 +29,7 @@ const PTitle = styled.div`
   animation: ${PTitleAnimation} 1s linear;
 `;
 const PContent = styled.ul`
+  z-index: 0;
   display: flex;
   flex-wrap: wrap;
   & > div {

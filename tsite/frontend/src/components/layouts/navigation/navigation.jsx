@@ -5,7 +5,7 @@ import Styled_Link from './styledLinks'
 
 const Menu = () => {
   return (
-    <nav>
+    <nav style={{top:'10px'}}>
       <ul>
         <Styled_Link active={true} to="/" label="ДОМАШНЯЯ" />
         <Styled_Link to="/products" label="ТОВАРЫ" />
