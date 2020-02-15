@@ -1,5 +1,4 @@
-import { GET_PRODUCTS_REQUEST } from './types'
-import { GET_PRODUCTS_SUCCESS } from './types'
+import { GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS } from './types'
 import axios from 'axios'
 
 

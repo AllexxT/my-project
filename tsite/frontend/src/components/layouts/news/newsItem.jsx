@@ -1,6 +1,6 @@
 import React from "react";
 import NewsItemStyle from "./newsItemStyles";
-import { Card } from "../products/products";
+import { Card } from "../products/card";
 
 const NewsItem = ({ newsItem }) => {
   const { id, title, body, product, created, changed } = newsItem;

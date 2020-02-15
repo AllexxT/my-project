@@ -13,6 +13,7 @@ const Menu = () => {
           <ProductsSubmenu />
         </li>
         <Styled_Link to="/services" label="НАШИ УСЛУГИ" />
+        <Styled_Link to="/sertificates" label="СЕРТИФИКАТЫ" />
         <Styled_Link to="/exposition" label="НАШИ РАБОТЫ" />
       </ul>
     </nav>

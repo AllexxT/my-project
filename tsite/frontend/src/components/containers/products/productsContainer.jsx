@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../../../actions/products";
 import Products from "../../layouts/products/products";
+import { Switch, Route, useRouteMatch } from "react-router";
+import ProductPage from "./productPageCont";
 
 const Preloader = () => {
   return <div>LOADING...</div>;
@@ -10,6 +12,8 @@ const Preloader = () => {
 const ProductsContainer = ({ page }) => {
   const products = useSelector(state => state.productsReducer);
   const dispatch = useDispatch();
+  const match = useRouteMatch();
+
   useEffect(() => {
     dispatch(getProducts(page));
   }, [products.length]);
@@ -37,15 +41,18 @@ const ProductsContainer = ({ page }) => {
   });
   ///////////////////////////////////////////////////////////////////
   return (
-    <>
-      {products.fetching ? (
-        <Preloader />
-      ) : (
-        productsArray.map((product, index) => (
-          <Products key={index} data={{ products: product }} />
-        ))
-      )}
-    </>
+      <Switch>
+        <Route path={`${match.path}/:productId`} component={ProductPage} />
+        <Route path={match.path}>
+          {products.fetching ? (
+            <Preloader />
+          ) : (
+            productsArray.map((product, index) => (
+              <Products key={index} data={{ products: product }} />
+            ))
+          )}
+        </Route>
+      </Switch>
   );
 };
 

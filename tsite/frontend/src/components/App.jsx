@@ -95,7 +95,7 @@ const Footer = styled.div`
 `;
 const FooterRow = styled.div`
   display: flex;
-  height: 65px;
+  height: 90px;
   justify-content: center;
   align-items: center;
 `;
