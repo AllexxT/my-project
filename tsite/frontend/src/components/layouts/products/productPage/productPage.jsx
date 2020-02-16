@@ -31,7 +31,7 @@ const ProductPage = ({ product }) => {
         </PP.TableWrapper>
       </PP.Gallery_Table__row>
       <PP.DescriptionWrapper>
-        <Description />
+        <Description {...{ description }} />
       </PP.DescriptionWrapper>
     </PP.Wrapper>
   );
