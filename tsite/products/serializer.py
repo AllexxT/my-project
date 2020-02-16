@@ -3,7 +3,7 @@ from drf_writable_nested.serializers import WritableNestedModelSerializer
 from versatileimagefield.serializers import VersatileImageFieldSerializer
 from drf_writable_nested.mixins import UniqueFieldsMixin
 from products.models import (
-    ProductCard, Prices, Photos, News, Page, Article
+    ProductCard, Prices, Photos, News, Page, Article, Depth, DepthPrice
 )
 
 
@@ -52,9 +52,33 @@ class PhotosSerializer(serializers.ModelSerializer):
             'photo',
         ]
         read_only_fields = ('product',)
+##############################################################################
+
+
+class DepthSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Depth
+        fields = [
+            'id',
+            'size',
+        ]
+
+
+class DepthPriceSerializer(serializers.ModelSerializer):
+    depth = DepthSerializer()
+
+    class Meta:
+        model = DepthPrice
+        fields = [
+            'price',
+            'depth',
+        ]
 
 
 class PriceSerializer(serializers.ModelSerializer):
+    depthPrice = DepthPriceSerializer(many=True)
+    lowerPrice = serializers.IntegerField()
 
     class Meta:
         model = Prices
@@ -63,8 +87,8 @@ class PriceSerializer(serializers.ModelSerializer):
             'product',
             'oldPrice',
             'color',
-            'price',
-            'depth'
+            'lowerPrice',
+            'depthPrice',
         ]
         read_only_fields = ('product',)
 

@@ -1,7 +1,6 @@
 import React from "react";
 
 const PriceTable = ({ sizes, prices }) => {
-  console.log(prices);
   return (
     <div>
       <div className="sizes">{sizes}</div>
@@ -12,8 +11,8 @@ const PriceTable = ({ sizes, prices }) => {
             <thead>
               <tr>
                 <th>Цвет\Толщина</th>
-                {prices[0].depthPrice.map(depth => (
-                  <th key={depth.id}>{depth.depth.size}</th>
+                {prices[0].depthPrice.map((depth, index) => (
+                  <th key={index}>{depth.depth.size}</th>
                 ))}
               </tr>
             </thead>
@@ -21,8 +20,8 @@ const PriceTable = ({ sizes, prices }) => {
               {prices.map((price, index) => (
                 <tr key={index}>
                   <td key={price.id}>{price.color}</td>
-                  {price.depthPrice.map(prs => (
-                    <td key={prs.id}>{prs.price}</td>
+                  {price.depthPrice.map((prs, index) => (
+                    <td key={index}>{prs.price}</td>
                   ))}
                 </tr>
               ))}

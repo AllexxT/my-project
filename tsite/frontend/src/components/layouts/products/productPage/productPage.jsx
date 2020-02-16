@@ -1,4 +1,8 @@
 import React from "react";
+import PP from "./productPageStyles";
+import PriceTable from "./table";
+import Gallery from "./gallery";
+import Description from "./desctiption";
 
 const ProductPage = ({ product }) => {
   const {
@@ -14,10 +18,22 @@ const ProductPage = ({ product }) => {
   } = product;
 
   return (
-    <div>
-      <p>Product name: {name}</p>
-      <p>Description is: {description}</p>
-    </div>
+    <PP.Wrapper>
+      <PP.Gallery_Table__row>
+        <PP.GalleryWrapper>
+          <Gallery {...{ photos }} />
+        </PP.GalleryWrapper>
+        <PP.TableWrapper>
+          <PP.TitleWrapper>
+            <PP.Title__row>{name}</PP.Title__row>
+          </PP.TitleWrapper>
+          <PriceTable {...{ sizes, prices }} />
+        </PP.TableWrapper>
+      </PP.Gallery_Table__row>
+      <PP.DescriptionWrapper>
+        <Description />
+      </PP.DescriptionWrapper>
+    </PP.Wrapper>
   );
 };
 export default ProductPage;

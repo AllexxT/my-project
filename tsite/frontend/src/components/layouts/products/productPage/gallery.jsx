@@ -5,16 +5,15 @@ import { Carousel } from "react-responsive-carousel";
 
 
 const Gallery = ({photos}) => {
-    console.log(photos)
-    return (
-        <Carousel autoPlay infiniteLoop>
-            {photos.map((photo, index)=>{
-                <div key={index}>
-                    <img src={photo.photo.full_size} alt="image"/>
-                    <p className="legend"></p>
-                </div>
-            })}
-        </Carousel>
+    return (<div>Gallery</div>
+        // <Carousel autoPlay infiniteLoop>
+        //     {photos.map((photo, index)=>{
+        //         <div key={index}>
+        //             <img src={photo.photo.full_size} alt="image"/>
+        //             <p className="legend"></p>
+        //         </div>
+        //     })}
+        // </Carousel>
     );
 }
 

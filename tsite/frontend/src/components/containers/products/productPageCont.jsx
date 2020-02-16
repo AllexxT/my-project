@@ -23,7 +23,6 @@ const ProductPageCont = () => {
   useEffect(() => {
     dispatch(getProduct(productId));
   }, []);
-  console.log(productState.fetching);
   return productState.fetching ? (
     preloaderOr404
   ) : (

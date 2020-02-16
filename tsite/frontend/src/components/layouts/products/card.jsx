@@ -26,15 +26,15 @@ export const Card = ({ card }) => {
   // render calculated lower price
   const lowerPrice =
     prices.length > 0 &&
-    prices.reduce((lower, curr) => {
-      return lower > curr.price ? curr.price : lower;
-    }, 9999);
+    Math.min(...prices.map(price => price.lowerPrice).filter(lp => lp != null));
 
-  const availablePrice = () => {
-    if (prices.length == 1) {
-      return `${prices[0].price} грн.`;
+  const isPriceAvailable = () => {
+    if (prices.length == 0 && lowerPrice != null) {
+      return `${prices[0].lowerPrice} грн.`;
     } else {
-      return lowerPrice ? `от ${lowerPrice} грн.` : "нет информации";
+      return lowerPrice != Infinity
+        ? `от ${lowerPrice} грн.`
+        : "нет информации";
     }
   };
 
@@ -78,7 +78,7 @@ export const Card = ({ card }) => {
           {oldPriceProduct.price} грн.
         </Crd.C_OldPrice>
         <Crd.C_Price>
-          {availablePrice()}
+          {isPriceAvailable()}
           {article.unit && prices.length > 0 && `/${article.unit}`}
         </Crd.C_Price>
         <Crd.C_Button>

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from products.models import (
-    ProductCard, Prices, Photos, News, Page, Article
+    ProductCard, Prices, Photos, News, Page, Article, DepthPrice, Depth
 )
 
 
@@ -78,19 +78,37 @@ class ArticleAdmin(admin.ModelAdmin):
 
 @admin.register(Prices)
 class PricesAdmin(admin.ModelAdmin):
+    class DepthPriceInline(admin.TabularInline):
+        model = DepthPrice
+        extra = 0
+    inlines = [DepthPriceInline]
     fields = (
         'product',
-        'price',
-        'oldPrice',
         'color',
-        'depth',
+        'oldPrice',
     )
     list_display = (
         'product',
-        'price',
-        'oldPrice',
         'color',
-        'depth',
+        'oldPrice',
+    )
+
+
+@admin.register(Depth)
+class DepthAdmin(admin.ModelAdmin):
+    class DepthPriceInline(admin.StackedInline):
+        model = DepthPrice
+        extra = 0
+    inlines = [DepthPriceInline]
+    fields = (
+        'size',
+    )
+
+
+@admin.register(DepthPrice)
+class DepthPriceAdmin(admin.ModelAdmin):
+    fields = (
+        'price',
     )
 
 

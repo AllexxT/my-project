@@ -50,23 +50,50 @@ class ProductCard(models.Model):
 
     def __str__(self):
         return self.name
+##############################################################################
 
 
 class Prices(models.Model):
     product = models.ForeignKey(
         ProductCard, on_delete=models.CASCADE, null=True
     )
-    price = models.IntegerField(verbose_name='Price', blank=True)
     color = models.CharField(max_length=100, default='gray')
-    depth = models.CharField(max_length=15, blank=True)
-    oldPrice = models.BooleanField(
-        'Только одна цена может быть старой', default=False)
+    oldPrice = models.IntegerField(blank=True, null=True)
+
+    @property
+    def depthPrice(self):
+        return self.depthprice_set.all()
+
+    @property
+    def lowerPrice(self):
+        prices = self.depthprice_set.all()
+        if len(prices) > 0:
+            return min([item.price for item in prices])
+        return None
+
+    def __str__(self):
+        return str(self.color)
+
+
+class Depth(models.Model):
+    size = models.CharField(max_length=20, null=True)
+
+    @property
+    def depthPrice(self):
+        return self.depthprice_set.all()
+
+    def __str__(self):
+        return str(self.size)
+
+
+class DepthPrice(models.Model):
+    prices = models.ForeignKey(Prices, on_delete=models.CASCADE)
+    depth = models.ForeignKey(Depth, on_delete=models.CASCADE)
+    price = models.IntegerField(verbose_name='Price', null=True)
 
     def __str__(self):
         return str(self.price)
-
-    def __repr__(self):
-        return str(self.price)
+##############################################################################
 
 
 class Photos(models.Model):
