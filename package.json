@@ -25,6 +25,8 @@
     "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/runtime": "^7.8.4",
     "axios": "^0.19.2",
+    "html-to-react": "^1.4.2",
+    "jodit-react": "^1.0.42",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
