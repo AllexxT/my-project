@@ -20,6 +20,7 @@ const Title__row = styled.div`
     display: flex;
 `;
 const DescriptionWrapper = styled.div `
+    max-width: 1060px;
 `
 
 const PP = {

@@ -2,6 +2,7 @@ from products.models import ProductCard, News
 from rest_framework import viewsets, permissions, generics
 from .serializer import (
     ProductCardSerializer, NewsSerializer, NewsPostSerializer,
+    ProductCardUpdateSerializer
 )
 
 
@@ -19,8 +20,9 @@ class ProductCardViewSet(viewsets.ModelViewSet):
             return ProductCard.objects.all()
 
     def get_serializer_class(self):
-        if self.action == 'create':
-            return ProductCardSerializer
+        print(self.action)
+        if self.action == 'update':
+            return ProductCardUpdateSerializer
         else:
             return ProductCardSerializer
 

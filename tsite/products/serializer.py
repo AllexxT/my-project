@@ -53,10 +53,10 @@ class PhotosSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ('product',)
 ##############################################################################
+# Price #
 
 
-class DepthSerializer(serializers.ModelSerializer):
-
+class DepthSerializer(WritableNestedModelSerializer):
     class Meta:
         model = Depth
         fields = [
@@ -65,7 +65,7 @@ class DepthSerializer(serializers.ModelSerializer):
         ]
 
 
-class DepthPriceSerializer(serializers.ModelSerializer):
+class DepthPriceSerializer(WritableNestedModelSerializer):
     depth = DepthSerializer()
 
     class Meta:
@@ -76,7 +76,7 @@ class DepthPriceSerializer(serializers.ModelSerializer):
         ]
 
 
-class PriceSerializer(serializers.ModelSerializer):
+class PriceSerializer(WritableNestedModelSerializer):
     depthPrice = DepthPriceSerializer(many=True)
     lowerPrice = serializers.IntegerField()
 
@@ -93,11 +93,26 @@ class PriceSerializer(serializers.ModelSerializer):
         read_only_fields = ('product',)
 
 
+class PriceUpdateSerializer(WritableNestedModelSerializer):
+
+    class Meta:
+        model = Prices
+        fields = [
+            'id',
+            'product',
+            'oldPrice',
+            'color',
+        ]
+##############################################################################
+# ProductCard #
+
+
 class ProductCardSerializer(WritableNestedModelSerializer):
     # Prices serializer
     prices = PriceSerializer(many=True, allow_null=True)
     # Photos serializer
-    photos = PhotosSerializer(many=True, allow_null=True)
+    photos = PhotosSerializer(
+        many=True, allow_null=True, partial=True, required=False)
 
     article = ArticleSerializer(allow_null=True)
 
@@ -114,12 +129,30 @@ class ProductCardSerializer(WritableNestedModelSerializer):
             'prices',
             'photos',
         )
-        # depth allows to see nested view
-        # depth = 1
 
 
+class ProductCardUpdateSerializer(WritableNestedModelSerializer):
+    # Prices serializer
+    prices = PriceUpdateSerializer(many=True, allow_null=True, partial=True)
+
+    article = ArticleSerializer(allow_null=True)
+
+    class Meta:
+        model = ProductCard
+        fields = (
+            'id',
+            'article',
+            'name',
+            'sertificate',
+            'sizes',
+            'description',
+            'discount',
+            'prices',
+        )
 ##############################################################################
 # News #
+
+
 class NewsSerializer(serializers.ModelSerializer):
     product = ProductCardSerializer(required=False)
 

@@ -31,7 +31,7 @@ class ProductCardAdmin(admin.ModelAdmin):
     list_display = (
         'name',
         'article',
-        'description',
+        # 'description',
         'discount',
         'sizes',
         'sertificate',
@@ -84,12 +84,12 @@ class PricesAdmin(admin.ModelAdmin):
     inlines = [DepthPriceInline]
     fields = (
         'product',
-        'color',
+        # 'color',
         'oldPrice',
     )
     list_display = (
         'product',
-        'color',
+        # 'color',
         'oldPrice',
     )
 

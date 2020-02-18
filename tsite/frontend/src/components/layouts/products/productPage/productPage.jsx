@@ -2,9 +2,9 @@ import React from "react";
 import PP from "./productPageStyles";
 import PriceTable from "./table";
 import Gallery from "./gallery";
-import Description from "./desctiption";
+import Description from "./description";
 
-const ProductPage = ({ product }) => {
+const ProductPage = ({ product, callBack }) => {
   const {
     id,
     name,
@@ -31,7 +31,7 @@ const ProductPage = ({ product }) => {
         </PP.TableWrapper>
       </PP.Gallery_Table__row>
       <PP.DescriptionWrapper>
-        <Description {...{ description }} />
+        <Description {...{ description, callBack }} />
       </PP.DescriptionWrapper>
     </PP.Wrapper>
   );

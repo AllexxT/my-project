@@ -31,7 +31,7 @@ class ProductCard(models.Model):
         Article, on_delete=models.SET_NULL, null=True
     )
     name = models.CharField(max_length=100, unique=True)
-    description = models.TextField(max_length=1000)
+    description = models.TextField()
     discount = models.BooleanField(blank=True)
     sertificate = models.BooleanField(blank=True, default=False)
     sizes = models.TextField(max_length=400, blank=True, default='..X..')
@@ -78,9 +78,9 @@ class Prices(models.Model):
 class Depth(models.Model):
     size = models.CharField(max_length=20, null=True)
 
-    @property
-    def depthPrice(self):
-        return self.depthprice_set.all()
+    # @property
+    # def depthPrice(self):
+    #     return self.depthprice_set.all()
 
     def __str__(self):
         return str(self.size)
