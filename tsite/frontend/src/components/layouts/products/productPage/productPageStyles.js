@@ -8,7 +8,7 @@ const Gallery_Table__row = styled.div`
 `
 const GalleryWrapper = styled.div`
     display: flex;
-    flex: 0 1 400px;
+    flex: 0 1 50%;
     border: 1px solid black;
 `
 const TableWrapper = styled.div`

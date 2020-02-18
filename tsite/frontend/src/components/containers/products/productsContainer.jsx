@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../../../actions/products";
 import Products from "../../layouts/products/products";
 import { Switch, Route, useRouteMatch } from "react-router";
-import ProductPage from "./productPageCont";
+import ProductPage from "./productPage/productPageCont";
 
 const Preloader = () => {
   return <div>LOADING...</div>;

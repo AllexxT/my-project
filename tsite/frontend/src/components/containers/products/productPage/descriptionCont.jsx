@@ -1,24 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { useSelector, useDispatch } from "react-redux";
-import { getProduct } from "../../../actions/product";
-import ProductPage from "../../layouts/products/productPage/productPage";
+import ProductPage from "../../../layouts/products/productPage/productPage";
 import axios from "axios";
 
-const Preloader = () => {
-  return <div>LOADING...</div>;
-};
-
-const NotFound = () => {
-  return <div>404:PAGE NOT FOUND</div>;
-};
-
-const ProductPageCont = () => {
-  const [update, setUpdate] = useState([1]);
-
+const DescriptionContainer = ({ product }) => {
+  const [update, setUpdate] = useState(null);
   let { productId } = useParams();
-  const dispatch = useDispatch();
-  const productState = useSelector(state => state.productReducer);
+
   function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== "") {
@@ -34,17 +22,14 @@ const ProductPageCont = () => {
     return cookieValue;
   }
   const csrftoken = getCookie("csrftoken");
-  const preloaderOr404 =
-    productState.fetching == 404 ? <NotFound /> : <Preloader />;
 
   useEffect(() => {
-    dispatch(getProduct(productId));
-    setUpdate('')
+    setUpdate(null);
   }, [update]);
 
   const updateDescription = descriptionHTML => {
-    let product = productState.product;
-    product.description = descriptionHTML;
+    let productToUpdate = product
+    productToUpdate.description = descriptionHTML;
     axios
       .put(`/api/products/${productId}/`, JSON.stringify(product), {
         headers: {
@@ -53,15 +38,13 @@ const ProductPageCont = () => {
         }
       })
       .then(r => {
-        console.log(r.status)
-        setUpdate(r.status.toString())
+        console.log(r.status);
+        setUpdate(r.status);
       })
       .catch(e => console.log(e));
   };
-  return productState.fetching ? (
-    preloaderOr404
-  ) : (
-    <ProductPage product={productState.product} callBack={updateDescription} />
+  return (
+    <ProductPage product={product} callBack={updateDescription} />
   );
 };
-export default ProductPageCont;
+export default DescriptionContainer;

@@ -1,11 +1,28 @@
 import styled from "styled-components";
 
-
-
+const Btn = styled.button`
+    padding: 3px;
+    border: 1px solid #000;
+    height: 30px;
+    background-color:
+    linear-gradient(to top; rgb(207; 207; 207) 16%; rgb(252; 252; 252) 79%);
+    user-select: none;
+    white-space: pre;
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    color: buttontext;
+    box-sizing: border-box;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;
+`
 
 
 const Dscr = {
-
+    Btn,
 }
 
 

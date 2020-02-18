@@ -21,14 +21,21 @@ const Services = () => {
           top: "5%",
           left: "5%",
           maxWidth: "90%",
-          textAlign: "center"
+          textAlign: "center",
+          cursor: "pointer"
         }}
         alt="cat"
       />
       <div style={{ display: "flex", height: "500px" }} />
     </>
   ) : (
-    <img onClick={() => setSwitcher(true)} src={Cat} width="250" alt="cat" />
+    <img
+      onClick={() => setSwitcher(true)}
+      style={{ cursor: "pointer" }}
+      src={Cat}
+      width="250"
+      alt="cat"
+    />
   );
   return (
     <div>
