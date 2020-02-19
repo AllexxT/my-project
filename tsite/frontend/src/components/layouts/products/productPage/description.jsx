@@ -21,7 +21,7 @@ const Description = ({ description, callBack }) => {
       }
     ],
     toolbarButtonSize: "large",
-    processPasteHTML: "true",
+    processPasteHTML: "true"
     // events: {
     //   keydown: () => {
     //   }
@@ -30,7 +30,7 @@ const Description = ({ description, callBack }) => {
   return (
     <GlobalS>
       <Dscr.Btn onClick={() => setShowEditor(!showEditor)}>
-        Редактор
+        {showEditor ? "Скрыть редактор" : "Редактор описания"}
       </Dscr.Btn>
       <div dangerouslySetInnerHTML={{ __html: description }} />
       {showEditor && (
@@ -42,7 +42,7 @@ const Description = ({ description, callBack }) => {
             tabIndex={1} // tabIndex of textarea
             onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
             onChange={newContent => {
-              val = newContent
+              val = newContent;
             }}
           />
           <Dscr.Btn onClick={() => callBack(content)}>Сохранить</Dscr.Btn>

@@ -14,9 +14,19 @@ const MainF__left = styled.div`
     display: none;
 `
 const MainF__screen = styled.div`
+    display: flex;
     position: relative;
-    min-height: 300px;
     flex: 0 0 100%;
+    overflow: hidden;
+
+    & > div {
+        display: flex;
+        position: relative;
+        width: 100%;
+        padding: 0 0 70% 0;
+
+    }
+
     & img {
         position:absolute;
         width: 100%;
