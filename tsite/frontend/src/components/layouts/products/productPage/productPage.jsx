@@ -16,7 +16,6 @@ const ProductPage = ({ product, callBack }) => {
     prices,
     photos
   } = product;
-
   return (
     <PP.Wrapper>
       <PP.Gallery_Table__row>
@@ -36,4 +35,11 @@ const ProductPage = ({ product, callBack }) => {
     </PP.Wrapper>
   );
 };
+
+ProductPage.defaultProps = {
+  product: {
+    photos: []
+  }
+}
+
 export default ProductPage;

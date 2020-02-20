@@ -22,6 +22,14 @@ const PTitle = styled.div`
   line-height: 16px;
   animation: ${PTitleAnimation} 1s linear;
 `;
+
+const PContentWrapper = styled.div `
+  display: flex;
+  @media (max-width:800px){
+        justify-content: center;
+    }
+`
+
 const PContent = styled.ul`
   z-index: 0;
   display: flex;
@@ -30,12 +38,16 @@ const PContent = styled.ul`
     /* Cards margin */
     margin: 15px 15px 15px 15px;
   }
+  @media (max-width:800px){
+    width: 75%;
+  }
 `;
 
 const Prds = {
-    PWrapper,
-    PTitle,
-    PContent,
+  PWrapper,
+  PTitle,
+  PContentWrapper,
+  PContent,
 }
 
 export default Prds;

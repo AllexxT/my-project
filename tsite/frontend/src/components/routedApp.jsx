@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import App from "./App";
+import App from "./layouts/App";
 import NewsContainer from "./containers/news/newsContainer";
 import Sett from "./containers/products/sett";
 import Fence from "./containers/products/fence";

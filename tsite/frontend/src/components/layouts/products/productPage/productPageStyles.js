@@ -5,11 +5,20 @@ const Wrapper = styled.div`
 `;
 const Gallery_Table__row = styled.div`
     display: flex;
+    @media (max-width: 768px){
+        display: block;
+    }
 `
 const GalleryWrapper = styled.div`
+    position: relative;
     display: flex;
     flex: 0 1 50%;
-    border: 1px solid black;
+    
+    @media (max-width: 768px){
+        flex: 1 1 auto;
+        justify-items: center;
+        width: 100%;
+    }
 `
 const TableWrapper = styled.div`
 `

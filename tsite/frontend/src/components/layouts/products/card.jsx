@@ -27,12 +27,14 @@ export const Card = ({ card }) => {
   const lowerPrice =
     prices.length > 0 &&
     Math.min(...prices.map(price => price.lowerPrice).filter(lp => lp != null));
+    
+  console.log(lowerPrice)
 
   const isPriceAvailable = () => {
-    if (prices.length == 0 && lowerPrice != null) {
+    if (prices.length == 1 && prices[0].lowerPrice != null) {
       return `${prices[0].lowerPrice} грн.`;
     } else {
-      return lowerPrice != Infinity
+      return lowerPrice != Infinity && lowerPrice
         ? `от ${lowerPrice} грн.`
         : "нет информации";
     }
@@ -42,6 +44,7 @@ export const Card = ({ card }) => {
     ? photos[0].photo.medium_square_crop
     : placeholder;
 
+    // Need to REVORK
   const oldPriceProduct = // search old price by flag 'oldPrice == true' in api responce
     prices.length > 0 &&
     prices.reduce((past, curr) => {
@@ -89,13 +92,13 @@ export const Card = ({ card }) => {
   );
 };
 
-Card.DefaultProps = {
+Card.defaultProps = {
   card: {
     name: "name",
     discount: false,
     sertificate: false,
     photos: [],
-    prices: {},
+    prices: [{ lowerPrice: null }],
     id: ""
   }
 };

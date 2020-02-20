@@ -8,33 +8,17 @@ const MainFrame = styled.div`
 `
 const MainF__row = styled.div`
     display: flex;
+    justify-content: center;
+
 `
 const MainF__left = styled.div`
     position: absolute;
     display: none;
 `
 const MainF__screen = styled.div`
-    display: flex;
-    position: relative;
-    flex: 0 0 100%;
-    overflow: hidden;
-
-    & > div {
-        display: flex;
-        position: relative;
-        width: 100%;
-        padding: 0 0 70% 0;
-
-    }
-
-    & img {
-        position:absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        top: 0;
-        left: 0;
-    }
+        /* @media (max-width: 768px){
+            justify-items: center;
+        } */
 `
 const MainF__right = styled.div`
     position: absolute;

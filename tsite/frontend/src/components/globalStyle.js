@@ -19,11 +19,11 @@ const GlobalStyle = createGlobalStyle`
     /* Custom settings */
     html { overflow-y: scroll; } /* static scrollbar */
 
-    #root {height: 100%;}
     body {
         font-family: Arial, Helvetica, sans-serif;
         background-color: rgba(191, 180, 180, 70%);
     }
+    #root {height: 100%; width: 100%}
 `
 
 
