@@ -16,7 +16,7 @@ const App = ({ children }) => {
           <S.CompanyRow>
             <S.CompanyLogo>
               <S.CompanyTitle>
-                <span>Тротуар</span> Буд
+              ЧП <span>Джас</span> 
               </S.CompanyTitle>
             </S.CompanyLogo>
             <S.CompanyAddress>

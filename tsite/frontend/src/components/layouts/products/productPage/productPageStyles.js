@@ -12,7 +12,7 @@ const Gallery_Table__row = styled.div`
 const GalleryWrapper = styled.div`
     position: relative;
     display: flex;
-    flex: 0 1 50%;
+    flex: 1 1 70%;
     
     @media (max-width: 768px){
         flex: 1 1 auto;
@@ -23,10 +23,15 @@ const GalleryWrapper = styled.div`
 const TableWrapper = styled.div`
 `
 const TitleWrapper = styled.div`
-
 `;
 const Title__row = styled.div`
     display: flex;
+    justify-content: center;
+    h1 {
+        font-size: 24pt;
+        color: rgb(35, 32, 32);
+        line-height:3rem;
+    }
 `;
 const DescriptionWrapper = styled.div `
     max-width: 1060px;

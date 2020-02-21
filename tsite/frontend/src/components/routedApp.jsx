@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import App from "./layouts/App";
 import NewsContainer from "./containers/news/newsContainer";
 import Sett from "./containers/products/sett";
@@ -67,7 +67,9 @@ const RoutedApp = () => (
         <Route path="/products/brick" component={Brick} />
         <Route path="/products/monuments" component={Monuments} />
         <Route path="/products/parapet" component={Parapet} />
-        <Route exact path="/products" component={Services} />
+        <Route exact path="/products">
+          <Redirect to="/products/sett" />
+        </Route>
         <Route exact path="/exposition" component={Services} />
         <Route exact path="/services" component={Services} />
         <Route exact path="/sertificates" component={Services} />

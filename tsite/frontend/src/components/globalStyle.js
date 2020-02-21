@@ -26,8 +26,20 @@ const GlobalStyle = createGlobalStyle`
     #root {height: 100%; width: 100%}
 `
 
-
 export default GlobalStyle;
+
+//// Import new fonts
+// @font-face{
+//     font-family: "${name}";
+//     src: url(${require('../../../../fonts/' + src + '.eot')});
+//     src: url(${require('../../../../fonts/' + src + '.eot')}?#iefix) format("embedded-opentype"),
+//          url(${require('../../../../fonts/' + src + '.woff')}) format("woff"),
+//          url(${require('../../../../fonts/' + src + '.ttf')}) format("truetype"),
+//          url(${require('../../../../fonts/' + src + '.svg')}#${name}) format("svg");
+
+//     font-style: ${fontStyle};
+//     font-weight: ${fontWeight};
+// }
 
 // const GlobalStyle = createGlobalStyle`
 //     *{padding:0;margin:0;border:0;}

@@ -19,7 +19,7 @@ const PTitleAnimation = keyframes`
 const PTitle = styled.div`
   padding: 10px 0 10px 30px;
   font-size: 26px;
-  line-height: 16px;
+  line-height: 21px;
   animation: ${PTitleAnimation} 1s linear;
 `;
 

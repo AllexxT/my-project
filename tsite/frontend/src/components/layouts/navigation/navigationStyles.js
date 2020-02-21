@@ -5,46 +5,66 @@ import styled, { css } from "styled-components";
 const Nav__Li = styled.li`
   position: relative;
   display: block;
-  padding: 4px 0 4px 0;
   margin: 0 5px 0 0;
+  background: #E4644B;
+  border-bottom: 1px solid rgba(30, 29, 28, 0.3);
+  box-shadow: 0px 5px 10px gray;
   & a {
-    color: black;
+    position: relative;
+    color: whitesmoke;
+    font-weight: bold;
     display: block;
+    padding: 5pt 0 5pt 7pt;
     ${props =>
     props.match &&
     css`
-        color: #90781D;
+        color: black;
       `}
   }
-  /* & a:hover + ul{
-    display: block;
-  } */
   ${props =>
     props.submenu &&
     css`
         /* place for styling submenu buttons */
-        padding: 3px 2.2rem 3px 0;
+        background: gray;
       `}
 `;
 
 const Nav__Ul_Submenu = styled.ul`
-  padding-left: 15px;
-  display: relative;
-`
-const Nav__Submenu_icon = styled.div`
-  position: absolute;
-  top: -2px;
-  left: 75%;
-  font-size: 25px;
-  opacity: 0.5;
-  &:hover + ul{
+  position: relative;
+  a {
+    padding: 5pt 10pt 5pt 5pt;
+    flex: 1 0 100%;
+    font-size: 9pt;
+    line-height: 15px;
+  }
+  li {
+    display: flex;
+    justify-content: space-between;
+  }
+  a:hover + span + ul {
     display: block;
   }
+  a:hover + span {
+    background: #E4644B;
+    opacity: 1;
+  }
+
+`
+
+const Nav__Submenu_icon = styled.span`
+  display: inline-block;
+  align-self: stretch;
+  flex:0 0 10px;
+  order: -1;
+  opacity: 0;
+  /* &:hover + ul{
+    display: block;
+  } */
 `
 
 const PopUpMenu__board = styled.ul`
     position: absolute;
-    background: whitesmoke;
+    background: rgb(145, 145, 145);
     top: -5px;
     left: 85%;
     display: none;
@@ -56,8 +76,14 @@ const PopUpMenu__board = styled.ul`
     }
 `
 const PopUpMenu__Link = styled.li`
+    &:hover {
+      background: gray;
+    }
+    a {
+      color: black;
+    }
     & a:hover{
-      color: rgb(144, 120, 29);
+      color: black;
     }
 `
 

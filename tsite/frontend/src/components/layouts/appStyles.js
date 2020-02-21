@@ -19,14 +19,14 @@ const Company = styled.div`
 const CompanyRow = styled.div`
   display: flex;
   justify-content: space-around;
-  padding: 5px 0;
+  padding: 3px 0 0 0;
   flex-wrap: wrap;
 `;
 const CompanyLogo = styled.div``;
 const CompanyTitle = styled.p`
-  text-transform: uppercase;
-  font-size: 2.1em;
-  line-height: -10px;
+  /* text-transform: uppercase; */
+  font-weight: bold;
+  font-size: 28pt;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: white;
   & span {
@@ -39,9 +39,9 @@ const CompanyAddress = styled.div`
   align-items: center;
 `;
 const CompanyAddressImg = styled.div`
-  flex: 0 0 70px;
+  /* flex: 0 0 45pt; */
   & img {
-    max-width: 70px;
+    max-width: 25pt;
   }
 `;
 const CompanyAddressTitle = styled.p`
@@ -55,9 +55,9 @@ const CompanyContacts = styled.div`
 `;
 const CompanyContactsImg = styled.div`
   align-self: center;
-  margin: 0 5px 0 0;
+  margin: 0 0 0 0;
   & img {
-    width: 70px;
+    width: 45pt;
   }
 `;
 const CompanyContactsUl = styled.ul`
@@ -65,7 +65,7 @@ const CompanyContactsUl = styled.ul`
   li a {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: white;
-    font-size: 1.3em;
+    font-size: 11.5pt;
   }
 `;
 // Content

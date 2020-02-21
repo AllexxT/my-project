@@ -11,7 +11,7 @@ const ProductsSubmenu = () => {
         to="/products/sett"
         label="ТРОТУАРНАЯ ПЛИТКА И БОРДЮР"
       >
-          <NavStyle.Nav__Submenu_icon>></NavStyle.Nav__Submenu_icon>
+          <NavStyle.Nav__Submenu_icon></NavStyle.Nav__Submenu_icon>
         <PopUpMenu>
           <PopUpLink
             to="/products/sett#vibropressed"
@@ -21,8 +21,9 @@ const ProductsSubmenu = () => {
           <PopUpLink to="/products/sett#borders" label="Бордюр" />
         </PopUpMenu>
       </Styled_Link>
+      {/* <div>hello</div> */}
       <Styled_Link submenu={true} to="/products/fence" label="ЕВРОЗАБОР">
-        <NavStyle.Nav__Submenu_icon>></NavStyle.Nav__Submenu_icon>
+        <NavStyle.Nav__Submenu_icon></NavStyle.Nav__Submenu_icon>
         <PopUpMenu>
           <PopUpLink to="/products/fence#glossy" label="Глянцевый бетонный" />
           <PopUpLink to="/products/fence#ordinary" label="Бетонный" />
@@ -35,7 +36,7 @@ const ProductsSubmenu = () => {
         to="/products/brick"
         label="КОЛОТЫЙ БЛОК И КИРПИЧ"
       >
-          <NavStyle.Nav__Submenu_icon>></NavStyle.Nav__Submenu_icon>
+          <NavStyle.Nav__Submenu_icon></NavStyle.Nav__Submenu_icon>
         <PopUpMenu>
           <PopUpLink to="/products/brick#baseblock" label="Фундаментный блок" />
           <PopUpLink
@@ -54,14 +55,14 @@ const ProductsSubmenu = () => {
         to="/products/parapet"
         label="КРЫШКИ И ПАРАПЕТЫ"
       >
-        <NavStyle.Nav__Submenu_icon>></NavStyle.Nav__Submenu_icon>
+        <NavStyle.Nav__Submenu_icon></NavStyle.Nav__Submenu_icon>
         <PopUpMenu>
           <PopUpLink to="/products/parapet#cap" label="Крышки" />
           <PopUpLink to="/products/parapet#parapet" label="Парапеты" />
         </PopUpMenu>
       </Styled_Link>
       <Styled_Link submenu={true} to="/products/monuments" label="ПАМЯТНИКИ">
-          <NavStyle.Nav__Submenu_icon>></NavStyle.Nav__Submenu_icon>
+          <NavStyle.Nav__Submenu_icon></NavStyle.Nav__Submenu_icon>
         <PopUpMenu>
           <PopUpLink
             to="/products/monuments#granite"

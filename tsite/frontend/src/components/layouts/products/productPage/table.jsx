@@ -1,13 +1,14 @@
 import React from "react";
+import { default as S } from "./tableStyles";
 
 const PriceTable = ({ sizes, prices }) => {
   return (
-    <div>
-      <div className="sizes">{sizes}</div>
-      <div>
+    <S.Wrapper>
+      <S.Sizes>{sizes}</S.Sizes>
+      <S.Content__row>
         {prices.length != 0 && (
           <table>
-            <caption>Заголовок таблицы</caption>
+            <caption>Таблица Цен</caption>
             <thead>
               <tr>
                 <th>Цвет\Толщина</th>
@@ -28,8 +29,8 @@ const PriceTable = ({ sizes, prices }) => {
             </tbody>
           </table>
         )}
-      </div>
-    </div>
+      </S.Content__row>
+    </S.Wrapper>
   );
 };
 
