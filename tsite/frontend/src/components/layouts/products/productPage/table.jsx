@@ -1,12 +1,15 @@
 import React from "react";
 import { default as S } from "./tableStyles";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const PriceTable = ({ sizes, prices }) => {
+
   return (
     <S.Wrapper>
       <S.Sizes>{sizes}</S.Sizes>
       <S.Content__row>
-        {prices.length != 0 && (
+        {prices.length != 0 && prices[0].depthPrice.length > 0 && (
           <table>
             <caption>Таблица Цен</caption>
             <thead>
@@ -39,11 +42,7 @@ PriceTable.defaultProps = {
   prices: [
     {
       depthPrice: [
-        {
-          id: 1,
-          price: 1,
-          depth: {}
-        }
+
       ]
     }
   ]

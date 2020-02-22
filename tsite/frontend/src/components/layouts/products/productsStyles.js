@@ -21,6 +21,10 @@ const PTitle = styled.div`
   font-size: 26px;
   line-height: 21px;
   animation: ${PTitleAnimation} 1s linear;
+  @media (max-width: 576px) {
+    text-align: center;
+    padding-left: 0;
+  }
 `;
 
 const PContentWrapper = styled.div `

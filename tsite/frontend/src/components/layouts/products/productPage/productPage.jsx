@@ -19,9 +19,7 @@ const ProductPage = ({ product, callBack }) => {
   return (
     <PP.Wrapper>
       <PP.Gallery_Table__row>
-        <PP.GalleryWrapper>
           <Gallery {...{ photos }} />
-        </PP.GalleryWrapper>
         <PP.TableWrapper>
           <PP.TitleWrapper>
             <PP.Title__row>

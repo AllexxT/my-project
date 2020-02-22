@@ -21,6 +21,8 @@ const GalleryWrapper = styled.div`
     }
 `
 const TableWrapper = styled.div`
+    flex: 1 3 auto;
+    padding: 0 2pt 0 2pt;
 `
 const TitleWrapper = styled.div`
 `;
@@ -30,7 +32,7 @@ const Title__row = styled.div`
     h1 {
         font-size: 24pt;
         color: rgb(35, 32, 32);
-        line-height:3rem;
+        line-height:2.5rem;
     }
 `;
 const DescriptionWrapper = styled.div `

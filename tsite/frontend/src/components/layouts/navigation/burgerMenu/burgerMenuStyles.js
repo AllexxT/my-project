@@ -1,37 +1,49 @@
-import React, { useRef, useState } from "react";
-import styled from "styled-components";
+import styled from "styled-components"
+
+const StaticWin = styled.div`
+  position: fixed;
+`
 
 const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: whitesmoke;
+  background: #F6D27E;
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
   height: ${({ open }) => (open ? "100vh" : "0vh")};
   text-align: left;
-  padding: ${({ open }) => (open ? "2rem" : "0")};
+  padding: ${({ open }) => (open ? "1.5rem" : "0")};
   position: relative;
-  top: -35px;
+  top: -15px;
   left: 0;
   transition: transform 0.3s ease-in-out, padding 0 linear 0.4s,
     height 0 linear 0.4s;
 
-  @media (max-width: 576px) {
-    width: 100%;
+  ul {
+    padding-left: 3rem;
+      a {
+        display: block;
+        letter-spacing: 0;
+        font-size: ${({ open }) => (open ? "1rem" : "0rem")};
+        padding: ${({ open }) => (open ? "0 0 14pt 0" : "0")};
+
+        @media (max-width: 576px) {
+        font-size: ${({ open }) => (open ? "1.3rem" : "0rem")};
+        }
+    }
   }
   a {
-    font-size: ${({ open }) => (open ? "1.5rem" : "0rem")};
+    font-size: ${({ open }) => (open ? "1rem" : "0rem")};
     text-transform: uppercase;
-    padding: ${({ open }) => (open ? "2rem 0" : "0")};
+    padding: ${({ open }) => (open ? "10pt 0" : "0")};
     font-weight: bold;
     letter-spacing: 0.5rem;
-    color: #0d0c1d;
+    color: #525252;
     text-decoration: none;
-    transition: all 0.3s linear;
+    transition: all 0.05s linear;
 
     @media (max-width: 576px) {
       font-size: ${({ open }) => (open ? "2rem" : "0rem")};
-      text-align: center;
     }
 
     &:hover {
@@ -40,35 +52,13 @@ const StyledMenu = styled.nav`
   }
 `;
 
-const Menu = ({ open }) => {
-  return (
-    <StyledMenu open={open}>
-      <a href="/">
-        <span role="img" aria-label="about us">
-          💁🏻‍♂️
-        </span>
-        About us
-      </a>
-      <a href="/">
-        <span role="img" aria-label="price">
-          💸
-        </span>
-        Pricing
-      </a>
-      <a href="/">
-        <span role="img" aria-label="contact">
-          📩
-        </span>
-        Contact
-      </a>
-    </StyledMenu>
-  );
-};
+
 
 const StyledBurger = styled.button`
   position: absolute;
   top: 0;
-  left: 2rem;
+  right: ${({ open }) => (open ? "2rem" : "")};
+  left: ${({ open }) => (open ? "" : "2rem")};
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -87,7 +77,7 @@ const StyledBurger = styled.button`
   div {
     width: 2rem;
     height: 0.25rem;
-    background: ${({ open }) => (open ? "#0D0C1D" : "#d3a52e")};
+    background: ${({ open }) => (open ? "#0D0C1D" : "#f5cb55")};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
@@ -108,32 +98,24 @@ const StyledBurger = styled.button`
   }
 `;
 
-const Burger = ({ open, setOpen }) => {
-  return (
-    <StyledBurger open={open} onClick={() => setOpen(!open)}>
-      <div />
-      <div />
-      <div />
-    </StyledBurger>
-  );
-};
-
 const StyledBurgerMenu = styled.div`
   z-index: 1000;
-  position: fixed;
+  position: absolute;
   left: 0;
-  top: 35px;
+  top: 15px;
+  @media (min-width:900px){
+        display: none;
+    }
+  @media (max-width: 740px) {
+    left: -9pt;
+  }
 `;
 
-const BurgerMenu = () => {
-  const [open, setOpen] = React.useState(false);
-  const node = React.useRef();
-  return (
-    <StyledBurgerMenu ref={node}>
-      <Burger open={open} setOpen={setOpen} />
-      <Menu open={open} setOpen={setOpen} />
-    </StyledBurgerMenu>
-  );
-};
+const Styles = {
+  StaticWin,
+  StyledMenu,
+  StyledBurger,
+  StyledBurgerMenu,
+}
 
-export default BurgerMenu;
+export default Styles;

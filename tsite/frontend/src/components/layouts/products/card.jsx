@@ -27,8 +27,6 @@ export const Card = ({ card }) => {
   const lowerPrice =
     prices.length > 0 &&
     Math.min(...prices.map(price => price.lowerPrice).filter(lp => lp != null));
-    
-  console.log(lowerPrice)
 
   const isPriceAvailable = () => {
     if (prices.length == 1 && prices[0].lowerPrice != null) {

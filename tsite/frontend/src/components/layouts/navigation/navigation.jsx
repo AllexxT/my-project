@@ -1,13 +1,14 @@
 import React from "react";
 import ProductsSubmenu from "./productsSubmenu";
+import {default as S} from './navigationStyles'
 import Styled_Link from './styledLinks'
 
 
 const Menu = () => {
   return (
-    <nav style={{top:'10px', paddingBottom: "50px"}}>
+    <S.Nav>
       <ul>
-        <Styled_Link active={true} to="/" label="ДОМАШНЯЯ" />
+        <Styled_Link active={true} to="/" label="НОВОСТИ" />
         <Styled_Link to="/products" label="ТОВАРЫ" />
         <li>
           <ProductsSubmenu />
@@ -16,7 +17,7 @@ const Menu = () => {
         <Styled_Link to="/sertificates" label="СЕРТИФИКАТЫ" />
         <Styled_Link to="/exposition" label="НАШИ РАБОТЫ" />
       </ul>
-    </nav>
+    </S.Nav>
   );
 };
 

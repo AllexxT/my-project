@@ -22,13 +22,21 @@ const CompanyRow = styled.div`
   padding: 3px 0 0 0;
   flex-wrap: wrap;
 `;
-const CompanyLogo = styled.div``;
-const CompanyTitle = styled.p`
-  /* text-transform: uppercase; */
+const CompanyLogo = styled.div`
+  position: relative;
+  top: 5pt;
+  padding-left: 35pt;
+  @media (max-width: 576px) {
+    top: 0;
+    padding-left: 0;
+    padding-bottom: 3pt;
+  }
+`;
+const CompanyTitle = styled.a`
   font-weight: bold;
   font-size: 28pt;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: white;
+  color: whitesmoke;
   & span {
     color: #f5cb55;
   }
@@ -39,7 +47,6 @@ const CompanyAddress = styled.div`
   align-items: center;
 `;
 const CompanyAddressImg = styled.div`
-  /* flex: 0 0 45pt; */
   & img {
     max-width: 25pt;
   }
@@ -75,15 +82,10 @@ const Content = styled.div`
 const ContentRow = styled.div`
   display: flex;
 `;
-const ContentRow__BurgerMenu = styled.div `
-    @media (min-width:815px){
-        display: none;
-    }
-`
 const ContentAside = styled.aside`
   flex-basis: 400px;
   max-width: 150px;
-  @media (max-width:815px){
+  @media (max-width:900px){
     display: none;
   }
 `;
@@ -121,7 +123,6 @@ const Styles = {
     CompanyContactsUl,
     Content,
     ContentRow,
-    ContentRow__BurgerMenu,
     ContentAside,
     ContentMain,
     Footer,

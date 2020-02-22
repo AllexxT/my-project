@@ -3,10 +3,14 @@ import { default as S } from "./appStyles";
 import GlobalStyle from "../globalStyle";
 import Menu from "./navigation/navigation";
 import Breadcrumbs from "../breadcrumbs";
-import BurgerMenu from "./burgerMenu";
+import BurgerMenu from "./navigation/burgerMenu/burgerMenu";
 
 import addressLogo from "./address.png";
 import phone from "./phone2.png";
+
+const Logo = ({ children }) => {
+  return <S.CompanyTitle href="/">{children}</S.CompanyTitle>;
+};
 
 const App = ({ children }) => {
   return (
@@ -14,10 +18,11 @@ const App = ({ children }) => {
       <S.Company>
         <S.Container>
           <S.CompanyRow>
+            <BurgerMenu />
             <S.CompanyLogo>
-              <S.CompanyTitle>
-              ЧП <span>Джас</span> 
-              </S.CompanyTitle>
+              <Logo>
+                ЧП <span>Джас</span>
+              </Logo>
             </S.CompanyLogo>
             <S.CompanyAddress>
               <S.CompanyAddressImg>
@@ -50,11 +55,7 @@ const App = ({ children }) => {
         <S.Container>
           <Breadcrumbs /> {/* component */}
           <S.ContentRow>
-            <S.ContentRow__BurgerMenu>
-              <BurgerMenu />
-            </S.ContentRow__BurgerMenu>
             <S.ContentAside>
-              <h1>Aside</h1>
               <Menu /> {/* component */}
             </S.ContentAside>
             <S.ContentMain>{children}</S.ContentMain>

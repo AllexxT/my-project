@@ -1,31 +1,39 @@
 import styled, { css } from "styled-components";
 
 
-
+const Nav = styled.nav`
+  padding:15pt 0 0 0;
+  height: 100%;
+`
 const Nav__Li = styled.li`
   position: relative;
   display: block;
   margin: 0 5px 0 0;
-  background: #E4644B;
+  background: #343339;
   border-bottom: 1px solid rgba(30, 29, 28, 0.3);
   box-shadow: 0px 5px 10px gray;
+  
   & a {
     position: relative;
-    color: whitesmoke;
+    color: #e4ddd9;
     font-weight: bold;
     display: block;
     padding: 5pt 0 5pt 7pt;
     ${props =>
     props.match &&
     css`
-        color: black;
+        /* Current link styling */
+        color: #fecf53;
+        & + span {
+          background: #E4644B;
+        }
       `}
   }
   ${props =>
     props.submenu &&
     css`
         /* place for styling submenu buttons */
-        background: gray;
+        background: #525252;
       `}
 `;
 
@@ -46,20 +54,16 @@ const Nav__Ul_Submenu = styled.ul`
   }
   a:hover + span {
     background: #E4644B;
-    opacity: 1;
   }
 
 `
 
 const Nav__Submenu_icon = styled.span`
   display: inline-block;
+  /* background: #E4644B; */
   align-self: stretch;
-  flex:0 0 10px;
+  flex:0 0 5pt;
   order: -1;
-  opacity: 0;
-  /* &:hover + ul{
-    display: block;
-  } */
 `
 
 const PopUpMenu__board = styled.ul`
@@ -76,8 +80,10 @@ const PopUpMenu__board = styled.ul`
     }
 `
 const PopUpMenu__Link = styled.li`
+    border-bottom: 1px solid rgba(63, 63, 63, 0.4);
+    :last-child {border: none;}
     &:hover {
-      background: gray;
+      text-shadow: 0px 0px 6px rgba(255,255,255,0.7);
     }
     a {
       color: black;
@@ -88,6 +94,7 @@ const PopUpMenu__Link = styled.li`
 `
 
 const NavStyle = {
+  Nav,
   Nav__Li,
   Nav__Ul_Submenu,
   Nav__Submenu_icon,

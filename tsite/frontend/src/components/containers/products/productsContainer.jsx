@@ -1,12 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../../../actions/products";
 import Products from "../../layouts/products/products";
 import { Switch, Route, useRouteMatch } from "react-router";
 import ProductPage from "./productPage/productPageCont";
+import prodPlaceHolder from "./no_product.gif";
 
 const Preloader = () => {
   return <div>LOADING...</div>;
+};
+
+const NoData = () => {
+  const [timer, setTimer] = useState(false);
+  useEffect(() => {
+    const pause = setTimeout(() => {
+      setTimer(true);
+    }, 200);
+    return () => {
+      clearTimeout(pause);
+    };
+  }, [timer]);
+  return (
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      {timer && <img src={prodPlaceHolder} alt="no data available" />}
+    </div>
+  );
 };
 
 const ProductsContainer = ({ page }) => {
@@ -41,18 +59,19 @@ const ProductsContainer = ({ page }) => {
   });
   ///////////////////////////////////////////////////////////////////
   return (
-      <Switch>
-        <Route path={`${match.path}/:productId`} component={ProductPage} />
-        <Route path={match.path}>
-          {products.fetching ? (
-            <Preloader />
-          ) : (
+    <Switch>
+      <Route path={`${match.path}/:productId`} component={ProductPage} />
+      <Route path={match.path}>
+        {products.fetching ? (
+          <Preloader />
+        ) : (
+          (products.products.length > 0 &&
             productsArray.map((product, index) => (
               <Products key={index} data={{ products: product }} />
-            ))
-          )}
-        </Route>
-      </Switch>
+            ))) || <NoData />
+        )}
+      </Route>
+    </Switch>
   );
 };
 

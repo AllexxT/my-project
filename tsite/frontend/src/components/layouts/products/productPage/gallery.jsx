@@ -23,27 +23,30 @@ const Gallery = ({ photos = [] }) => {
     );
   }, [photos]);
 
+  const defaultImage = [
+    {
+      fullscreen: Cat,
+      original: Cat
+    }
+  ];
 
   return (
     <S.Wrapper>
       <S.MainFrame>
         <S.MainF__row>
-          <S.MainF__left>left |</S.MainF__left>
-          <S.MainF__screen>
-            {images.length > 0 && (
-              <ImageGallery
-                thumbnailPosition="left"
-                // showBullets={true}
-                autoPlay={true}
-                items={images}
-              />
-            )}
-          </S.MainF__screen>
-          <S.MainF__right>right</S.MainF__right>
+          {images.length > 0 && (
+            <ImageGallery
+              thumbnailPosition="left"
+              // showBullets={true}
+              autoPlay={true}
+              showIndex={true}
+              // disableThumbnailScroll={true}
+              onErrorImageURL={Cat}
+              items={images}
+            />
+          )}
         </S.MainF__row>
-        {/* <S.DotLine>*******</S.DotLine> */}
       </S.MainFrame>
-      {/* <S.ThumbsFrame>Thumbs Frame</S.ThumbsFrame> */}
     </S.Wrapper>
   );
 };

@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
+    display: flex;
+    flex-flow: column;
 `
 const Sizes = styled.div`
+    align-self: center;
     padding: 5pt 0 5pt 0;
     p{}
 `
