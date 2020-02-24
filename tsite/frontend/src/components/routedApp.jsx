@@ -8,6 +8,7 @@ import Brick from "./containers/products/brick";
 import Monuments from "./containers/products/monuments";
 import Parapet from "./containers/products/parapet";
 import Cat from "./cat.jpg";
+import Mdse from "./layouts/mdse/mdse";
 
 const Services = () => {
   const [switcher, setSwitcher] = useState(false);
@@ -67,9 +68,10 @@ const RoutedApp = () => (
         <Route path="/products/brick" component={Brick} />
         <Route path="/products/monuments" component={Monuments} />
         <Route path="/products/parapet" component={Parapet} />
-        <Route exact path="/products">
+        <Route path="/products" component={Mdse} />
+        {/* <Route exact path="/products">
           <Redirect to="/products/sett" />
-        </Route>
+        </Route> */}
         <Route exact path="/exposition" component={Services} />
         <Route exact path="/services" component={Services} />
         <Route exact path="/sertificates" component={Services} />

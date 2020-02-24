@@ -4,6 +4,7 @@ import { getProducts } from "../../../actions/products";
 import Products from "../../layouts/products/products";
 import { Switch, Route, useRouteMatch } from "react-router";
 import ProductPage from "./productPage/productPageCont";
+
 import prodPlaceHolder from "./no_product.gif";
 
 const Preloader = () => {
@@ -22,7 +23,13 @@ const NoData = () => {
   }, [timer]);
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
-      {timer && <img src={prodPlaceHolder} alt="no data available" />}
+      {timer && (
+        <img
+          src={prodPlaceHolder}
+          style={{ maxWidth: "100%" }}
+          alt="no data available"
+        />
+      )}
     </div>
   );
 };

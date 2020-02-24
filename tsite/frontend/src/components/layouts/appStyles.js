@@ -77,7 +77,7 @@ const CompanyContactsUl = styled.ul`
 `;
 // Content
 const Content = styled.div`
-  flex: 1 1 auto;
+  flex: 1 1 75vh; /* 100vh alternative for fix android chrome bug */
 `;
 const ContentRow = styled.div`
   display: flex;
@@ -109,25 +109,25 @@ const FooterText = styled.div`
 `;
 
 const Styles = {
-    Wrapper,
-    Container,
-    Company,
-    CompanyRow,
-    CompanyLogo,
-    CompanyTitle,
-    CompanyAddress,
-    CompanyAddressImg,
-    CompanyAddressTitle,
-    CompanyContacts,
-    CompanyContactsImg,
-    CompanyContactsUl,
-    Content,
-    ContentRow,
-    ContentAside,
-    ContentMain,
-    Footer,
-    FooterRow,
-    FooterText,
+  Wrapper,
+  Container,
+  Company,
+  CompanyRow,
+  CompanyLogo,
+  CompanyTitle,
+  CompanyAddress,
+  CompanyAddressImg,
+  CompanyAddressTitle,
+  CompanyContacts,
+  CompanyContactsImg,
+  CompanyContactsUl,
+  Content,
+  ContentRow,
+  ContentAside,
+  ContentMain,
+  Footer,
+  FooterRow,
+  FooterText,
 }
 
 export default Styles;
