@@ -4,6 +4,7 @@ import { Card } from "../products/card";
 
 const NewsItem = ({ newsItem }) => {
   const { id, title, body, product, created, changed } = newsItem;
+  // document.breadcrumb = 'Новости'
   return (
     <NewsItemStyle.Container>
       <NewsItemStyle.Container__row>

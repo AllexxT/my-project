@@ -52,7 +52,7 @@ const App = ({ children }) => {
         </S.Container>
       </S.Company>
       <S.Content>
-        <S.Container>
+        <S.ContentContainer>
           <Breadcrumbs /> {/* component */}
           <S.ContentRow>
             <S.ContentAside>
@@ -60,7 +60,7 @@ const App = ({ children }) => {
             </S.ContentAside>
             <S.ContentMain>{children}</S.ContentMain>
           </S.ContentRow>
-        </S.Container>
+        </S.ContentContainer>
       </S.Content>
       <S.Footer>
         <S.Container>

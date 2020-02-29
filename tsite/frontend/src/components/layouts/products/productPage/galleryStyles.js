@@ -9,8 +9,14 @@ const MainFrame = styled.div`
 const MainF__row = styled.div`
     display: flex;
     justify-content: flex-start;
+    & > div {
+        box-shadow: 0px 5px 10px gray;
+        background-color: whitesmoke;
+        padding: 6px 6px 0 0;
+    }
     @media (max-width: 768px){
         justify-content: center;
+        margin-bottom: 10px;
     }
 `
 

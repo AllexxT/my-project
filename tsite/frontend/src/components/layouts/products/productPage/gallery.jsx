@@ -38,7 +38,7 @@ const Gallery = ({ photos = [] }) => {
             <ImageGallery
               thumbnailPosition="left"
               // showBullets={true}
-              autoPlay={true}
+              // autoPlay={true}
               showIndex={true}
               // disableThumbnailScroll={true}
               onErrorImageURL={Cat}

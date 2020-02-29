@@ -10,6 +10,11 @@ const Container = styled.div`
   max-width: 1210px;
   margin: 0 auto;
 `;
+const ContentContainer = styled.div`
+  max-width: 1310px;
+  margin: 0 auto;
+`;
+
 // Header
 
 const Company = styled.div`
@@ -111,6 +116,7 @@ const FooterText = styled.div`
 const Styles = {
   Wrapper,
   Container,
+  ContentContainer,
   Company,
   CompanyRow,
   CompanyLogo,

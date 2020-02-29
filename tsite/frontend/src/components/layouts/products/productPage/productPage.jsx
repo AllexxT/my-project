@@ -16,6 +16,7 @@ const ProductPage = ({ product, callBack }) => {
     prices,
     photos
   } = product;
+  document.breadcrumb = name
   return (
     <PP.Wrapper>
       <PP.Gallery_Table__row>

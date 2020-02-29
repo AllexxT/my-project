@@ -1,10 +1,11 @@
 import styled from "styled-components"
 
 const StaticWin = styled.div`
-  position: fixed;
+  position: relative;  
 `
 
 const StyledMenu = styled.nav`
+  box-shadow: 5px 5px 15px black;
   display: flex;
   flex-direction: column;
   justify-content: center;

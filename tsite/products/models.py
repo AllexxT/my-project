@@ -50,6 +50,10 @@ class ProductCard(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name_plural = 'Товары'
+        verbose_name = 'Товар'
 ##############################################################################
 
 
@@ -74,6 +78,10 @@ class Prices(models.Model):
     def __str__(self):
         return str(self.color)
 
+    class Meta:
+        verbose_name_plural = 'Цены'
+        verbose_name = 'Цену'
+
 
 class Depth(models.Model):
     size = models.CharField(max_length=20, null=True)
@@ -93,6 +101,10 @@ class DepthPrice(models.Model):
 
     def __str__(self):
         return str(self.price)
+
+    # class Meta:
+    #     verbose_name_plural = 'Цена/Толщина'
+    #     verbose_name = 'Цена/Толщина'
 ##############################################################################
 
 

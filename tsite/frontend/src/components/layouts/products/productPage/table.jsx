@@ -14,7 +14,7 @@ const PriceTable = ({ sizes, prices }) => {
             <caption>Таблица Цен</caption>
             <thead>
               <tr>
-                <th>Цвет\Толщина</th>
+                <th>Цвет\Толщина<br/>цена</th>
                 {prices[0].depthPrice.map((depth, index) => (
                   <th key={index}>{depth.depth.size}</th>
                 ))}

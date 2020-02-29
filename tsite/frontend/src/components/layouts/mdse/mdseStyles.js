@@ -5,6 +5,7 @@ const Wrapper = styled.div`
     flex-wrap: wrap-reverse;
     max-width: 1060px;
     justify-content: center;
+    padding: 15pt 0 15pt 0;
 `;
 const CategoryItem = styled.div`
     display: flex;
@@ -18,6 +19,7 @@ const CategoryItem = styled.div`
     border-radius: 5px;
     box-shadow: 5px 5px 15px gray;
     transition: all 0.3s ease-out;
+    background-color: white;
     cursor: pointer;
     &:hover {
         box-shadow: none;
@@ -28,13 +30,13 @@ const CategoryItem = styled.div`
     img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
     }
     p {
         font-weight: bold;
         font-size: 14pt;
         opacity: 0.8;
-        transition: all 0.2s;
+        transition: all 0.3s;
         margin: 3pt 0 3pt 0;
     }
 `;
@@ -45,9 +47,12 @@ const Label = styled.div`
     justify-content: center;
     text-align: center;
     bottom: 5%;
-    background: rgba(255, 255, 255, 0.5);
+    background: #F5CB55;
     width: 100%;
     border-radius: 5px;
+    border-top: 1px solid rgb(210, 202, 202);
+    border-bottom: 1px solid rgb(210, 202, 202);
+    /* backdrop-filter: blur(2px); */
 `;
 
 const Styles = {

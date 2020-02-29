@@ -21,7 +21,6 @@ const MyTxtBox = ellipsis(MyTextBox, 1, "");
 
 export const Card = ({ card }) => {
   const [expand, setExpand] = useState(false); // local state of expandable {name} block
-
   const { name, discount, sertificate, photos, prices, article, id } = card;
   // render calculated lower price
   const lowerPrice =
@@ -54,6 +53,7 @@ export const Card = ({ card }) => {
   ) : (
     <MyTxtBox article={article} id={id} text={name}></MyTxtBox>
   );
+  document.breadcrumb = name
   return (
     <Crd.C_Wrapper>
       <Crd.C_Content>
