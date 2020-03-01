@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import App from "./layouts/App";
 import NewsContainer from "./containers/news/newsContainer";
 import Sett from "./containers/products/sett";
@@ -9,6 +9,7 @@ import Monuments from "./containers/products/monuments";
 import Parapet from "./containers/products/parapet";
 import Cat from "./cat.jpg";
 import Mdse from "./layouts/mdse/mdse";
+import ExpositionContainer from "./containers/exposition/expositionContainer";
 
 const Services = () => {
   const [switcher, setSwitcher] = useState(false);
@@ -72,7 +73,7 @@ const RoutedApp = () => (
         {/* <Route exact path="/products">
           <Redirect to="/products/sett" />
         </Route> */}
-        <Route exact path="/exposition" component={Services} />
+        <Route exact path="/exposition" component={ExpositionContainer} />
         <Route exact path="/services" component={Services} />
         <Route exact path="/sertificates" component={Services} />
         <Route exact path="/" component={NewsContainer} />

@@ -19,7 +19,7 @@ const StyledMenu = styled.nav`
   left: 0;
   transition: transform 0.3s ease-in-out, padding 0 linear 0.4s,
     height 0 linear 0.4s;
-
+  will-change: transform, height, padding;
   ul {
     padding-left: 3rem;
       a {

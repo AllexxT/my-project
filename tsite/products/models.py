@@ -3,6 +3,8 @@ from versatileimagefield.fields import VersatileImageField, PPOIField
 from datetime import date
 import uuid
 
+##############################################################################
+
 
 class Page(models.Model):
     page = models.CharField("Page", max_length=30, primary_key=True)
@@ -23,6 +25,7 @@ class Article(models.Model):
 
     def __str__(self):
         return f'{self.title}, {self.article}'
+##############################################################################
 
 
 class ProductCard(models.Model):
@@ -34,7 +37,7 @@ class ProductCard(models.Model):
     description = models.TextField()
     discount = models.BooleanField(blank=True)
     sertificate = models.BooleanField(blank=True, default=False)
-    sizes = models.TextField(max_length=400, blank=True, default='..X..')
+    sizes = models.TextField(max_length=400, blank=True)  # default='..X..'
 
     @property
     def news(self):
@@ -86,10 +89,6 @@ class Prices(models.Model):
 class Depth(models.Model):
     size = models.CharField(max_length=20, null=True)
 
-    # @property
-    # def depthPrice(self):
-    #     return self.depthprice_set.all()
-
     def __str__(self):
         return str(self.size)
 
@@ -116,7 +115,6 @@ class Photos(models.Model):
         verbose_name='Photo', ppoi_field='ppoi', blank=True
     )
     ppoi = PPOIField()
-
 ##############################################################################
 # News #
 
@@ -133,3 +131,49 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+##############################################################################
+# Exposition #
+
+
+class Exposition(models.Model):
+    address = models.CharField(max_length=50, null=True)
+    description = models.CharField(max_length=50, null=True)
+
+    types = (
+        ('sett', 'Тротуарка'),
+        ('brick', 'Блок и кирпич'),
+        ('fence', 'Забор'),
+        ('parapet', 'Крышки и парапеты'),
+        ('monuments', 'Памятники')
+    )
+    category = models.CharField(
+        max_length=10,
+        choices=types,
+        help_text='Категория',
+        default='trotuarka',
+    )
+
+    @property
+    def photos(self):
+        return self.expositionphotos_set.all()
+
+    def __str__(self):
+        return self.address
+
+    class Meta:
+        verbose_name_plural = 'Наши работы'
+        verbose_name = 'Нашу работу'
+
+
+class ExpositionPhotos(models.Model):
+    exposition = models.ForeignKey(
+        Exposition, on_delete=models.CASCADE, null=True
+    )
+    description = models.CharField(max_length=150, null=True)
+    photo = VersatileImageField(
+        verbose_name='Photo', ppoi_field='ppoi', blank=True
+    )
+    ppoi = PPOIField()
+
+    def __str__(self):
+        return self.exposition.address

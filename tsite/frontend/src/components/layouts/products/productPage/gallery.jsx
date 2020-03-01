@@ -17,7 +17,8 @@ const Gallery = ({ photos = [] }) => {
         return {
           fullscreen: item.photo.full_size,
           original: item.photo.medium_square_crop,
-          thumbnail: item.photo.small_square_crop
+          thumbnail: item.photo.small_square_crop,
+          description: "Описание изображения",
         };
       })
     );
@@ -40,6 +41,7 @@ const Gallery = ({ photos = [] }) => {
               // showBullets={true}
               // autoPlay={true}
               showIndex={true}
+              showPlayButton={false}
               // disableThumbnailScroll={true}
               onErrorImageURL={Cat}
               items={images}

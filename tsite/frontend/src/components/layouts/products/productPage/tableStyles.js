@@ -14,6 +14,8 @@ const Sizes = styled.div`
 `
 const Content__row = styled.div`
     display: flex;
+    box-shadow: 0px 10px 8px -8px gray;
+
     caption {
         font-weight: bold;
         font-size: 17pt;
@@ -33,6 +35,8 @@ const Content__row = styled.div`
         text-align: center;
         border-bottom: 1px solid gray;
         transition: all 0.3s linear;
+        box-shadow: 0px 5px 10px gray;
+
     }
     td:first-child {
         text-align: left;
@@ -68,10 +72,10 @@ const Content__row = styled.div`
         color: black;
     }
     tr:nth-child(1) td:first-child {
-        border-top-left-radius: 5px;
+        /* border-top-left-radius: 5px; */
     }
     tr:last-child td:first-child {
-        border-bottom-left-radius: 5px;
+        /* border-bottom-left-radius: 5px; */
     }
     tr:hover td{
         background: rgba(255, 241, 135, 0.7);

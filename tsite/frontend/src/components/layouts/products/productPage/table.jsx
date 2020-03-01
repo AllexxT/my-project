@@ -1,7 +1,5 @@
 import React from "react";
 import { default as S } from "./tableStyles";
-import { useState } from "react";
-import { useEffect } from "react";
 
 const PriceTable = ({ sizes, prices }) => {
 

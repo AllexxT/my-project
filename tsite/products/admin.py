@@ -1,6 +1,7 @@
 from django.contrib import admin
 from products.models import (
-    ProductCard, Prices, Photos, News, Page, Article, DepthPrice, Depth
+    ProductCard, Prices, Photos, News, Page, Article, DepthPrice, Depth,
+    Exposition, ExpositionPhotos
 )
 
 
@@ -131,4 +132,35 @@ class NewsAdmin(admin.ModelAdmin):
         'product',
         'title',
         'body',
+    )
+
+
+@admin.register(ExpositionPhotos)
+class ExpositionPhotosAdmin(admin.ModelAdmin):
+    fields = (
+        'description',
+        'photo',
+    )
+    list_display = (
+        'description',
+        'photo',
+    )
+
+
+@admin.register(Exposition)
+class ExpositionAdmin(admin.ModelAdmin):
+    class ExpositionPhotosInline(admin.StackedInline):
+        model = ExpositionPhotos
+        extra = 0
+    inlines = [ExpositionPhotosInline]
+
+    fields = (
+        'category',
+        'address',
+        'description',
+    )
+    list_display = (
+        'category',
+        'address',
+        'description',
     )

@@ -1,8 +1,9 @@
-from products.models import ProductCard, News
+from products.models import ProductCard, News, Exposition
 from rest_framework import viewsets, permissions, generics
 from .serializer import (
     ProductCardSerializer, NewsSerializer, NewsPostSerializer,
-    ProductCardUpdateSerializer
+    ProductCardUpdateSerializer,
+    ExpositionSerializer
 )
 
 
@@ -38,3 +39,16 @@ class NewsViewSet(viewsets.ModelViewSet):
             return NewsPostSerializer
         else:
             return NewsSerializer
+
+
+class ExpositionViewSet(viewsets.ModelViewSet):
+    queryset = Exposition.objects.all()
+    permissions_classes = [
+        permissions.AllowAny
+    ]
+
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return ExpositionSerializer
+        else:
+            return ExpositionSerializer

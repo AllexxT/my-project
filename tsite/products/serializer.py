@@ -3,7 +3,8 @@ from drf_writable_nested.serializers import WritableNestedModelSerializer
 from versatileimagefield.serializers import VersatileImageFieldSerializer
 from drf_writable_nested.mixins import UniqueFieldsMixin
 from products.models import (
-    ProductCard, Prices, Photos, News, Page, Article, Depth, DepthPrice
+    ProductCard, Prices, Photos, News, Page, Article, Depth, DepthPrice,
+    Exposition, ExpositionPhotos
 )
 
 
@@ -179,4 +180,38 @@ class NewsPostSerializer(serializers.ModelSerializer):
             'product',
             'changed',
             'created',
+        )
+##############################################################################
+# Exposition #
+
+
+class ExpositionPhotosSerializer(serializers.ModelSerializer):
+    photo = VersatileImageFieldSerializer(
+        sizes=[
+            ('full_size', 'url'),
+            ('thumbnail', 'thumbnail__100x100'),
+            ('medium_square_crop', 'crop__400x400'),
+            ('small_square_crop', 'crop__50x50')
+        ]
+    )
+
+    class Meta:
+        model = ExpositionPhotos
+        fields = (
+            'exposition',
+            'description',
+            'photo',
+        )
+
+
+class ExpositionSerializer(WritableNestedModelSerializer):
+    photos = ExpositionPhotosSerializer(many=True)
+
+    class Meta:
+        model = Exposition
+        fields = (
+            'category',
+            'description',
+            'address',
+            'photos',
         )
