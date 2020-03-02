@@ -1,8 +1,8 @@
 import React from "react";
-import Exposition from "../../layouts/exposition/exposition";
 import { useEffect } from "react";
 import { getExposition } from "../../../actions/exposition";
 import { useDispatch, useSelector } from "react-redux";
+import ExpositionPage from "../../layouts/exposition/expositionPage";
 
 // ###################################
 const Preloader = () => {
@@ -15,7 +15,6 @@ const NotFound = () => {
 // ###################################
 
 const ExpositionContainer = () => {
-
   const dispatch = useDispatch();
   const expositionState = useSelector(state => state.expositionReducer);
 
@@ -25,11 +24,33 @@ const ExpositionContainer = () => {
   useEffect(() => {
     dispatch(getExposition());
   }, []);
+  ///////////////////////////////////////////
+  //////////// This block transforms api response to
+  //////////// array of category arrays for mapping each gallery
+  //////////// in their category
+  const data = expositionState.exposition;
+  let categoryArray = [];
+  let expositionArray = [];
+
+  data.forEach(item => {
+    const category = item.category;
+    !categoryArray.includes(category) && categoryArray.push(category);
+  });
+
+  categoryArray.forEach(categ => {
+    let catSubArray = [];
+    data.forEach(item => {
+      const category = item.category;
+      categ == category && catSubArray.push(item);
+    });
+    expositionArray.push(catSubArray);
+  });
+  ///////////////////////////////////////////
 
   return expositionState.fetching ? (
     preloaderOr404
   ) : (
-    <Exposition data={expositionState.exposition} />
+    <ExpositionPage {...{ expositionArray }} />
   );
 };
 

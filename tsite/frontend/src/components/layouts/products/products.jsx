@@ -11,13 +11,6 @@ const Products = ({ data }) => {
   useEffect(() => {
     if (location.hash) {
       window.location.href = location.hash;
-      // var top = document.getElementById(articleAnchor).offsetTop;
-      // window.scrollTo(0, top);
-      // document.getElementById(articleAnchor).scrollIntoView({
-      //   behavior: "smooth",
-      //   block: "start",
-      //   inline: "nearest"
-      // });
     }
   }, []);
   return (
