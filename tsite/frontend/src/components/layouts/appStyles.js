@@ -6,11 +6,17 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const Container = styled.div`
+const HeaderContainer = styled.div`
   max-width: 1210px;
   margin: 0 auto;
 `;
 const ContentContainer = styled.div`
+  max-width: 1310px;
+  margin: 0 auto;
+`;
+const FooterContainer = styled.div`
+  display: flex;
+  flex-flow: column;
   max-width: 1310px;
   margin: 0 auto;
 `;
@@ -98,24 +104,15 @@ const ContentMain = styled.main`
   flex-grow: 1;
 `;
 // Footer
-const Footer = styled.div`
+const Footer = styled.footer`
   background-color: rgba(56, 56, 68, 0.9);
+  box-shadow: 0px -5px 10px gray;
 `;
-const FooterRow = styled.div`
-  display: flex;
-  height: 90px;
-  justify-content: center;
-  align-items: center;
-`;
-const FooterText = styled.div`
-  color: yellow;
-  font-size: 12px;
-  letter-spacing: 0.3px;
-`;
+
 
 const Styles = {
   Wrapper,
-  Container,
+  HeaderContainer,
   ContentContainer,
   Company,
   CompanyRow,
@@ -132,8 +129,7 @@ const Styles = {
   ContentAside,
   ContentMain,
   Footer,
-  FooterRow,
-  FooterText,
+  FooterContainer,
 }
 
 export default Styles;

@@ -7,6 +7,7 @@ import BurgerMenu from "./navigation/burgerMenu/burgerMenu";
 
 import addressLogo from "./address.png";
 import phone from "./phone2.png";
+import Footer from "./footer/footer";
 
 const Logo = ({ children }) => {
   return <S.CompanyTitle href="/">{children}</S.CompanyTitle>;
@@ -16,7 +17,7 @@ const App = ({ children }) => {
   return (
     <S.Wrapper>
       <S.Company>
-        <S.Container>
+        <S.HeaderContainer>
           <S.CompanyRow>
             <BurgerMenu />
             <S.CompanyLogo>
@@ -49,7 +50,7 @@ const App = ({ children }) => {
               </S.CompanyContactsUl>
             </S.CompanyContacts>
           </S.CompanyRow>
-        </S.Container>
+        </S.HeaderContainer>
       </S.Company>
       <S.Content>
         <S.ContentContainer>
@@ -63,11 +64,9 @@ const App = ({ children }) => {
         </S.ContentContainer>
       </S.Content>
       <S.Footer>
-        <S.Container>
-          <S.FooterRow>
-            <S.FooterText>Footer of the site</S.FooterText>
-          </S.FooterRow>
-        </S.Container>
+        <S.FooterContainer>
+          <Footer />
+        </S.FooterContainer>
       </S.Footer>
       <GlobalStyle /> {/* Styles */}
     </S.Wrapper>

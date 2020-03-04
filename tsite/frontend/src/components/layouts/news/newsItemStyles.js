@@ -4,7 +4,7 @@ const Container = styled.div`
     line-height: 16pt;
     position: relative;
     display: flex;
-    margin: 10px 0 10px 0;
+    margin: 10px 0 25pt 0;
     max-width: 1060px;
 `
 const Container__row = styled.div`
