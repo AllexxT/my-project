@@ -25,6 +25,7 @@ const ExpositionItem = ({ places }) => {
           // thumbnailPosition="left"
           // autoPlay={true}
           // disableThumbnailScroll={true}
+          lazyLoad={true}
           showThumbnails={false}
           showBullets={true}
           showIndex={true}
