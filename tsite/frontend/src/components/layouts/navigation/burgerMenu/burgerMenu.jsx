@@ -8,7 +8,7 @@ const BurgerMenu = () => {
   const node = React.useRef();
 
   const handleClickOutside = e => {
-    console.log(e.type);
+    // console.log(e.type);
     if (node.current.contains(e.target)) {
       // inside click
       return;
@@ -29,10 +29,10 @@ const BurgerMenu = () => {
 
   useEffect(() => {
     if (open) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside, {passive: true});
       // document.addEventListener("touchmove", handleSwipe);
     } else {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside, {passive: true});
       // document.removeEventListener("touchmove", handleSwipe);
     }
 

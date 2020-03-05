@@ -56,6 +56,9 @@ const CompanyAddress = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (min-width: 560px) and (max-width: 580px) {
+    order: 1;
+  }
 `;
 const CompanyAddressImg = styled.div`
   & img {
@@ -105,7 +108,7 @@ const ContentMain = styled.main`
 `;
 // Footer
 const Footer = styled.footer`
-  background-color: rgba(56, 56, 68, 0.9);
+  background-color: rgba(56, 56, 68, 1);
   box-shadow: 0px -5px 10px gray;
 `;
 

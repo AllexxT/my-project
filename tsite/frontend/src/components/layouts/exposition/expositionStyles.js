@@ -36,11 +36,18 @@ const CategoryWrapper = styled.div`
 `
 const Title = styled.div`
   margin: 10px 0;
-  font-size: 24px;
+  font-size: 27px;
 `
 const GalleryWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
+  @media only screen and (max-width: 480px) {
+    justify-content: center;
+  }
+  @media (min-width: 481px) and (max-width: 900px) {
+    justify-content: space-between;
+    margin: 0 4%;
+  }
 `
 const ItemWrapper = styled.div`
   display: flex;
@@ -52,6 +59,12 @@ const ItemWrapper = styled.div`
   /* filter: drop-shadow(0px 5px 10px gray); */
   &>div:first-child {
     box-shadow: 0px 5px 10px gray;
+  }
+  @media only screen and (max-width: 480px) {
+    flex: 0 0 90%;
+  }
+  @media (min-width: 481px) and (max-width: 900px) {
+    flex: 0 0 40.5%;
   }
 `
 const ItemDescription = styled.div`

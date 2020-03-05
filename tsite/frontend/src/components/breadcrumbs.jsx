@@ -9,17 +9,17 @@ const Ul_Container = styled.ul`
 `;
 
 const Alias = {
-    Home: ' ',
-    Products: "Товары",
-    Services: "Услуги",
-    Sett: "Тротуарная плитка и Бордюр",
-    Sertificates: "Сертификаты",
-    Exposition: "Наши работы",
-    Fence: "Eврозабор",
-    Brick: "Блок и Кирпич",
-    Parapet: "Крышки и Парапеты",
-    Monuments: "Памятники"
-  };
+  Home: " ",
+  Products: "Товары",
+  Services: "Услуги",
+  Sett: "Тротуарная плитка и Бордюр",
+  Sertificates: "Сертификаты",
+  Exposition: "Наши работы",
+  Fence: "Eврозабор",
+  Brick: "Блок и Кирпич",
+  Parapet: "Крышки и Парапеты",
+  Monuments: "Памятники"
+};
 
 const SEPARATOP = "➤";
 
@@ -41,7 +41,13 @@ const Breadcrumbs = () => {
     <div>
       <Ul_Container>
         <Li_Container>
-          <a href="" onClick={e => history.push("/")}>
+          <a
+            href=""
+            onClick={e => {
+              e.preventDefault();
+              history.push("/");
+            }}
+          >
             Новости
           </a>
         </Li_Container>
