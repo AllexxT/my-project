@@ -36,7 +36,7 @@ class ExampleData extends Component {
     return (
       <LoadScript
         id="script-loader"
-        googleMapsApiKey="AIzaSyBBPfKw_I-UDqgNmR0YM0ZNRYiuq7lR4ZQ"
+        googleMapsApiKey=""
       >
         <GoogleMap
           id="data-example"
