@@ -8,14 +8,21 @@ const FooterRow = styled.div`
   margin: 35pt 0 0 0;
 `;
 const FooterMap = styled.div`
+    position: relative;
     flex: 0 0 60%;
     height: 300px;
-    border: 1px solid black;
     overflow: hidden;
-    img {
+    iframe {
         object-fit: cover;
         width: 100%;
         height: 100%;
+    }
+    img {
+        position: absolute;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
     }
 `;
 const FooterTextRow = styled.div `
