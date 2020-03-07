@@ -1,11 +1,13 @@
-import React, { useRef } from "react";
-import styled from "styled-components"; // { css }
+import React from "react";
+import styled from "styled-components";
 import { useLocation, useHistory } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
+import { default as S } from "./breadcrumbsStyles";
 
 const Ul_Container = styled.ul`
-  display: flex;
+  margin-top: 5pt;
+  filter: drop-shadow(0 3px 5px #484752);
 `;
 
 const Alias = {
@@ -21,7 +23,7 @@ const Alias = {
   Monuments: "Памятники"
 };
 
-const SEPARATOP = "➤";
+// const SEPARATOP = "➤";
 
 const Breadcrumbs = () => {
   const location = useLocation();
@@ -38,21 +40,21 @@ const Breadcrumbs = () => {
     history.push(destionation);
   };
   return (
-    <div>
-      <Ul_Container>
-        <Li_Container>
-          <a
-            href=""
-            onClick={e => {
-              e.preventDefault();
-              history.push("/");
-            }}
-          >
-            Новости
-          </a>
-        </Li_Container>
-        {SEPARATOP}
-        {splittedPath.map((path, index) => (
+    <Ul_Container>
+      <Li_Container>
+        <a
+          href=""
+          onClick={e => {
+            e.preventDefault();
+            history.push("/");
+          }}
+        >
+          Новости
+        </a>
+      </Li_Container>
+      {/* {SEPARATOP} */}
+      {splittedPath[0] != "" &&
+        splittedPath.map((path, index) => (
           <Breadcrumb
             key={index}
             id={index}
@@ -60,18 +62,59 @@ const Breadcrumbs = () => {
             callback={linkHandler}
           />
         ))}
-      </Ul_Container>
-    </div>
+    </Ul_Container>
   );
 };
 
 const Li_Container = styled.li`
-    font-size: 16px;
-    /* Realization separator with Before and props */
-    /* &:not(:first-child)::before { */
-        /* content: "${props =>
-          props.separator ? props.separator : "-"}";       */
-    /* } */
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  /* width: 100px; */
+  margin: 0px 2px 2px 0;
+  text-indent: 19px;
+  position: relative;
+  &:before {
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    left: 0px;
+    border-style: solid;
+    border-width: 15px 0 15px 15px;
+    border-color: transparent transparent transparent #484752;
+    z-index: 0;
+  }
+  &:first-child:before {
+    border-color: transparent;
+  }
+  & a:after {
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    right: -15px;
+    border-style: solid;
+    border-width: 15px 0 15px 15px;
+    border-color: transparent transparent transparent #ccc;
+    z-index: 10;
+  }
+  & a {
+    display: block;
+    background: #ccc;
+    color: black;
+    font-size: 10pt;
+    font-weight: bold;
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+    &:hover {
+      background: rgb(221, 221, 221);
+    }
+    &:hover::after {
+      border-color: transparent transparent transparent rgb(221, 221, 221);
+    }
+    &:active {
+    }
+  }
 `;
 
 export const Breadcrumb = ({ callback, pathLabel, id }) => {
@@ -88,13 +131,23 @@ export const Breadcrumb = ({ callback, pathLabel, id }) => {
   }, [breadcr]);
 
   return (
-    <Li_Container>
-      {id === 0 || SEPARATOP}
-      {/* <a href='' onClick={(e) => callback(e)} >{`${label}`}</a> */}
-      <a href="" onClick={e => callback(e, label)}>
-        {(label in Alias && Alias[label]) || breadcr}
-      </a>
-    </Li_Container>
+    <>
+      {label in Alias ? (
+        <Li_Container>
+          <a href="" onClick={e => callback(e, label)}>
+            {Alias[label]}
+          </a>
+        </Li_Container>
+      ) : (
+        breadcr && (
+          <Li_Container>
+            <a href="" onClick={e => callback(e, label)}>
+              {breadcr}
+            </a>
+          </Li_Container>
+        )
+      )}
+    </>
   );
 };
 

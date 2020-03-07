@@ -24,8 +24,7 @@ const C_Wrapper = styled.div`
   animation: ${slide} 0.2s linear;
 `;
 const C_Content = styled.div`
-  padding: 15px 15px 0 15px;
-  margin: 0 0 15px 0;
+  padding: 15px 15px 15px 15px;
   display: flex;
   flex-direction: column;
   height: 100%;

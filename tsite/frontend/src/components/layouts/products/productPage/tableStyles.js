@@ -15,7 +15,7 @@ const Sizes = styled.div`
 const Content__row = styled.div`
     display: flex;
     box-shadow: 0px 10px 8px -8px gray;
-
+    width: fit-content;
     caption {
         font-weight: bold;
         font-size: 17pt;

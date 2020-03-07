@@ -18,7 +18,7 @@ const Gallery = ({ photos = [] }) => {
           fullscreen: item.photo.full_size,
           original: item.photo.medium_square_crop,
           thumbnail: item.photo.small_square_crop,
-          description: "Описание изображения",
+          description: "Описание изображения"
         };
       })
     );
@@ -34,8 +34,8 @@ const Gallery = ({ photos = [] }) => {
   return (
     <S.Wrapper>
       <S.MainFrame>
-        <S.MainF__row>
-          {images.length > 0 && (
+        {images.length > 0 && (
+          <S.MainF__row>
             <ImageGallery
               thumbnailPosition="left"
               // showBullets={true}
@@ -46,8 +46,8 @@ const Gallery = ({ photos = [] }) => {
               onErrorImageURL={Cat}
               items={images}
             />
-          )}
-        </S.MainF__row>
+          </S.MainF__row>
+        )}
       </S.MainFrame>
     </S.Wrapper>
   );
