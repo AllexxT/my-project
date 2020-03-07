@@ -4,19 +4,23 @@ const Wrapper = styled.div`
 
 `
 const MainFrame = styled.div`
-
+    @media (max-width: 768px){
+        display: flex;
+        justify-content: center;
+    }
 `
 const MainF__row = styled.div`
     display: flex;
     justify-content: flex-start;
+    padding: 6px 6px 6px 0;
+    box-shadow: 0px 5px 10px gray;
+    background-color: rgba(255, 255, 255, 0.7);
     &>div {
-        padding: 6px 6px 6px 0;
-        box-shadow: 0px 5px 10px gray;
-        background-color: rgba(255, 255, 255, 0.4);
     }
     @media (max-width: 768px){
         justify-content: center;
         margin-bottom: 10px;
+        width: fit-content;
     }
 `
 

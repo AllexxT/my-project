@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useRef } from "react";
 import PP from "./productPageStyles";
 import PriceTable from "./table";
 import Gallery from "./gallery";
 import Description from "./description";
+import { useEffect } from "react";
 
 const ProductPage = ({ product, callBack }) => {
+  const topOfContent = useRef()
+  useEffect(() => {
+    window.scroll({
+      top: topOfContent.current.offsetTop - 50, 
+      left: 0, 
+      behavior: 'smooth'
+    });
+    // window.scrollTo(0, 63);
+  }, []);
   const {
     id,
     name,
@@ -18,7 +28,7 @@ const ProductPage = ({ product, callBack }) => {
   } = product;
   document.breadcrumb = name
   return (
-    <PP.Wrapper>
+    <PP.Wrapper ref={topOfContent}>
       <PP.Gallery_Table__row>
           <Gallery {...{ photos }} />
         <PP.TableWrapper>

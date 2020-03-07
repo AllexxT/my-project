@@ -4,7 +4,7 @@ const PageWrapper = styled.div`
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
-  padding: 5pt;
+  padding: 0 5pt;
 `
 const PageTitle = styled.div`
   position: relative;
@@ -34,9 +34,12 @@ const CategoryWrapper = styled.div`
   flex-direction: column;
   margin-bottom: 10pt;
 `
-const Title = styled.div`
+const Title = styled.h3`
+  display: block;
   margin: 10px 0;
   font-size: 27px;
+  font-weight: bold;
+  color: #333333;
 `
 const GalleryWrapper = styled.div`
   display: flex;
@@ -59,6 +62,9 @@ const ItemWrapper = styled.div`
   /* filter: drop-shadow(0px 5px 10px gray); */
   &>div:first-child {
     box-shadow: 0px 5px 10px gray;
+  }
+  &&& .image-gallery-image {
+    max-height: 100vh;
   }
   @media only screen and (max-width: 480px) {
     flex: 0 0 90%;

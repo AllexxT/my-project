@@ -24,13 +24,6 @@ const Gallery = ({ photos = [] }) => {
     );
   }, [photos]);
 
-  const defaultImage = [
-    {
-      fullscreen: Cat,
-      original: Cat
-    }
-  ];
-
   return (
     <S.Wrapper>
       <S.MainFrame>

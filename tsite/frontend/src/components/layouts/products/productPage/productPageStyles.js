@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-    padding: 15pt 0 0 0;
+    padding: 0 0 15pt 0;
 `;
 const Gallery_Table__row = styled.div`
     display: flex;

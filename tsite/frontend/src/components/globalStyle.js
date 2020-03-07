@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
     img{vertical-align:top;}
     h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
     /* Custom settings */
-    html { overflow-y: scroll; } /* static scrollbar */
+    html { overflow-y: scroll; scroll-behavior: smooth; } /* static scrollbar */
 
     body {
         font-family: Arial, Helvetica, sans-serif;

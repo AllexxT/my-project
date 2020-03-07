@@ -97,6 +97,7 @@ const ContentRow = styled.div`
   display: flex;
 `;
 const ContentAside = styled.aside`
+  padding:15px 0 0 0;
   flex-basis: 400px;
   max-width: 150px;
   @media (max-width:900px){
@@ -105,6 +106,7 @@ const ContentAside = styled.aside`
 `;
 const ContentMain = styled.main`
   flex-grow: 1;
+  margin-top: 15px;
 `;
 // Footer
 const Footer = styled.footer`

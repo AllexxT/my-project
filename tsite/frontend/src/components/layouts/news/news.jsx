@@ -13,7 +13,7 @@ const News = ({ news }) => {
   return (
     <N_Box>
       {isNewsExist &&
-        news.news.reverse().map(newsData => (
+        news.news.map(newsData => (
           <NewsItem key={newsData.id} newsItem={newsData} />
         ))}
     </N_Box>

@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 
 
 const Nav = styled.nav`
-  padding:15pt 0 0 0;
   height: 100%;
 `
 const Nav__Li = styled.li`
@@ -25,15 +24,16 @@ const Nav__Li = styled.li`
         /* Current link styling */
         color: #fecf53;
         & + span {
-          background: #E4644B;
+          background: #D3A52E;
         }
       `}
   }
   ${props =>
     props.submenu &&
     css`
-        /* place for styling submenu buttons */
+        /* place for styling submenu buttons #343339*/
         background: #525252;
+
       `}
 `;
 
@@ -53,14 +53,13 @@ const Nav__Ul_Submenu = styled.ul`
     display: block;
   }
   a:hover + span {
-    background: #E4644B;
+    background: #D3A52E;
   }
 
 `
 
 const Nav__Submenu_icon = styled.span`
   display: inline-block;
-  /* background: #E4644B; */
   align-self: stretch;
   flex:0 0 5pt;
   order: -1;
@@ -70,7 +69,7 @@ const PopUpMenu__board = styled.ul`
     position: absolute;
     background: rgb(145, 145, 145);
     top: -5px;
-    left: 85%;
+    left: 95%;
     display: none;
     z-index: 10;
     padding: 5px;

@@ -26,7 +26,7 @@ const StyledMenu = styled.nav`
         display: block;
         letter-spacing: 0;
         font-size: ${({ open }) => (open ? "1rem" : "0rem")};
-        padding: ${({ open }) => (open ? "0 0 14pt 0" : "0")};
+        padding: ${({ open }) => (open ? "6pt 0" : "0")};
 
         @media (max-width: 560px) {
           font-size: ${({ open }) => (open ? "1.3rem" : "0rem")};
@@ -49,6 +49,7 @@ const StyledMenu = styled.nav`
     color: #525252;
     text-decoration: none;
     transition: all 0.05s linear;
+    max-width:270px;
 
     @media (max-width: 560px) {
       font-size: ${({ open }) => (open ? "2rem" : "0rem")};
