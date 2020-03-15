@@ -21,7 +21,6 @@ class ProductCardViewSet(viewsets.ModelViewSet):
             return ProductCard.objects.all()
 
     def get_serializer_class(self):
-        print(self.action)
         if self.action == 'update':
             return ProductCardUpdateSerializer
         else:

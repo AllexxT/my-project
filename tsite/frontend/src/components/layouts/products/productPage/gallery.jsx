@@ -7,7 +7,6 @@ import Cat from "../../../cat.jpg";
 
 const Gallery = ({ photos = [] }) => {
   const [images, setImages] = useState([]);
-
   // const windowSize = useWindowSize()
   // console.log(windowSize);
 

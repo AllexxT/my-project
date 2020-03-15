@@ -9,7 +9,7 @@ const ProductPage = ({ product, callBack }) => {
   const topOfContent = useRef()
   useEffect(() => {
     window.scroll({
-      top: topOfContent.current.offsetTop - 50, 
+      top: topOfContent.current.offsetTop - 500, 
       left: 0, 
       behavior: 'smooth'
     });
