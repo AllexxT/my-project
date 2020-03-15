@@ -2,8 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 import JoditEditor from "jodit-react";
 import Dscr, { GlobalS } from "./descriptionStyles";
 import SendBtn from "./sendButton.png";
+import { useSelector } from "react-redux";
 
 const Description = ({ description, callBack }) => {
+  const authState = useSelector(state => state.authReducer);
+
   const editor = useRef(null);
   const [showEditor, setShowEditor] = useState(false);
   const [content, setContent] = useState("");
@@ -29,9 +32,9 @@ const Description = ({ description, callBack }) => {
   };
   return (
     <GlobalS>
-      <Dscr.Btn onClick={() => setShowEditor(!showEditor)}>
+      {/* <Dscr.Btn onClick={() => setShowEditor(!showEditor)}>
         {showEditor ? "Скрыть редактор" : "Редактор описания"}
-      </Dscr.Btn>
+      </Dscr.Btn> */}
       <div dangerouslySetInnerHTML={{ __html: description }} />
       {showEditor && (
         <>

@@ -10,6 +10,12 @@ import Parapet from "./containers/products/parapet";
 import Cat from "./cat.jpg";
 import Mdse from "./layouts/mdse/mdse";
 import ExpositionContainer from "./containers/exposition/expositionContainer";
+import Register from "./accounts/Register";
+import Login from "./accounts/Login";
+import { useEffect } from "react";
+import { loadUser } from "../actions/auth";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Services = () => {
   const [switcher, setSwitcher] = useState(false);
@@ -60,27 +66,35 @@ const Error = () => {
   );
 };
 
-const RoutedApp = () => (
-  <BrowserRouter>
-    <App>
-      <Switch>
-        <Route path="/products/sett" component={Sett} />
-        <Route path="/products/fence" component={Fence} />
-        <Route path="/products/brick" component={Brick} />
-        <Route path="/products/monuments" component={Monuments} />
-        <Route path="/products/parapet" component={Parapet} />
-        <Route path="/products" component={Mdse} />
-        {/* <Route exact path="/products">
+const RoutedApp = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadUser());
+  }, []);
+  return (
+    <BrowserRouter>
+      <App>
+        <Switch>
+          <Route path="/products/sett" component={Sett} />
+          <Route path="/products/fence" component={Fence} />
+          <Route path="/products/brick" component={Brick} />
+          <Route path="/products/monuments" component={Monuments} />
+          <Route path="/products/parapet" component={Parapet} />
+          <Route path="/products" component={Mdse} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/login" component={Login} />
+          {/* <Route exact path="/products">
           <Redirect to="/products/sett" />
         </Route> */}
-        <Route exact path="/exposition" component={ExpositionContainer} />
-        <Route exact path="/services" component={Services} />
-        <Route exact path="/sertificates" component={Services} />
-        <Route exact path="/" component={NewsContainer} />
-        <Route path="/*" component={Error} />
-      </Switch>
-    </App>
-  </BrowserRouter>
-);
+          <Route exact path="/exposition" component={ExpositionContainer} />
+          <Route exact path="/services" component={Services} />
+          <Route exact path="/sertificates" component={Services} />
+          <Route exact path="/" component={NewsContainer} />
+          <Route path="/*" component={Error} />
+        </Switch>
+      </App>
+    </BrowserRouter>
+  );
+};
 
 export default RoutedApp;

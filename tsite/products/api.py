@@ -13,6 +13,9 @@ class ProductCardViewSet(viewsets.ModelViewSet):
         permissions.AllowAny
     ]
 
+    def perform_create(self, serializer):
+        return serializer.save(owner=self.request.user)
+
     def get_queryset(self):
         if self.request.query_params.get('page'):
             filter = self.request.query_params.get('page')

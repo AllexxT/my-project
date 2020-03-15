@@ -5,10 +5,10 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { default as S } from "./breadcrumbsStyles";
 
-
-
 const Alias = {
   Home: " ",
+  Register: "Регистрация",
+  Login: "Вход",
   Products: "Товары",
   Services: "Услуги",
   Sett: "Тротуарная плитка и Бордюр",
@@ -71,9 +71,12 @@ export const Breadcrumb = ({ callback, pathLabel, id }) => {
       : "Home";
 
   useEffect(() => {
-    setTimeout(() => {
+    let id = setTimeout(() => {
       setBreadcr(document.breadcrumb);
     }, 200);
+    return () => {
+      clearTimeout(id)
+    }
   }, [breadcr]);
 
   return (

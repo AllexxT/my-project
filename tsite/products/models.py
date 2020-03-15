@@ -1,7 +1,8 @@
+import uuid
 from django.db import models
+from django.contrib.auth.models import User
 from versatileimagefield.fields import VersatileImageField, PPOIField
 from datetime import date
-import uuid
 
 ##############################################################################
 
@@ -33,6 +34,8 @@ class ProductCard(models.Model):
     article = models.ForeignKey(
         Article, on_delete=models.SET_NULL, null=True
     )
+    owner = models.ForeignKey(
+        User, related_name="Description", on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField()
     discount = models.BooleanField(blank=True)
