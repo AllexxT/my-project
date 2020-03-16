@@ -6,12 +6,13 @@ import { useSelector } from "react-redux";
 
 const Description = ({ description, callBack }) => {
   const authState = useSelector(state => state.authReducer);
-
   const editor = useRef(null);
   const [showEditor, setShowEditor] = useState(false);
   const [content, setContent] = useState("");
-
   useEffect(() => {
+    authState.user != null && authState.user.username == "admin"
+      ? setShowEditor(true)
+      : setShowEditor(false);
     setContent(description);
   }, []);
 
@@ -44,9 +45,7 @@ const Description = ({ description, callBack }) => {
             config={config}
             tabIndex={1} // tabIndex of textarea
             onBlur={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
-            onChange={newContent => {
-              val = newContent;
-            }}
+            onChange={newContent => {}}
           />
           <Dscr.Btn onClick={() => callBack(content)}>Сохранить</Dscr.Btn>
         </>

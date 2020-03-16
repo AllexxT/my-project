@@ -23,12 +23,14 @@ const Menu = () => {
         {(isAuthenticated && <a href="" onClick={e=>{
           e.preventDefault()
           dispatch(logout())
-        }}>Выход</a>) || (
-          <>
-            <Styled_Link to="/register" label="Регистрация" />
-            <Styled_Link to="/login" label="Вход" />
-          </>
-        )}
+        }}>Выход</a>) 
+        // || (
+        //   <>
+        //     <Styled_Link to="/register" label="Регистрация" />
+        //     <Styled_Link to="/login" label="Вход" />
+        //   </>
+        // )
+        }
       </ul>
     </S.Nav>
   );
