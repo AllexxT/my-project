@@ -12,10 +12,10 @@ import Mdse from "./layouts/mdse/mdse";
 import ExpositionContainer from "./containers/exposition/expositionContainer";
 import Register from "./accounts/Register";
 import Login from "./accounts/Login";
-import { useEffect } from "react";
-import { loadUser } from "../actions/auth";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+//  // CHECKING IS USER LOGGED IN
+// import { useEffect } from "react";
+// import { loadUser } from "../actions/auth";
+// import { useDispatch } from "react-redux";
 
 const Services = () => {
   const [switcher, setSwitcher] = useState(false);
@@ -67,10 +67,11 @@ const Error = () => {
 };
 
 const RoutedApp = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loadUser());
-  }, []);
+  //  // CHECKING IS USER LOGGED IN
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(loadUser());
+  // }, []);
   return (
     <BrowserRouter>
       <App>

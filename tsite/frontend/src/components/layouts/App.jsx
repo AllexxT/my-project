@@ -8,6 +8,7 @@ import BurgerMenu from "./navigation/burgerMenu/burgerMenu";
 import addressLogo from "./address.png";
 import phone from "./phone2.png";
 import Footer from "./footer/footer";
+import Alerts from "./Alerts";
 
 const Logo = ({ children }) => {
   return <S.CompanyTitle href="/">{children}</S.CompanyTitle>;
@@ -20,6 +21,7 @@ const App = ({ children }) => {
         <S.HeaderContainer>
           <S.CompanyRow>
             <BurgerMenu />
+            <Alerts />
             <S.CompanyLogo>
               <Logo>
                 ЧП <span>Джас</span>

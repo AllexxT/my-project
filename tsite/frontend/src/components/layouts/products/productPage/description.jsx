@@ -14,7 +14,7 @@ const Description = ({ description, callBack }) => {
       ? setShowEditor(true)
       : setShowEditor(false);
     setContent(description);
-  }, []);
+  }, [authState.user]);
 
   const config = {
     readonly: false,

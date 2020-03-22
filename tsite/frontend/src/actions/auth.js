@@ -3,8 +3,10 @@ import axios from 'axios'
 import {
     USER_LOADING, USER_LOADED, AUTH_ERROR,
     LOGIN_SUCCESS, LOGIN_FAIL, LOGOUT_SUCCESS,
-    REGISTER_FAIL, REGISTER_SUCCESS
+    REGISTER_FAIL, REGISTER_SUCCESS, GET_ERRORS
 } from '../actions/types'
+import { createMessage } from './messages';
+
 
 
 // CHECK TOKEN & LOAD USER
@@ -20,9 +22,16 @@ export const loadUser = () => (dispatch, getState) => {
                 payload: res.data
             })
         }).catch(err => {
-            console.log(err)
             dispatch({
                 type: AUTH_ERROR
+            })
+            const errors = {
+                msg: err.response.data,
+                status: err.response.status
+            }
+            dispatch({
+                type: GET_ERRORS,
+                payload: errors
             })
         })
 }
@@ -46,8 +55,18 @@ export const login = (username, password) => dispatch => {
                 type: LOGIN_SUCCESS,
                 payload: res.data
             })
+            dispatch(createMessage({
+                logIn: 'Добро пожаловать!'
+            }))
         }).catch(err => {
-            console.log(err)
+            const errors = {
+                msg: err.response.data,
+                status: err.response.status
+            }
+            dispatch({
+                type: GET_ERRORS,
+                payload: errors
+            })
             dispatch({
                 type: LOGIN_FAIL
             })
@@ -63,7 +82,10 @@ export const logout = () => (dispatch, getState) => {
             dispatch({
                 type: LOGOUT_SUCCESS,
                 payload: res.data
-            })
+            });
+            dispatch(createMessage({
+                logOut: 'Выход из аккаунта'
+            }))
         }).catch(err => {
             console.log(err)
         })
@@ -88,7 +110,14 @@ export const register = ({ username, password, email }) => dispatch => {
                 payload: res.data
             })
         }).catch(err => {
-            console.log(err)
+            const errors = {
+                msg: err.response.data,
+                status: err.response.status
+            }
+            dispatch({
+                type: GET_ERRORS,
+                payload: errors
+            })
             dispatch({
                 type: REGISTER_FAIL
             })
