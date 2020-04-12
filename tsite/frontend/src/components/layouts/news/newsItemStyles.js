@@ -12,8 +12,8 @@ const Container__row = styled.div`
     display: flex;
     width: 100%;
     @media (max-width: 576px) {
-        display: block
-        align-items: flex-start;
+        display: flex;
+        flex-direction: column-reverse;
     }
 `
 const Card = styled.div`
@@ -27,11 +27,10 @@ const Card = styled.div`
 const News = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100%;
     min-width: 1px;
     /* word-break: break-all;  */  /*use this*/
     /* word-wrap: break-word; */
-    margin: 25px;
+    margin: 5px;
     @media (max-width: 576px) {
         display: inline;
     }

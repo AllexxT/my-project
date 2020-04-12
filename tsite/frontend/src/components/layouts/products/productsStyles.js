@@ -17,17 +17,18 @@ const PTitleAnimation = keyframes`
     }
 `;
 const PTitle = styled.div`
-  padding: 10px 0 10px 30px;
-  font-size: 26px;
+  padding: 10px 0 10px 13px;
+  font-size: 32px;
   line-height: 21px;
   animation: ${PTitleAnimation} 1s linear;
   @media (max-width: 576px) {
     text-align: center;
     padding-left: 0;
+    /* font-size: 32px; */
   }
 `;
 
-const PContentWrapper = styled.div `
+const PContentWrapper = styled.div`
   display: flex;
   @media (max-width:800px){
         justify-content: center;
@@ -43,7 +44,7 @@ const PContent = styled.ul`
     margin: 15px 15px 15px 15px;
   }
   @media (max-width:800px){
-    width: 75%;
+    justify-content: center;
   }
 `;
 
