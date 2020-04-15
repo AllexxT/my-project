@@ -10,7 +10,6 @@ const NewsContainer = () => {
   useEffect(() => {
     dispatch(getNews());
   }, [news.length]);
-
   return <News news={news} />;
 };
 

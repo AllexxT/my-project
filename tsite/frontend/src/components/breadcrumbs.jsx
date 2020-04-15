@@ -1,11 +1,8 @@
 import React from "react";
-import styled from "styled-components";
 import { useLocation, useHistory } from "react-router-dom";
-import { useEffect } from "react";
-import { useState } from "react";
 import { default as S } from "./breadcrumbsStyles";
 
-const Alias = {
+const Pages = {
   Home: " ",
   Register: "Регистрация",
   Login: "Вход",
@@ -82,10 +79,10 @@ export const Breadcrumb = ({ callback, pathLabel, id }) => {
 
   return (
     <>
-      {label in Alias ? (
+      {label in Pages ? (
         <S.Li_Container>
           <a href="" onClick={e => callback(e, label)}>
-            {Alias[label]}
+            {Pages[label]}
           </a>
         </S.Li_Container>
       ) : ( ''

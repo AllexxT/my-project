@@ -129,11 +129,14 @@ class News(models.Model):
 
     title = models.CharField(max_length=50, null=True)
     body = models.TextField(max_length=500, null=True)
-    changed = models.DateField(auto_now=True, blank=True)
+    changed = models.DateTimeField(auto_now=True, blank=True)
     created = models.DateField(auto_now_add=True, blank=True)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ['-changed']
 ##############################################################################
 # Exposition #
 
