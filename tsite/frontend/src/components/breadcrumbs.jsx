@@ -64,20 +64,21 @@ const Breadcrumbs = () => {
 };
 
 export const Breadcrumb = ({ callback, pathLabel, id }) => {
-  const [breadcr, setBreadcr] = useState(null);
   const label =
-    pathLabel.length > 1
-      ? pathLabel[0].toUpperCase() + pathLabel.slice(1)
-      : "Home";
-
-  useEffect(() => {
-    let id = setTimeout(() => {
-      setBreadcr(document.breadcrumb);
-    }, 200);
-    return () => {
-      clearTimeout(id)
-    }
-  }, [breadcr]);
+  pathLabel.length > 1
+  ? pathLabel[0].toUpperCase() + pathLabel.slice(1)
+  : "Home";
+  
+  // // For showing current product page // //
+  // const [breadcr, setBreadcr] = useState(null);
+  // useEffect(() => {
+  //   let id = setTimeout(() => {
+  //     setBreadcr(document.breadcrumb);
+  //   }, 200);
+  //   return () => {
+  //     clearTimeout(id)
+  //   }
+  // }, [breadcr]);
 
   return (
     <>
@@ -87,14 +88,15 @@ export const Breadcrumb = ({ callback, pathLabel, id }) => {
             {Alias[label]}
           </a>
         </S.Li_Container>
-      ) : (
-        breadcr && (
-          <S.Li_Container>
-            <a href="" onClick={e => callback(e, label)}>
-              {breadcr}
-            </a>
-          </S.Li_Container>
-        )
+      ) : ( ''
+        // // For showing current product page // //
+        // breadcr && (
+        //   <S.Li_Container>
+        //     <a href="" onClick={e => callback(e, label)}>
+        //       {breadcr}
+        //     </a>
+        //   </S.Li_Container>
+        // )
       )}
     </>
   );
