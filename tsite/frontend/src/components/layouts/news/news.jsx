@@ -7,16 +7,45 @@ const N_Box = styled.div`
   flex-direction: column;
   /* z-index:-50; */
 `;
+const PageTitle = styled.div`
+  position: relative;
+  margin: 10px 0 20px 0;
+  padding: 0 0 20px;
+  position: relative;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 100%;
+  color: #333;
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 10px;
+    display: block;
+    bottom: 0;
+    left: 0;
+    background-color: #f3cb55;
+  }
+`;
 
 const News = ({ news }) => {
-  const isNewsExist = news && news.news.length > 0;
   return (
-    <N_Box>
-      {isNewsExist &&
-        news.news.map(newsData => (
-          <NewsItem key={newsData.id} newsItem={newsData} />
-        ))}
-    </N_Box>
+    <>
+      <PageTitle>
+        <h1>Новости и новинки</h1>
+      </PageTitle>
+      <N_Box>
+        {(news.news.length > 0 &&
+          news.news.map((newsData) => (
+            <NewsItem key={newsData.id} newsItem={newsData} />
+          ))) || (
+          <p style={{ color: "darkgoldenrod", fontSize: "16px" }}>
+            Нет новостей
+          </p>
+        )}
+      </N_Box>
+    </>
   );
 };
 

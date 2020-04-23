@@ -3,7 +3,7 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { default as S } from "./galleryStyles";
 // import useWindowSize from "../../../getWindowSize";
-import Cat from "../../../cat.jpg";
+// import Cat from "../../../cat.jpg";
 
 const Gallery = ({ photos = [] }) => {
   const [images, setImages] = useState([]);
@@ -35,7 +35,7 @@ const Gallery = ({ photos = [] }) => {
               showIndex={true}
               showPlayButton={false}
               // disableThumbnailScroll={true}
-              onErrorImageURL={Cat}
+              // onErrorImageURL={Cat}
               items={images}
             />
           </S.MainF__row>

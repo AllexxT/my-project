@@ -8,9 +8,9 @@ const ExpositionPage = ({ expositionArray }) => {
       <S.PageTitle>
         <h1>Наши работы</h1>
       </S.PageTitle>
-      {expositionArray.map((category, index) => (
+      {expositionArray.length > 0 && expositionArray.map((category, index) => (
         <ExpositionCategory key={index} data={category} />
-      ))}
+      )) || <p style={{color:'darkgoldenrod', fontSize: '16px'}}>Работы не добавлены</p>}
     </S.PageWrapper>
   );
 };

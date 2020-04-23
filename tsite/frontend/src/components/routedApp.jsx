@@ -7,55 +7,17 @@ import Fence from "./containers/products/fence";
 import Brick from "./containers/products/brick";
 import Monuments from "./containers/products/monuments";
 import Parapet from "./containers/products/parapet";
-import Cat from "./cat.jpg";
 import Mdse from "./layouts/mdse/mdse";
 import ExpositionContainer from "./containers/exposition/expositionContainer";
 import Register from "./accounts/Register";
 import Login from "./accounts/Login";
+import Services from "./layouts/services/services";
+import Sertificates from "./layouts/sertificates/sertificates";
 //  // CHECKING IS USER LOGGED IN
 // import { useEffect } from "react";
 // import { loadUser } from "../actions/auth";
 // import { useDispatch } from "react-redux";
 
-const Services = () => {
-  const [switcher, setSwitcher] = useState(false);
-  const image = switcher ? (
-    <>
-      <img
-        onClick={() => setSwitcher(false)}
-        src={Cat}
-        style={{
-          position: "absolute",
-          top: "5%",
-          left: "5%",
-          maxWidth: "90%",
-          textAlign: "center",
-          cursor: "pointer"
-        }}
-        alt="cat"
-      />
-      <div style={{ display: "flex", height: "500px" }} />
-    </>
-  ) : (
-    <img
-      onClick={() => setSwitcher(true)}
-      style={{ cursor: "pointer" }}
-      src={Cat}
-      width="250"
-      alt="cat"
-    />
-  );
-  return (
-    <div>
-      <h1>Работаем Начальник</h1>
-      <br />
-      {image}
-    </div>
-  );
-};
-const ProductsBoard = () => {
-  return <h1>Products Board page</h1>;
-};
 
 const Error = () => {
   return (
@@ -89,7 +51,7 @@ const RoutedApp = () => {
         </Route> */}
           <Route exact path="/exposition" component={ExpositionContainer} />
           <Route exact path="/services" component={Services} />
-          <Route exact path="/sertificates" component={Services} />
+          <Route exact path="/sertificates" component={Sertificates} />
           <Route exact path="/" component={NewsContainer} />
           <Route path="/*" component={Error} />
         </Switch>
