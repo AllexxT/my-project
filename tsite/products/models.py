@@ -25,14 +25,16 @@ class Article(models.Model):
     unit = models.CharField('Единица измерения', max_length=10, blank=True)
 
     def __str__(self):
-        return f'{self.title}, {self.article}'
+        return f'{self.page}, {self.title}, {self.article}'
 ##############################################################################
 
 
 class ProductCard(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     article = models.ForeignKey(
-        Article, on_delete=models.SET_NULL, null=True
+        Article, verbose_name="sett=Тротуарка, fence=Забор, \
+            brick=Кирпич, monuments=Памятники",
+        on_delete=models.SET_NULL, null=True
     )
     owner = models.ForeignKey(
         User, related_name="Description", on_delete=models.CASCADE, null=True)
