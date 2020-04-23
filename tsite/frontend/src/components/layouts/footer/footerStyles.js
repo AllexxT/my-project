@@ -11,7 +11,7 @@ const FooterMap = styled.div`
     position: relative;
     flex: 0 0 60%;
     height: 300px;
-    overflow: hidden;
+    /* overflow: hidden; */
     iframe {
         object-fit: cover;
         width: 100%;

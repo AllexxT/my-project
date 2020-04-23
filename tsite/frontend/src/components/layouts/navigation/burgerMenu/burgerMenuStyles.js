@@ -9,62 +9,51 @@ const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #F6D27E;
-  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
-  height: ${({ open }) => (open ? "100vh" : "0vh")};
+  background: rgba(184, 134, 11, 0.7);
+  backdrop-filter: blur(20px);
+  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-120%)")};
+  min-height: ${({ open }) => (open ? "100vh" : "0vh")};
   text-align: left;
-  padding: ${({ open }) => (open ? "1.5rem" : "0")};
+  /* padding-top: 10px; */
   position: relative;
   top: -15px;
   left: 0;
   transition: transform 0.3s ease-in-out, padding 0 linear 0.4s,
-    height 0 linear 0.4s;
+  height 0 linear 0.4s;
   will-change: transform, height, padding;
-  ul {
-    padding-left: 3rem;
-      a {
-        display: block;
-        letter-spacing: 0;
-        font-size: ${({ open }) => (open ? "1rem" : "0rem")};
-        padding: ${({ open }) => (open ? "6pt 0" : "0")};
 
-        @media (max-width: 560px) {
-          font-size: ${({ open }) => (open ? "1.3rem" : "0rem")};
-          letter-spacing: 0.1rem;
-        }
-        @media (min-width: 560px) and (max-width: 580px) {
-          padding: ${({ open }) => (open ? "6pt 0" : "0")};
-        }
-        @media(min-height: 800px) {
-      padding: ${({ open }) => (open ? "15pt 0" : "0")};
-        }
-    }
+  &>a:first-child {
+    padding-top: 28px;
   }
+
   a {
-    font-size: ${({ open }) => (open ? "1rem" : "0rem")};
+    display: block;
+    font-size: ${({ open }) => (open ? "1.1rem" : "0rem")};
     text-transform: uppercase;
-    padding: ${({ open }) => (open ? "10pt 0" : "0")};
+    padding: ${({ open }) => (open ? "8pt 5px 8pt 15px" : "0")};
     font-weight: bold;
-    letter-spacing: 0.5rem;
-    color: #525252;
+    color: #333333;
     text-decoration: none;
     transition: all 0.05s linear;
-    max-width:270px;
-
-    @media (max-width: 560px) {
-      font-size: ${({ open }) => (open ? "2rem" : "0rem")};
-      letter-spacing: 0.1rem;
+    border-bottom: 1px solid rgba(210, 202, 202, 0.5);
+    /* @media (max-width: 560px) {
+      font-size: ${({ open }) => (open ? "1.5rem" : "0rem")};
     }
     @media (min-width: 560px) and (max-width: 580px) {
       padding: ${({ open }) => (open ? "6pt 0" : "0")};
     }
     @media(min-height: 800px) {
       padding: ${({ open }) => (open ? "15pt 0" : "0")};
-    }
+    } */
 
     &:hover {
       color: #343078;
     }
+  }
+  ul a {
+    font-weight: normal;
+    color: black;
+    font-size: 1rem;
   }
 `;
 
@@ -73,8 +62,8 @@ const StyledMenu = styled.nav`
 const StyledBurger = styled.button`
   position: absolute;
   top: 0;
-  right: ${({ open }) => (open ? "2rem" : "")};
-  left: ${({ open }) => (open ? "" : "2rem")};
+  right: ${({ open }) => (open ? "1rem" : "")};
+  left: ${({ open }) => (open ? "" : "1.5rem")};
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -122,9 +111,6 @@ const StyledBurgerMenu = styled.div`
   @media (min-width:900px){
         display: none;
     }
-  @media (max-width: 740px) {
-    left: -9pt;
-  }
 `;
 
 const Styles = {
