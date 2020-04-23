@@ -18,7 +18,7 @@ const Footer = () => {
           <S.FooterText>
             <S.ContactsText>
               <S.FooterTitle>Контакты</S.FooterTitle>
-              <a href="mailto:trotuar-dud@ukr.net">trotuar-dud@ukr.net</a>
+              <a href="mailto:trotuar-dud@ukr.net">trotuar-bud@ukr.net</a>
               <a href="tel:+380634566205">+380634566205</a>
               <a href="tel:+380634566205">+380634566205</a>
               <a href="tel:+380634566205">+380634566205</a>
