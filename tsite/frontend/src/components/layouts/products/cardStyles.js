@@ -18,7 +18,7 @@ const C_Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  background: whitesmoke;
+  background: #F5F5F5;
   justify-content: space-between;
   box-shadow: 0px 5px 10px gray;
   animation: ${slide} 0.2s linear;
@@ -42,8 +42,8 @@ const C_LinkHolder = styled.div`
   flex: 1 1 35px;
 `;
 const C_ExpandableName = styled.div`
-  position: absolute;
-  background: whitesmoke;
+  position: relative;
+  background: #F5F5F5;
   text-decoration: underline;
    & a {
     display: flex;
@@ -95,21 +95,21 @@ const C_Button = styled.div`
   display: flex;
   justify-content: center;
   line-height: 48px;
-  background: #d3a52e;
-  transition: background 0.2s linear;
-  &:hover {
-    background: #fdc61d;
-  }
   & a {
     height: 100%;
     width: 100%;
     font-size: 16px;
     font-weight: 600;
     color: #2b2b2b;
+    background: #d3a52e;
+
     text-align: center;
-    transition: color 0.2s;
+    transition: all 0.2s linear;
     &:hover {
+      background: #fdc61d;
       color: #2b2b2b;
+    &:hover {
+    }
     }
   }
 `;

@@ -32,7 +32,8 @@ const App = ({ children }) => {
                 <img src={addressLogo} alt="address" />
               </S.CompanyAddressImg>
               <S.CompanyAddressTitle>
-                г. Запорожье, ул Космическая 119
+                <p>г. Запорожье, пос. Кременно 40</p>
+                <p>Мокрянский карьер № 2 </p>
               </S.CompanyAddressTitle>
             </S.CompanyAddress>
             <S.CompanyContacts>
@@ -41,13 +42,10 @@ const App = ({ children }) => {
               </S.CompanyContactsImg>
               <S.CompanyContactsUl>
                 <li>
-                  <a href="tel:+380634566205">+380634566205</a>
+                  <a href="tel:+380638086001">+380638086001</a>
                 </li>
                 <li>
-                  <a href="tel:+380634566205">+380634566205</a>
-                </li>
-                <li>
-                  <a href="tel:+380634566205">+380634566205</a>
+                  <a href="tel:+380675273100">+380675273100</a>
                 </li>
               </S.CompanyContactsUl>
             </S.CompanyContacts>

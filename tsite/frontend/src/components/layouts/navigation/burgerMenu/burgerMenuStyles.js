@@ -9,9 +9,8 @@ const StyledMenu = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: rgba(184, 134, 11, 0.7);
-  backdrop-filter: blur(20px);
-  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-120%)")};
+  background: #DED9D9;
+  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-130%)")};
   min-height: ${({ open }) => (open ? "100vh" : "0vh")};
   text-align: left;
   /* padding-top: 10px; */
@@ -21,6 +20,7 @@ const StyledMenu = styled.nav`
   transition: transform 0.3s ease-in-out, padding 0 linear 0.4s,
   height 0 linear 0.4s;
   will-change: transform, height, padding;
+  /* backdrop-filter: blur(20px); */
 
   &>a:first-child {
     padding-top: 28px;
@@ -35,7 +35,7 @@ const StyledMenu = styled.nav`
     color: #333333;
     text-decoration: none;
     transition: all 0.05s linear;
-    border-bottom: 1px solid rgba(210, 202, 202, 0.5);
+    border-bottom: 1px solid rgba(83, 83, 83, 0.7);
     /* @media (max-width: 560px) {
       font-size: ${({ open }) => (open ? "1.5rem" : "0rem")};
     }
@@ -80,14 +80,15 @@ const StyledBurger = styled.button`
   }
 
   div {
+    display: block;
     width: 2rem;
-    height: 0.25rem;
+    height: 4px;
     background: ${({ open }) => (open ? "#0D0C1D" : "#f5cb55")};
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
-
+    margin-bottom: 5px;
     :first-child {
       transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
     }

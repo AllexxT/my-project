@@ -13,17 +13,17 @@ const FooterMap = styled.div`
     height: 300px;
     /* overflow: hidden; */
     iframe {
-        object-fit: cover;
+        /* object-fit: cover; */
         width: 100%;
         height: 100%;
     }
-    img {
+    /* img {
         position: absolute;
         object-fit: cover;
         width: 100%;
         height: 100%;
         z-index: -1;
-    }
+    } */
 `;
 const FooterTextRow = styled.div `
     display: flex;

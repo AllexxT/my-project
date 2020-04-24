@@ -25,7 +25,9 @@ export const Card = ({ card }) => {
   // render calculated lower price
   const lowerPrice =
     prices.length > 0 &&
-    Math.min(...prices.map(price => price.lowerPrice).filter(lp => lp != null));
+    Math.min(
+      ...prices.map((price) => price.lowerPrice).filter((lp) => lp != null)
+    );
 
   const isPriceAvailable = () => {
     if (prices.length == 1 && prices[0].lowerPrice != null) {
@@ -41,19 +43,19 @@ export const Card = ({ card }) => {
     ? photos[0].photo.medium_square_crop
     : placeholder;
 
-    // Need to REVORK
+  // Need to REVORK
   const oldPriceProduct = // search old price by flag 'oldPrice == true' in api responce
     prices.length > 0 &&
     prices.reduce((past, curr) => {
       return curr.oldPrice == true && curr;
     }, {});
-
+  console.log(oldPriceProduct);
   const nameExpand = expand ? ( // nameExpand render full {name} text if expand === true
     <Link to={`/products/${article.page.page}/${id}`}>{name}</Link>
   ) : (
     <MyTxtBox article={article} id={id} text={name}></MyTxtBox>
   );
-  document.breadcrumb = name
+  document.breadcrumb = name;
   return (
     <Crd.C_Wrapper>
       <Crd.C_Content>
@@ -97,8 +99,8 @@ Card.defaultProps = {
     sertificate: false,
     photos: [],
     prices: [{ lowerPrice: null }],
-    id: ""
-  }
+    id: "",
+  },
 };
 
 export default Card;

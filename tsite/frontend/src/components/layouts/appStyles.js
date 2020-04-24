@@ -65,9 +65,9 @@ const CompanyAddressImg = styled.div`
     max-width: 25pt;
   }
 `;
-const CompanyAddressTitle = styled.p`
+const CompanyAddressTitle = styled.div`
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1.5em;
+  font-size: 1.3em;
   color: #efede3;
   text-align: center;
 `;

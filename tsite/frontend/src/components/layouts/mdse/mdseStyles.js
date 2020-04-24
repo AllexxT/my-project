@@ -10,9 +10,9 @@ const Wrapper = styled.div`
 const CategoryItem = styled.div`
     display: flex;
     position: relative;
-    background: 1px solid red;
+    flex-direction: column;
     margin: 0 7pt 15pt 7pt;
-    flex:1 1 300px;
+    flex: 1 1 300px;
     height: 250px;
     justify-content: center;
     overflow: hidden;
@@ -53,6 +53,9 @@ const Label = styled.div`
     border-top: 1px solid rgb(210, 202, 202);
     border-bottom: 1px solid rgb(210, 202, 202);
     /* backdrop-filter: blur(2px); */
+    @media (max-width: 330px) {
+      position: relative;
+    }
 `;
 
 const Styles = {
