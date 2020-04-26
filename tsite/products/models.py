@@ -40,8 +40,8 @@ class ProductCard(models.Model):
         User, related_name="Description", on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=100, unique=True)
     description = models.TextField(null=True, blank=True)
-    discount = models.BooleanField(blank=True)
-    sertificate = models.BooleanField(blank=True, default=False)
+    discount = models.BooleanField('Скидка', blank=True)
+    sertificate = models.BooleanField('Сертификат', blank=True, default=False)
     sizes = models.TextField(max_length=400, null=True, blank=True)
 
     @property

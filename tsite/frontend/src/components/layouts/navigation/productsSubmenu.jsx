@@ -9,7 +9,7 @@ const ProductsSubmenu = () => {
       <Styled_Link
         submenu={true}
         to="/products/sett"
-        label="ТРОТУАРНАЯ ПЛИТКА И БОРДЮР"
+        label="ТРОТУАРНАЯ ПЛИТКА, БОРДЮР И ВОДОСТОК"
       >
           <NavStyle.Nav__Submenu_icon></NavStyle.Nav__Submenu_icon>
         <PopUpMenu>
@@ -19,6 +19,7 @@ const ProductsSubmenu = () => {
           />
           <PopUpLink to="/products/sett#vibrocast" label="Вибролитая" />
           <PopUpLink to="/products/sett#borders" label="Бордюр" />
+          <PopUpLink to="/products/sett#gully" label="Водосток" />
         </PopUpMenu>
       </Styled_Link>
       {/* <div>hello</div> */}
