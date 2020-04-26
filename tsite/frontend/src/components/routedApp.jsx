@@ -18,7 +18,6 @@ import Sertificates from "./layouts/sertificates/sertificates";
 // import { loadUser } from "../actions/auth";
 // import { useDispatch } from "react-redux";
 
-
 const Error = () => {
   return (
     <h1>
