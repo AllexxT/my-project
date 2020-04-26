@@ -16,7 +16,7 @@ const Menu = ({ open, setOpen }) => {
           <li>
             {" "}
             <Link to="/products/sett">
-              ТРОТУАРНАЯ ПЛИТКА И БОРДЮР
+              ТРОТУАРНАЯ ПЛИТКА, БОРДЮР И ВОДОСТОК
             </Link>
           </li>
           <li>

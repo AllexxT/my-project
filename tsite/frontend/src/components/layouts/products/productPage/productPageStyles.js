@@ -39,6 +39,7 @@ const Title__row = styled.div`
         font-size: 24pt;
         color: rgb(35, 32, 32);
         line-height:2.5rem;
+        text-align: center;
     }
 `;
 const Sizes = styled.div`

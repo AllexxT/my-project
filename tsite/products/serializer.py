@@ -189,7 +189,7 @@ class ExpositionPhotosSerializer(serializers.ModelSerializer):
     photo = VersatileImageFieldSerializer(
         sizes=[
             ('full_size', 'url'),
-            ('thumbnail', 'thumbnail__100x100'),
+            # ('thumbnail', 'thumbnail__100x100'),
             ('medium_square_crop', 'crop__400x400'),
             ('small_square_crop', 'crop__50x50')
         ]

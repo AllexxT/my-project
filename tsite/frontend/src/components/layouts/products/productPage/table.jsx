@@ -27,6 +27,7 @@ const PriceTable = ({ sizes, prices }) => {
   );
   return (
     <S.Wrapper>
+      <S.Press />
       <S.Content__row>{table}</S.Content__row>
     </S.Wrapper>
   );

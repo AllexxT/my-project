@@ -28,7 +28,7 @@ module.exports = {
     watchOptions: {
         poll: true
     },
-    devtool: 'inline-source-map',
+    // devtool: 'inline-source-map',
     resolve: {
         extensions: ['*', '.js', '.jsx']
     }

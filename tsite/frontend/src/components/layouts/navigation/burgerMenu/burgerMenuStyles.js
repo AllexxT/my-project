@@ -30,7 +30,7 @@ const StyledMenu = styled.nav`
     display: block;
     font-size: ${({ open }) => (open ? "1.1rem" : "0rem")};
     text-transform: uppercase;
-    padding: ${({ open }) => (open ? "8pt 5px 8pt 15px" : "0")};
+    padding: ${({ open }) => (open ? "8pt 10px 8pt 15px" : "0")};
     font-weight: bold;
     color: #333333;
     text-decoration: none;

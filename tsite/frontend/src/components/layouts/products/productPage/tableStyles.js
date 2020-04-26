@@ -7,6 +7,11 @@ const Wrapper = styled.div`
     padding-left: 5px;
     align-items: center;
 `
+const Press = styled.div `
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+`
 
 const Content__row = styled.div`
     display: flex;
@@ -81,6 +86,7 @@ const Content__row = styled.div`
 
 const Styles = {
     Wrapper,
+    Press,
     Content__row,
 }
 
