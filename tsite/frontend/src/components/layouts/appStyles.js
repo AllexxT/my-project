@@ -56,6 +56,7 @@ const CompanyAddress = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 5px;
   @media (min-width: 560px) and (max-width: 580px) {
     order: 1;
   }
@@ -98,7 +99,7 @@ const ContentRow = styled.div`
 `;
 const ContentAside = styled.aside`
   padding:15px 0 0 0;
-  flex-basis: 400px;
+  flex-basis: 540px;
   max-width: 150px;
   @media (max-width:900px){
     display: none;

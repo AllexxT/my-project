@@ -5,13 +5,9 @@ const Wrapper = styled.div`
     flex-flow: column;
     flex: 1 1 auto;
     padding-left: 5px;
+    align-items: center;
 `
-const Sizes = styled.div`
-    align-self: center;
-    padding: 5pt 0 5pt 0;
-    font-size: 12pt;
-    flex: 1 1 auto;
-`
+
 const Content__row = styled.div`
     display: flex;
     box-shadow: 0px 10px 8px -8px gray;
@@ -85,7 +81,6 @@ const Content__row = styled.div`
 
 const Styles = {
     Wrapper,
-    Sizes,
     Content__row,
 }
 

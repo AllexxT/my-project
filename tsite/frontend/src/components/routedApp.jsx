@@ -46,9 +46,6 @@ const RoutedApp = () => {
           <Route path="/products" component={Mdse} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
-          {/* <Route exact path="/products">
-          <Redirect to="/products/sett" />
-        </Route> */}
           <Route exact path="/exposition" component={ExpositionContainer} />
           <Route exact path="/services" component={Services} />
           <Route exact path="/sertificates" component={Sertificates} />

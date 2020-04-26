@@ -41,6 +41,12 @@ const Title__row = styled.div`
         line-height:2.5rem;
     }
 `;
+const Sizes = styled.div`
+    align-self: center;
+    padding: 5pt 0 5pt 0;
+    font-size: 12pt;
+    flex: 1 1 auto;
+`
 const DescriptionWrapper = styled.div`
     max-width: 100vw;
     padding: 10pt 5pt 0 5pt;
@@ -53,6 +59,7 @@ const PP = {
     TableWrapper,
     TitleWrapper,
     Title__row,
+    Sizes,
     DescriptionWrapper,
 }
 

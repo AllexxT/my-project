@@ -79,7 +79,7 @@ class DepthPriceSerializer(WritableNestedModelSerializer):
 
 class PriceSerializer(WritableNestedModelSerializer):
     depthPrice = DepthPriceSerializer(many=True)
-    lowerPrice = serializers.IntegerField()
+    lowerPrice = serializers.FloatField()
 
     class Meta:
         model = Prices

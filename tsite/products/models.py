@@ -39,10 +39,10 @@ class ProductCard(models.Model):
     owner = models.ForeignKey(
         User, related_name="Description", on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=100, unique=True)
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
     discount = models.BooleanField(blank=True)
     sertificate = models.BooleanField(blank=True, default=False)
-    sizes = models.TextField(max_length=400, blank=True)  # default='..X..'
+    sizes = models.TextField(max_length=400, null=True, blank=True)
 
     @property
     def news(self):
@@ -92,7 +92,7 @@ class Prices(models.Model):
 
 
 class Depth(models.Model):
-    size = models.CharField(max_length=20, null=True)
+    size = models.CharField(max_length=20, null=True, blank=True)
 
     def __str__(self):
         return str(self.size)
@@ -101,7 +101,7 @@ class Depth(models.Model):
 class DepthPrice(models.Model):
     prices = models.ForeignKey(Prices, on_delete=models.CASCADE)
     depth = models.ForeignKey(Depth, on_delete=models.CASCADE)
-    price = models.IntegerField(verbose_name='Price', null=True)
+    price = models.FloatField(verbose_name='Price', null=True)
 
     def __str__(self):
         return str(self.price)
@@ -145,7 +145,7 @@ class News(models.Model):
 
 class Exposition(models.Model):
     address = models.CharField(max_length=50, null=True)
-    description = models.CharField(max_length=50, null=True)
+    description = models.CharField(max_length=50, null=True, blank=True)
 
     types = (
         ('sett', 'Тротуарка'),
@@ -177,7 +177,7 @@ class ExpositionPhotos(models.Model):
     exposition = models.ForeignKey(
         Exposition, on_delete=models.CASCADE, null=True
     )
-    description = models.CharField(max_length=150, null=True)
+    description = models.CharField(max_length=150, null=True, blank=True)
     photo = VersatileImageField(
         verbose_name='Photo', ppoi_field='ppoi', blank=True
     )

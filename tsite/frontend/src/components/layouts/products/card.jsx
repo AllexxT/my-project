@@ -38,18 +38,14 @@ export const Card = ({ card }) => {
         : "нет информации";
     }
   };
-
   const availablePhoto = photos.length
     ? photos[0].photo.medium_square_crop
     : placeholder;
 
-  // Need to REVORK
   const oldPriceProduct = // search old price by flag 'oldPrice == true' in api responce
     prices.length > 0 &&
-    prices.reduce((past, curr) => {
-      return curr.oldPrice == true && curr;
-    }, {});
-  console.log(oldPriceProduct);
+    prices[0].oldPrice || ''
+
   const nameExpand = expand ? ( // nameExpand render full {name} text if expand === true
     <Link to={`/products/${article.page.page}/${id}`}>{name}</Link>
   ) : (
@@ -77,8 +73,8 @@ export const Card = ({ card }) => {
             {nameExpand}
           </Crd.C_ExpandableName>
         </Crd.C_LinkHolder>
-        <Crd.C_OldPrice oldPrice={oldPriceProduct.oldPrice}>
-          {oldPriceProduct.price} грн.
+        <Crd.C_OldPrice oldPrice={oldPriceProduct}>
+          {oldPriceProduct} грн.
         </Crd.C_OldPrice>
         <Crd.C_Price>
           {isPriceAvailable()}

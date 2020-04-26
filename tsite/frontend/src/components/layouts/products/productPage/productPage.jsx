@@ -1,20 +1,13 @@
 import React, { useRef } from "react";
-import PP from "./productPageStyles";
+import S from "./productPageStyles";
 import PriceTable from "./table";
 import Gallery from "./gallery";
 import Description from "./description";
 import { useEffect } from "react";
+import NoTablePrices from "./noTablePrices";
 
 const ProductPage = ({ product, callBack }) => {
-  const topOfContent = useRef()
-  useEffect(() => {
-    window.scroll({
-      top: topOfContent.current.offsetTop - 500, 
-      left: 0, 
-      behavior: 'smooth'
-    });
-    // window.scrollTo(0, 63);
-  }, []);
+  const topOfContent = useRef();
   const {
     id,
     name,
@@ -24,33 +17,43 @@ const ProductPage = ({ product, callBack }) => {
     description,
     discount,
     prices,
-    photos
+    photos,
   } = product;
-  document.breadcrumb = name
+  useEffect(() => {
+    window.scroll({
+      top: topOfContent.current.offsetTop - 500,
+      left: 0,
+      behavior: "smooth",
+    });
+    // window.scrollTo(0, 63);
+  }, []);
   return (
-    <PP.Wrapper ref={topOfContent}>
-      <PP.Gallery_Table__row>
-          <Gallery {...{ photos }} />
-        <PP.TableWrapper>
-          <PP.TitleWrapper>
-            <PP.Title__row>
+    <S.Wrapper ref={topOfContent}>
+      <S.Gallery_Table__row>
+        <Gallery {...{ photos }} />
+        <S.TableWrapper>
+          <S.TitleWrapper>
+            <S.Title__row>
               <h1>{name}</h1>
-            </PP.Title__row>
-          </PP.TitleWrapper>
-          <PriceTable {...{ sizes, prices }} />
-        </PP.TableWrapper>
-      </PP.Gallery_Table__row>
-      <PP.DescriptionWrapper>
+            </S.Title__row>
+          </S.TitleWrapper>
+          <S.Sizes>{sizes}</S.Sizes>
+          {article != undefined &&
+            article.page.page == "sett" &&
+            (<PriceTable {...{ sizes, prices }} /> || <NoTablePrices />)}
+        </S.TableWrapper>
+      </S.Gallery_Table__row>
+      <S.DescriptionWrapper>
         <Description {...{ description, callBack }} />
-      </PP.DescriptionWrapper>
-    </PP.Wrapper>
+      </S.DescriptionWrapper>
+    </S.Wrapper>
   );
 };
 
 ProductPage.defaultProps = {
   product: {
-    photos: []
-  }
+    photos: [],
+  },
 };
 
 export default ProductPage;

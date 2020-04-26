@@ -25,7 +25,7 @@ const Description = ({ description, callBack }) => {
       }
     ],
     toolbarButtonSize: "large",
-    processPasteHTML: "true"
+    processPasteHTML: "false"
     // events: {
     //   keydown: () => {
     //   }
