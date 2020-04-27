@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import JoditEditor from "jodit-react";
 import Dscr, { GlobalS } from "./descriptionStyles";
-import SendBtn from "./sendButton.png";
 import { useSelector } from "react-redux";
 
 const Description = ({ description, callBack }) => {
@@ -18,12 +17,12 @@ const Description = ({ description, callBack }) => {
 
   const config = {
     readonly: false,
-    extraButtons: [
-      {
-        iconURL: SendBtn,
-        exec: () => {}
-      }
-    ],
+    // extraButtons: [
+    //   {
+    //     iconURL: SendBtn,
+    //     exec: () => {}
+    //   }
+    // ],
     toolbarButtonSize: "large",
     processPasteHTML: "false"
     // events: {

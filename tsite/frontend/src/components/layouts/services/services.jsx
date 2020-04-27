@@ -1,35 +1,75 @@
 import React from "react";
-import styled from "styled-components";
-
-const PageTitle = styled.div`
-  position: relative;
-  margin: 10px 0 20px 0;
-  padding: 0 0 20px;
-  position: relative;
-  font-size: 36px;
-  font-weight: 900;
-  line-height: 100%;
-  color: #333;
-
-  &:before {
-    content: "";
-    position: absolute;
-    width: 75px;
-    height: 10px;
-    display: block;
-    bottom: 0;
-    left: 0;
-    background-color: #f3cb55;
-  }
-`;
+import { default as S } from "./servicesStyle";
 
 const Services = () => {
   return (
-    <div>
-      <PageTitle>
+    <S.PageWrapper>
+      <S.PageTitle>
         <h1>Наши услуги</h1>
-      </PageTitle>
-    </div>
+      </S.PageTitle>
+      <S.Content>
+        <S.Item>
+          <S.ImageBlock>
+            <a href="">
+              <img
+                src="https://anvigroup.com.ua/wp-content/uploads/2017/02/manipulator.jpg"
+                alt="Доставка"
+              />
+            </a>
+          </S.ImageBlock>
+          <S.ButtonBlock>
+            <a href="">
+              <span>ДОСТАВКА</span>
+            </a>
+          </S.ButtonBlock>
+        </S.Item>
+        <S.Item>
+          <S.ImageBlock>
+            <a href="">
+              <img
+                src="https://anvigroup.com.ua/wp-content/uploads/2017/02/ukladka-trotuarnoj-plitki-1.jpg"
+                alt="Укладка"
+              />
+            </a>
+          </S.ImageBlock>
+          <S.ButtonBlock>
+            <a href="">
+              <span>УКЛАДКА</span>
+            </a>
+          </S.ButtonBlock>
+        </S.Item>
+        <S.Item>
+          <S.ImageBlock>
+            <a href="">
+              <img
+                src="https://anvigroup.com.ua/wp-content/uploads/2017/02/trotuarnaja_plitka_zamer-1.jpg"
+                alt="Заказать замер"
+              />
+            </a>
+          </S.ImageBlock>
+          <S.ButtonBlock>
+            <a href="">
+              <span>ЗАКАЗАТЬ ЗАМЕР</span>
+            </a>
+          </S.ButtonBlock>
+        </S.Item>
+        <S.Item>
+          <S.ImageBlock>
+            <a href="">
+              <img
+                src="https://anvigroup.com.ua/wp-content/uploads/2017/02/texnicheskaja_podderjka.jpg"
+                alt="Доставка"
+              />
+            </a>
+          </S.ImageBlock>
+          <S.ButtonBlock>
+            <a href="">
+              <span>КОНСУЛЬТАЦИЯ</span>
+            </a>
+          </S.ButtonBlock>
+        </S.Item>
+      </S.Content>
+    </S.PageWrapper>
   );
 };
 

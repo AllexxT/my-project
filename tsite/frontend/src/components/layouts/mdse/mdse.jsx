@@ -1,9 +1,9 @@
 import React from "react";
 import { default as S } from "./mdseStyles";
-import sett from "./mdseMedia/sett2.png";
-import fence from "./mdseMedia/fence2.png";
-import brick from "./mdseMedia/brick2.png";
-import monuments from "./mdseMedia/monuments.png";
+import sett from "./mdseMedia/sett2.jpeg";
+import fence from "./mdseMedia/fence2.jpeg";
+import brick from "./mdseMedia/brick2.jpeg";
+import monuments from "./mdseMedia/monuments.jpg";
 import parapet from "./mdseMedia/parapet.jpg";
 import { useHistory } from "react-router";
 

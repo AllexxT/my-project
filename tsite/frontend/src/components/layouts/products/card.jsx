@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { ellipsis } from "react-multiline-ellipsis";
-import Crd from "./cardStyles";
+import S from "./cardStyles";
 
 import stock from "./discount.png";
 import placeholder from "./placeholder.jpeg";
 import sertificated from "./ser.png";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class MyTextBox extends React.Component {
   render() {
@@ -53,38 +53,38 @@ export const Card = ({ card }) => {
   );
   document.breadcrumb = name;
   return (
-    <Crd.C_Wrapper>
-      <Crd.C_Content>
-        <Crd.C_ImageBlock>
+    <S.C_Wrapper>
+      <S.C_Content>
+        <S.C_ImageBlock>
           <Link to={`/products/${article.page.page}/${id}`}>
             {/* Product image */}
-            <Crd.C_Image src={availablePhoto} alt="Card image" />
+            <S.C_Image src={availablePhoto} alt="Card image" />
             {/* Sertificate image */}
-            {sertificate && <Crd.C_SertifImg src={sertificated} />}
+            {sertificate && <S.C_SertifImg src={sertificated} />}
           </Link>
           {/* Discount image */}
-          {discount && <Crd.C_StockImg src={stock} alt="Discount" />}
-        </Crd.C_ImageBlock>
-        <Crd.C_LinkHolder>
-          <Crd.C_ExpandableName
+          {discount && <S.C_StockImg src={stock} alt="Discount" />}
+        </S.C_ImageBlock>
+        <S.C_LinkHolder>
+          <S.C_ExpandableName
             onMouseEnter={() => setExpand(true)}
             onMouseLeave={() => setExpand(false)}
           >
             {nameExpand}
-          </Crd.C_ExpandableName>
-        </Crd.C_LinkHolder>
-        <Crd.C_OldPrice oldPrice={oldPriceProduct}>
+          </S.C_ExpandableName>
+        </S.C_LinkHolder>
+        <S.C_OldPrice oldPrice={oldPriceProduct}>
           {oldPriceProduct} грн.
-        </Crd.C_OldPrice>
-        <Crd.C_Price>
+        </S.C_OldPrice>
+        <S.C_Price>
           {isPriceAvailable()}
           {article.unit && prices.length > 0 && `/${article.unit}`}
-        </Crd.C_Price>
-        <Crd.C_Button>
+        </S.C_Price>
+        <S.C_Button>
           <Link to={`/products/${article.page.page}/${id}`}>Подробнее</Link>
-        </Crd.C_Button>
-      </Crd.C_Content>
-    </Crd.C_Wrapper>
+        </S.C_Button>
+      </S.C_Content>
+    </S.C_Wrapper>
   );
 };
 

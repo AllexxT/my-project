@@ -1,10 +1,11 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
-const StaticWin = styled.div`
-  position: relative;  
-`
+const StaticWin = styled.div `
+  position: relative;
+  height: 0;
+`;
 
-const StyledMenu = styled.nav`
+const StyledMenu = styled.nav `
   box-shadow: 5px 5px 15px black;
   display: flex;
   flex-direction: column;
@@ -57,9 +58,7 @@ const StyledMenu = styled.nav`
   }
 `;
 
-
-
-const StyledBurger = styled.button`
+const StyledBurger = styled.button `
   position: absolute;
   top: 0;
   right: ${({ open }) => (open ? "1rem" : "")};
@@ -104,21 +103,23 @@ const StyledBurger = styled.button`
   }
 `;
 
-const StyledBurgerMenu = styled.div`
+const StyledBurgerMenu = styled.div `
+  /* z-index: ${({ open }) => (open ? "1000" : "0")}; */
+  height: 0;
   z-index: 1000;
   position: absolute;
   left: 0;
   top: 15px;
-  @media (min-width:900px){
-        display: none;
-    }
+  @media (min-width: 900px) {
+    display: none;
+  }
 `;
 
 const Styles = {
-  StaticWin,
-  StyledMenu,
-  StyledBurger,
-  StyledBurgerMenu,
-}
+    StaticWin,
+    StyledMenu,
+    StyledBurger,
+    StyledBurgerMenu,
+};
 
 export default Styles;

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router";
 import Card from "./card";
-import Prds from "./productsStyles";
+import { default as S } from "./productsStyles";
 
 const Products = ({ data }) => {
   const location = useLocation();
@@ -14,16 +14,16 @@ const Products = ({ data }) => {
     }
   }, []);
   return (
-    <Prds.PWrapper>
-      <Prds.PTitle id={articleAnchor}>{title}</Prds.PTitle>
-      <Prds.PContentWrapper>
-        <Prds.PContent>
+    <S.PWrapper>
+      <S.PTitle id={articleAnchor}>{title}</S.PTitle>
+      <S.PContentWrapper>
+        <S.PContent>
           {data.products.map(product => (
             <Card key={product.id} card={product} />
           ))}
-        </Prds.PContent>
-      </Prds.PContentWrapper>
-    </Prds.PWrapper>
+        </S.PContent>
+      </S.PContentWrapper>
+    </S.PWrapper>
   );
 };
 

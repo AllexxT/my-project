@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Menu = ({ open, setOpen }) => {
   return (
-    <S.StaticWin>
+    <S.StaticWin open={open}>
       <S.StyledMenu open={open} onClick={() => setOpen(!open)}>
         <Link to="/">
           Новости

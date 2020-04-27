@@ -43,7 +43,7 @@ const BurgerMenu = () => {
   }, [open]);
 
   return (
-    <S.StyledBurgerMenu ref={node}>
+    <S.StyledBurgerMenu open={open} ref={node}>
       <Burger open={open} setOpen={setOpen} />
       <Menu open={open} setOpen={setOpen} />
     </S.StyledBurgerMenu>

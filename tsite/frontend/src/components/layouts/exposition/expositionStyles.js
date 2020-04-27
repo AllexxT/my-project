@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-const PageWrapper = styled.div`
+const PageWrapper = styled.div `
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
   padding: 0 5pt;
 `
-const PageTitle = styled.div`
+const PageTitle = styled.div `
   position: relative;
   margin: 10px 0 20px 0;
   padding: 0 0 20px;
@@ -28,20 +28,20 @@ const PageTitle = styled.div`
   }
 `
 
-const CategoryWrapper = styled.div`
+const CategoryWrapper = styled.div `
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
   margin-bottom: 10pt;
 `
-const Title = styled.h3`
+const Title = styled.h3 `
   display: block;
   margin: 10px 0;
   font-size: 27px;
   font-weight: bold;
   color: #333333;
 `
-const GalleryWrapper = styled.div`
+const GalleryWrapper = styled.div `
   display: flex;
   flex-wrap: wrap;
   @media only screen and (max-width: 480px) {
@@ -52,7 +52,7 @@ const GalleryWrapper = styled.div`
     margin: 0 4%;
   }
 `
-const ItemWrapper = styled.div`
+const ItemWrapper = styled.div `
   display: flex;
   position: relative;
   flex-direction: column;
@@ -73,7 +73,7 @@ const ItemWrapper = styled.div`
     flex: 0 0 40.5%;
   }
 `
-const ItemDescription = styled.div`
+const ItemDescription = styled.div `
   width: 80%;
   text-align:center;
   background: whitesmoke;
@@ -86,13 +86,13 @@ const ItemDescription = styled.div`
 `
 
 const Styles = {
-  PageWrapper,
-  PageTitle,
-  CategoryWrapper,
-  Title,
-  GalleryWrapper,
-  ItemWrapper,
-  ItemDescription,
+    PageWrapper,
+    PageTitle,
+    CategoryWrapper,
+    Title,
+    GalleryWrapper,
+    ItemWrapper,
+    ItemDescription,
 }
 
 export default Styles;
