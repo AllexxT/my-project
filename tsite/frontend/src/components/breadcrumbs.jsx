@@ -14,7 +14,11 @@ const Pages = {
   Fence: "Eврозабор",
   Brick: "Блок и Кирпич",
   Parapet: "Крышки и Парапеты",
-  Monuments: "Памятники"
+  Monuments: "Памятники",
+  Delivery: "Доставка",
+  Installation: "Укладка",
+  Calculate: "Замеры",
+  Consultation: "Консультация",
 };
 
 // const SEPARATOP = "➤";
@@ -22,7 +26,10 @@ const Pages = {
 const Breadcrumbs = () => {
   const location = useLocation();
   const history = useHistory();
+  // move url to array and remove first "/"
   const splittedPath = location.pathname.split("/").slice(1);
+  // remove last "/" in array
+  splittedPath[splittedPath.length-1] == "" && splittedPath.pop()
 
   const linkHandler = (e, label) => {
     const target = label.toLowerCase();
@@ -38,7 +45,7 @@ const Breadcrumbs = () => {
       <S.Li_Container>
         <a
           href=""
-          onClick={e => {
+          onClick={(e) => {
             e.preventDefault();
             history.push("/");
           }}
@@ -62,10 +69,10 @@ const Breadcrumbs = () => {
 
 export const Breadcrumb = ({ callback, pathLabel, id }) => {
   const label =
-  pathLabel.length > 1
-  ? pathLabel[0].toUpperCase() + pathLabel.slice(1)
-  : "Home";
-  
+    pathLabel.length > 1
+      ? pathLabel[0].toUpperCase() + pathLabel.slice(1)
+      : "Home";
+
   // // For showing current product page // //
   // const [breadcr, setBreadcr] = useState(null);
   // useEffect(() => {
@@ -81,11 +88,12 @@ export const Breadcrumb = ({ callback, pathLabel, id }) => {
     <>
       {label in Pages ? (
         <S.Li_Container>
-          <a href="" onClick={e => callback(e, label)}>
+          <a href="" onClick={(e) => callback(e, label)}>
             {Pages[label]}
           </a>
         </S.Li_Container>
-      ) : ( ''
+      ) : (
+        ""
         // // For showing current product page // //
         // breadcr && (
         //   <S.Li_Container>

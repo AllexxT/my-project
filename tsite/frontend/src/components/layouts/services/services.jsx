@@ -1,5 +1,6 @@
 import React from "react";
 import { default as S } from "./servicesStyle";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   return (
@@ -10,62 +11,62 @@ const Services = () => {
       <S.Content>
         <S.Item>
           <S.ImageBlock>
-            <a href="">
+            <Link to="/services/delivery">
               <img
                 src="https://anvigroup.com.ua/wp-content/uploads/2017/02/manipulator.jpg"
                 alt="Доставка"
               />
-            </a>
+            </Link>
           </S.ImageBlock>
           <S.ButtonBlock>
-            <a href="">
+            <Link to="/services/delivery">
               <span>ДОСТАВКА</span>
-            </a>
+            </Link>
           </S.ButtonBlock>
         </S.Item>
         <S.Item>
           <S.ImageBlock>
-            <a href="">
+            <Link to="/services/installation">
               <img
                 src="https://anvigroup.com.ua/wp-content/uploads/2017/02/ukladka-trotuarnoj-plitki-1.jpg"
                 alt="Укладка"
               />
-            </a>
+            </Link>
           </S.ImageBlock>
           <S.ButtonBlock>
-            <a href="">
+            <Link to="/services/installation">
               <span>УКЛАДКА</span>
-            </a>
+            </Link>
           </S.ButtonBlock>
         </S.Item>
         <S.Item>
           <S.ImageBlock>
-            <a href="">
+            <Link to="/services/calculate">
               <img
                 src="https://anvigroup.com.ua/wp-content/uploads/2017/02/trotuarnaja_plitka_zamer-1.jpg"
                 alt="Заказать замер"
               />
-            </a>
+            </Link>
           </S.ImageBlock>
           <S.ButtonBlock>
-            <a href="">
+            <Link to="/services/calculate">
               <span>ЗАКАЗАТЬ ЗАМЕР</span>
-            </a>
+            </Link>
           </S.ButtonBlock>
         </S.Item>
         <S.Item>
           <S.ImageBlock>
-            <a href="">
+            <Link to="/services/consultation">
               <img
                 src="https://anvigroup.com.ua/wp-content/uploads/2017/02/texnicheskaja_podderjka.jpg"
                 alt="Доставка"
               />
-            </a>
+            </Link>
           </S.ImageBlock>
           <S.ButtonBlock>
-            <a href="">
+            <Link to="/services/consultation">
               <span>КОНСУЛЬТАЦИЯ</span>
-            </a>
+            </Link>
           </S.ButtonBlock>
         </S.Item>
       </S.Content>

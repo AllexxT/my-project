@@ -13,6 +13,10 @@ import Register from "./accounts/Register";
 import Login from "./accounts/Login";
 import Services from "./layouts/services/services";
 import Sertificates from "./layouts/sertificates/sertificates";
+import Delivery from "./layouts/services/delivery/delivery";
+import Installation from "./layouts/services/installation/installation";
+import Calculate from "./layouts/services/calculate/calculate";
+import Consultation from "./layouts/services/consultation/consultation";
 //  // CHECKING IS USER LOGGED IN
 // import { useEffect } from "react";
 // import { loadUser } from "../actions/auth";
@@ -46,6 +50,10 @@ const RoutedApp = () => {
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/exposition" component={ExpositionContainer} />
+          <Route exact path="/services/delivery" component={Delivery} />
+          <Route exact path="/services/installation" component={Installation} />
+          <Route exact path="/services/calculate" component={Calculate} />
+          <Route exact path="/services/consultation" component={Consultation} />
           <Route exact path="/services" component={Services} />
           <Route exact path="/sertificates" component={Sertificates} />
           <Route exact path="/" component={NewsContainer} />

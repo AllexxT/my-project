@@ -42,10 +42,10 @@ const App = ({ children }) => {
               </S.CompanyContactsImg>
               <S.CompanyContactsUl>
                 <li>
-                  <a href="tel:+380638086001">+380638086001</a>
+                  <a href="tel:+380638086001">+38 (063) 80-86-001</a>
                 </li>
                 <li>
-                  <a href="tel:+380675273100">+380675273100</a>
+                  <a href="tel:+380675273100">+38 (067) 52-73-100</a>
                 </li>
               </S.CompanyContactsUl>
             </S.CompanyContacts>

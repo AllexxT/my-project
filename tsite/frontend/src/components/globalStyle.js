@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
     a:hover{text-decoration:none;}
     ul li{list-style:none;}
     img{vertical-align:top;}
-    h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
+    h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;text-rendering: optimizeSpeed;}
     /* Custom settings */
     html { overflow-y: scroll; scroll-behavior: smooth; } /* static scrollbar */
 
