@@ -27,11 +27,13 @@ export const Card = ({ card }) => {
     prices.length > 0 &&
     Math.min(
       ...prices.map((price) => price.lowerPrice).filter((lp) => lp != null)
-    );
+    )
 
   const isPriceAvailable = () => {
     if (prices.length == 1 && prices[0].lowerPrice != null) {
       return `${prices[0].lowerPrice} грн.`;
+    } else if(card.lowerPriceNoTable != null) {
+      return `от ${card.lowerPriceNoTable} грн.`
     } else {
       return lowerPrice != Infinity && lowerPrice
         ? `от ${lowerPrice} грн.`
@@ -51,7 +53,6 @@ export const Card = ({ card }) => {
   ) : (
     <MyTxtBox article={article} id={id} text={name}></MyTxtBox>
   );
-  document.breadcrumb = name;
   return (
     <S.C_Wrapper>
       <S.C_Content>

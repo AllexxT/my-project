@@ -16,6 +16,7 @@ const ProductPage = ({ product, callBack }) => {
     sizes,
     description,
     discount,
+    lowerPriceNoTable,
     prices,
     photos,
   } = product;
@@ -38,9 +39,9 @@ const ProductPage = ({ product, callBack }) => {
             </S.Title__row>
           </S.TitleWrapper>
           <S.Sizes>{sizes}</S.Sizes>
-          {article != undefined &&
-            article.page.page == "sett" &&
-            (<PriceTable {...{ sizes, prices }} /> || <NoTablePrices />)}
+          {(article != undefined && article.article == "vibropressed" && (
+            <PriceTable {...{ sizes, prices }} />
+          )) || <NoTablePrices {...{ prices }} />}
         </S.TableWrapper>
       </S.Gallery_Table__row>
       <S.DescriptionWrapper>

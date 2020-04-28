@@ -88,6 +88,7 @@ class PriceSerializer(WritableNestedModelSerializer):
             'product',
             'oldPrice',
             'color',
+            'noDepthPrice',
             'lowerPrice',
             'depthPrice',
         ]
@@ -103,6 +104,7 @@ class PriceUpdateSerializer(WritableNestedModelSerializer):
             'product',
             'oldPrice',
             'color',
+            'noDepthPrice',
         ]
 ##############################################################################
 # ProductCard #
@@ -114,6 +116,8 @@ class ProductCardSerializer(WritableNestedModelSerializer):
     # Photos serializer
     photos = PhotosSerializer(
         many=True, allow_null=True, partial=True, required=False)
+
+    lowerPriceNoTable = serializers.FloatField()
 
     article = ArticleSerializer(allow_null=True)
 
@@ -127,6 +131,7 @@ class ProductCardSerializer(WritableNestedModelSerializer):
             'sizes',
             'description',
             'discount',
+            'lowerPriceNoTable',
             'prices',
             'photos',
         )

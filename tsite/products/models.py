@@ -44,6 +44,18 @@ class ProductCard(models.Model):
     sertificate = models.BooleanField('Сертификат', blank=True, default=False)
     sizes = models.TextField(max_length=400, null=True, blank=True)
 
+    # Return lower price from the all colors of product
+    # (if "depthPrice" is empty)
+    @property
+    def lowerPriceNoTable(self):
+        prices = self.prices_set.all()
+        try:
+            if len(prices) > 0:
+                return min([item.noDepthPrice for item in prices])
+        except TypeError:
+            return
+        return None
+
     @property
     def news(self):
         return self.news_set.all()
@@ -69,7 +81,11 @@ class Prices(models.Model):
     product = models.ForeignKey(
         ProductCard, on_delete=models.CASCADE, null=True
     )
-    color = models.CharField(max_length=100, default='gray')
+    color = models.CharField(max_length=100, default='Серый')
+    noDepthPrice = models.FloatField(
+        'Если здесь указана цена, таблица работать не будет',
+        blank=True, null=True
+    )
     oldPrice = models.IntegerField(blank=True, null=True)
 
     @property

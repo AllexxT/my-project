@@ -8,9 +8,9 @@ from products.models import (
 @admin.register(ProductCard)
 class ProductCardAdmin(admin.ModelAdmin):
 
-    # class PricesInline(admin.TabularInline):
-    #     model = Prices
-    #     extra = 0
+    class PricesInline(admin.TabularInline):
+        model = Prices
+        extra = 0
 
     class PhotosInline(admin.TabularInline):
         model = Photos
@@ -19,7 +19,7 @@ class ProductCardAdmin(admin.ModelAdmin):
     class NewsInline(admin.TabularInline):
         model = News
         extra = 0
-    inlines = [PhotosInline, NewsInline]
+    inlines = [PhotosInline, NewsInline, PricesInline]
 
     fields = (
         'name',
@@ -86,11 +86,13 @@ class PricesAdmin(admin.ModelAdmin):
     fields = (
         'product',
         'color',
+        'noDepthPrice',
         'oldPrice',
     )
     list_display = (
         'product',
         'color',
+        'noDepthPrice',
         'oldPrice',
     )
 

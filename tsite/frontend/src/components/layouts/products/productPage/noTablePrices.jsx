@@ -1,11 +1,24 @@
-import React from 'react';
+import React from "react";
+import { default as S } from "./noTablePricesStyle";
 
-const NoTablePrices = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-}
+const NoTablePrices = ({ prices }) => {
+  return (
+    <S.Wrapper>
+      <S.PricesBox>
+        <S.TitleRow>
+          <S.TitleLabels><p><span>Цвет</span></p></S.TitleLabels>
+          <S.TitleLabels><p><span>Цена</span></p></S.TitleLabels>
+        </S.TitleRow>
+        {prices != undefined &&
+          prices.map((color) => (
+            <S.TitleRow key={color.id}>
+              <S.TitleLabels><p>{color.color}</p></S.TitleLabels>
+              <S.TitleLabels><p>{color.noDepthPrice}</p></S.TitleLabels>
+            </S.TitleRow>
+          ))}
+      </S.PricesBox>
+    </S.Wrapper>
+  );
+};
 
 export default NoTablePrices;

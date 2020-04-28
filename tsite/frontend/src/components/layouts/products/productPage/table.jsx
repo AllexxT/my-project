@@ -1,8 +1,9 @@
 import React from "react";
 import { default as S } from "./tableStyles";
 
-const PriceTable = ({ sizes, prices }) => {
+const PriceTable = ({ prices }) => {
   const table = prices.length != 0 && prices[0].depthPrice.length > 0 && (
+  // const table = (
     <table>
       <caption>Стоимость</caption>
       <thead>
