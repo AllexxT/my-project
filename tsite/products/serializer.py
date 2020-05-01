@@ -39,7 +39,7 @@ class PhotosSerializer(serializers.ModelSerializer):
     photo = VersatileImageFieldSerializer(
         sizes=[
             ('full_size', 'url'),
-            ('thumbnail', 'thumbnail__100x100'),
+            # ('thumbnail', 'thumbnail__100x100'),
             ('medium_square_crop', 'crop__400x400'),
             ('small_square_crop', 'crop__50x50')
         ]
@@ -203,6 +203,7 @@ class ExpositionPhotosSerializer(serializers.ModelSerializer):
     class Meta:
         model = ExpositionPhotos
         fields = (
+            'id',
             'exposition',
             'description',
             'photo',
@@ -215,6 +216,7 @@ class ExpositionSerializer(WritableNestedModelSerializer):
     class Meta:
         model = Exposition
         fields = (
+            'id',
             'category',
             'description',
             'address',

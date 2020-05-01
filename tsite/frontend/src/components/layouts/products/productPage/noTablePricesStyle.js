@@ -8,8 +8,9 @@ const Wrapper = styled.div`
     width: 70%;
     align-self: center;
     border-top: 5px solid #E8B718;
-    border-bottom: 5px solid #afaaa6;
+    border-bottom: 5px solid rgba(55, 55, 66, 0.6);
     background-color: #ccc7c7;
+    box-shadow: 0px 5px 10px gray;
 `
 const PricesBox = styled.div`
   padding: 0 15px 0 15px;
@@ -26,6 +27,10 @@ const TitleRow = styled.div`
   height: 100%;
   &:first-child {
       padding-top: 15px;
+  }
+  &:last-child {
+      padding-bottom: 10px;
+      border-bottom: 0;
   }
   div:first-child {
       border-right: 1px solid #afaaa6;

@@ -30,6 +30,7 @@ const PageTitle = styled.div `
 const Content = styled.div `
   display: flex;
   flex-wrap: wrap;
+  /* align-items: flex-end; */
   @media (max-width:800px){
         justify-content: center;
     }
@@ -37,7 +38,8 @@ const Content = styled.div `
 const Item = styled.div `
   display: flex;
   flex-direction: column;
-  flex: 1 1 25%;
+  justify-content: space-between;
+  flex: 0 1 25%;
   padding: 0 15px 15px 15px;
   @media (max-width:800px){
     flex: 0 0 50%;
@@ -49,9 +51,13 @@ const Item = styled.div `
   }
 `;
 const ImageBlock = styled.div `
+  text-align: center;
   a {
-      height: 100%;
-      width: 100%;
+      display: inline-block;
+      /* height: 100%;
+      width: 100%; */
+      max-height: 171px;
+      overflow: hidden;
       img {
           height: 100%;
           width: 100%;

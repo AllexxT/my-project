@@ -42,7 +42,7 @@ const C_LinkHolder = styled.div`
   flex: 1 1 35px;
 `;
 const C_ExpandableName = styled.div`
-  position: relative;
+  position: absolute;
   background: #F5F5F5;
   text-decoration: underline;
    & a {
@@ -60,6 +60,9 @@ const C_ExpandableName = styled.div`
     &:hover {
       color: #b28c1a;
     }
+  }
+  @media (max-width:600px){
+    position: absolute;
   }
 `;
 const C_Image = styled.img`
