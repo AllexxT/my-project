@@ -8,7 +8,26 @@ import ProductPage from "./productPage/productPageCont";
 import prodPlaceHolder from "./no_product.gif";
 
 const Preloader = () => {
-  return <div>LOADING...</div>;
+  return (
+    <div
+      style={{
+        position: "relative",
+      }}
+    >
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          fontSize: '40px',
+          textAlign: 'center',
+          margin: '40px 0 0 0',
+          color: '#525252'
+        }}
+      >
+        ЗАГРУЗКА...
+      </div>
+    </div>
+  );
 };
 
 const NoData = () => {
@@ -35,7 +54,7 @@ const NoData = () => {
 };
 
 const ProductsContainer = ({ page }) => {
-  const products = useSelector(state => state.productsReducer);
+  const products = useSelector((state) => state.productsReducer);
   const dispatch = useDispatch();
   const match = useRouteMatch();
 
@@ -51,14 +70,14 @@ const ProductsContainer = ({ page }) => {
   let articlesArray = [];
   let productsArray = [];
 
-  data.forEach(product => {
+  data.forEach((product) => {
     const art = product.article.article;
     !articlesArray.includes(art) && articlesArray.push(art);
   });
 
-  articlesArray.forEach(article => {
+  articlesArray.forEach((article) => {
     let prodSubArray = [];
-    data.forEach(product => {
+    data.forEach((product) => {
       const art = product.article.article;
       article == art && prodSubArray.push(product);
     });
