@@ -2,7 +2,8 @@ import React from "react";
 import ProductsContainer from "./productsContainer";
 
 const Parapet = () => {
-  return <ProductsContainer page={"parapet"} />;
+  const categories = ["cap", "parapet"];
+  return <ProductsContainer page={"parapet"} {...{ categories }} />;
 };
 
 export default Parapet;

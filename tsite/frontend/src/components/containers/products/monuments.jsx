@@ -2,7 +2,8 @@ import React from "react";
 import ProductsContainer from "./productsContainer";
 
 const Monuments = () => {
-  return <ProductsContainer page={"monuments"} />;
+  const categories = ["granite", "capital", "coverplate", "nameplate"];
+  return <ProductsContainer page={"monuments"} {...{ categories }} />;
 };
 
 export default Monuments;

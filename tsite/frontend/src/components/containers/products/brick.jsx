@@ -2,7 +2,8 @@ import React from "react";
 import ProductsContainer from "./productsContainer";
 
 const Brick = () => {
-  return <ProductsContainer page={"brick"} />;
+  const categories = ["baseblock", "buildblock", "facblock", "facbrick"];
+  return <ProductsContainer page={"brick"} {...{ categories }} />;
 };
 
 export default Brick;

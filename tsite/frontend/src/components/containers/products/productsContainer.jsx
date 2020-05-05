@@ -53,7 +53,7 @@ const NoData = () => {
   );
 };
 
-const ProductsContainer = ({ page }) => {
+const ProductsContainer = ({ page, categories }) => {
   const products = useSelector((state) => state.productsReducer);
   const dispatch = useDispatch();
   const match = useRouteMatch();
@@ -69,12 +69,12 @@ const ProductsContainer = ({ page }) => {
   const data = products.products;
   let articlesArray = [];
   let productsArray = [];
-
+  
   data.forEach((product) => {
     const art = product.article.article;
     !articlesArray.includes(art) && articlesArray.push(art);
   });
-
+  
   articlesArray.forEach((article) => {
     let prodSubArray = [];
     data.forEach((product) => {
@@ -83,7 +83,17 @@ const ProductsContainer = ({ page }) => {
     });
     productsArray.push(prodSubArray);
   });
+  
   ///////////////////////////////////////////////////////////////////
+  // Filtering queue of categories from each page
+  // const categories = ["vibropressed", "vibrocast", "borders", "gully"];
+  let filteredProdArr = []
+  categories.forEach(curCat =>{
+    productsArray.forEach(curAr =>{
+      curAr[0].article.article == curCat && filteredProdArr.push(curAr)
+    })
+  })
+  
   return (
     <Switch>
       <Route path={`${match.path}/:productId`} component={ProductPage} />
@@ -92,9 +102,10 @@ const ProductsContainer = ({ page }) => {
           <Preloader />
         ) : (
           (products.products.length > 0 &&
-            productsArray.map((product, index) => (
+            filteredProdArr.map((product, index) => (
               <Products key={index} data={{ products: product }} />
-            ))) || <NoData />
+            ))) 
+            || <NoData />
         )}
       </Route>
     </Switch>

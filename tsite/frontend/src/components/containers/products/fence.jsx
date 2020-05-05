@@ -2,7 +2,8 @@ import React from "react";
 import ProductsContainer from "./productsContainer";
 
 const Fence = () => {
-  return <ProductsContainer page={"fence"} />;
+  const categories = ["glossy", "ordinary", "columns"];
+  return <ProductsContainer page={"fence"} {...{ categories }} />;
 };
 
 export default Fence;
