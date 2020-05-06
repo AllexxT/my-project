@@ -204,3 +204,27 @@ class ExpositionPhotos(models.Model):
 
     def __str__(self):
         return self.exposition.address
+##############################################################################
+# ServicePrices #
+
+
+class ServicePage(models.Model):
+    page = models.CharField(max_length=350, null=True, blank=True)
+    pageText = models.TextField(blank=True, null=True)
+
+    @property
+    def servprices(self):
+        return self.serviceprices_set.all()
+
+    def __str__(self):
+        return self.page
+
+
+class ServicePrices(models.Model):
+    page = models.ForeignKey(ServicePage, on_delete=models.CASCADE)
+
+    description = models.CharField(max_length=1000, blank=True, null=True)
+    price = models.CharField(max_length=150, default=0)
+
+    def __str__(self):
+        return self.description

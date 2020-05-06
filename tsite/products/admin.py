@@ -1,7 +1,7 @@
 from django.contrib import admin
 from products.models import (
     ProductCard, Prices, Photos, News, Page, Article, DepthPrice, Depth,
-    Exposition, ExpositionPhotos
+    Exposition, ExpositionPhotos, ServicePage, ServicePrices
 )
 
 
@@ -167,4 +167,32 @@ class ExpositionAdmin(admin.ModelAdmin):
         'category',
         'address',
         'description',
+    )
+
+
+@admin.register(ServicePrices)
+class ServicePricesAdmin(admin.ModelAdmin):
+    fields = (
+        'description',
+        'price',
+    )
+    list_display = (
+        'description',
+        'price',
+    )
+
+
+@admin.register(ServicePage)
+class ServicePageAdmin(admin.ModelAdmin):
+    class ServicePricesAdminInline(admin.StackedInline):
+        model = ServicePrices
+        extra = 0
+    inlines = [ServicePricesAdminInline]
+    fields = (
+        'page',
+        'pageText',
+    )
+    list_display = (
+        'page',
+        'pageText',
     )
