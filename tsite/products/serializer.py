@@ -125,6 +125,7 @@ class ProductCardSerializer(WritableNestedModelSerializer):
         model = ProductCard
         fields = (
             'id',
+            'position',
             'article',
             'name',
             'sertificate',
@@ -147,6 +148,7 @@ class ProductCardUpdateSerializer(WritableNestedModelSerializer):
         model = ProductCard
         fields = (
             'id',
+            'position',
             'article',
             'name',
             'sertificate',

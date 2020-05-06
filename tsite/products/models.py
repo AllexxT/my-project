@@ -43,6 +43,8 @@ class ProductCard(models.Model):
     discount = models.BooleanField('Скидка', blank=True)
     sertificate = models.BooleanField('Сертификат', blank=True, default=False)
     sizes = models.TextField(max_length=400, null=True, blank=True)
+    position = models.FloatField(
+        'Позиция товара в списке товаров', blank=True, null=True, default=0)
 
     # Return lower price from the all colors of product
     # (if "depthPrice" is empty)
@@ -74,6 +76,7 @@ class ProductCard(models.Model):
     class Meta:
         verbose_name_plural = 'Товары'
         verbose_name = 'Товар'
+        ordering = ['-position']
 ##############################################################################
 
 

@@ -23,6 +23,7 @@ class ProductCardAdmin(admin.ModelAdmin):
 
     fields = (
         'name',
+        'position',
         'article',
         'description',
         'discount',
@@ -31,6 +32,7 @@ class ProductCardAdmin(admin.ModelAdmin):
     )
     list_display = (
         'name',
+        'position',
         'article',
         # 'description',
         'discount',
