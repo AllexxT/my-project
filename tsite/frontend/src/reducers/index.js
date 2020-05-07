@@ -6,6 +6,7 @@ import expositionReducer from './exposition'
 import authReducer from './auth'
 import errorsReducer from './errors'
 import messagesReducer from './messages'
+import servicesReducer from './services'
 
 export default combineReducers({
     productsReducer,
@@ -15,4 +16,5 @@ export default combineReducers({
     authReducer,
     errorsReducer,
     messagesReducer,
+    servicesReducer,
 })

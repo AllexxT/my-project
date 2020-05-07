@@ -16,9 +16,12 @@ import Sertificates from "./layouts/sertificates/sertificates";
 import Delivery from "./layouts/services/delivery/delivery";
 import Calculate from "./layouts/services/calculate/calculate";
 import Consultation from "./layouts/services/consultation/consultation";
-import InstallationSett from "./layouts/services/installationSett/installationSett";
-import installationFence from "./layouts/services/installationFence/installationFence";
-import installationMonuments from "./layouts/services/installationMonuments/installationMonuments";
+// import InstallationSett from "./layouts/services/installationSett/installationSett";
+// import installationFence from "./layouts/services/installationFence/installationFence";
+// import installationMonuments from "./layouts/services/installationMonuments/installationMonuments";
+import InstallSett from "./containers/services/installSett";
+import InstallMonuments from "./containers/services/installMonuments";
+import InstallFence from "./containers/services/installFence";
 //  // CHECKING IS USER LOGGED IN
 // import { useEffect } from "react";
 // import { loadUser } from "../actions/auth";
@@ -53,9 +56,12 @@ const RoutedApp = () => {
           <Route exact path="/login" component={Login} />
           <Route exact path="/exposition" component={ExpositionContainer} />
           <Route exact path="/services/delivery" component={Delivery} />
-          <Route exact path="/services/sett" component={InstallationSett} />
-          <Route exact path="/services/fence" component={installationFence} />
-          <Route exact path="/services/monuments" component={installationMonuments} />
+          {/* <Route exact path="/services/sett" component={InstallationSett} /> */}
+          <Route exact path="/services/sett" component={InstallSett} />
+          {/* <Route exact path="/services/fence" component={installationFence} /> */}
+          <Route exact path="/services/fence" component={InstallFence} />
+          {/* <Route exact path="/services/monuments" component={installationMonuments} /> */}
+          <Route exact path="/services/monuments" component={InstallMonuments} />
           <Route exact path="/services/calculate" component={Calculate} />
           <Route exact path="/services/consultation" component={Consultation} />
           <Route exact path="/services" component={Services} />

@@ -219,6 +219,10 @@ class ServicePage(models.Model):
     def __str__(self):
         return self.page
 
+    class Meta:
+        verbose_name_plural = 'Наши услуги'
+        verbose_name = 'Нашу услугу'
+
 
 class ServicePrices(models.Model):
     page = models.ForeignKey(ServicePage, on_delete=models.CASCADE)

@@ -2,7 +2,8 @@ import React from "react";
 import { default as S } from "./installSettStyle";
 import { Link } from "react-router-dom";
 
-const InstallationSett = () => {
+const InstallationSett = ({ data }) => {
+  console.log(data);
   return (
     <S.PageWrapper>
       <S.Block>
@@ -11,10 +12,11 @@ const InstallationSett = () => {
           Завершающим этапом любого строительного объекта, будь то торговый
           центр, магазин или частный дом, является благоустройство территории,
           располагающейся в непосредственной близости к объекту. К одному из
-          основных этапов благоустройства относится <strong>укладка тротуарной плитки</strong>.
-          Это сложный и трудоемкий процесс, который должны выполнять
-          квалифицированные специалисты. Наша фирма выполняет все необходимые
-          работы и услуги под ключ в Запорожье и области.
+          основных этапов благоустройства относится{" "}
+          <strong>укладка тротуарной плитки</strong>. Это сложный и трудоемкий
+          процесс, который должны выполнять квалифицированные специалисты. Наша
+          фирма выполняет все необходимые работы и услуги под ключ в Запорожье и
+          области.
         </p>
       </S.Block>
       <h2>
@@ -29,26 +31,13 @@ const InstallationSett = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>1</th>
-            <td>Укладка тротуарной плитки плитки</td>
-            <td>140 грн/м²</td>
-          </tr>
-          <tr>
-            <th>2</th>
-            <td>Установка бордюра</td>
-            <td>65 грн/м.п</td>
-          </tr>
-          <tr>
-            <th>3</th>
-            <td>Установка отлива</td>
-            <td>40 грн/шт</td>
-          </tr>
-          <tr>
-            <th>4</th>
-            <td>Установка дорожного бордюра</td>
-            <td>80 грн/м²</td>
-          </tr>
+          {data.servprices.map((item, index)=> (
+            <tr key={index}>
+              <th>{index+1}</th>
+              <td>{item.description}</td>
+              <td>{item.price}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
       <S.DiscoverPriceRow>
@@ -56,7 +45,9 @@ const InstallationSett = () => {
           <span>Выбрать тротуарную плитку →</span>
         </S.DiscoverText>
         <S.DiscoverNumbers>
-            <Link to='/products/sett'><span>Подробнее</span></Link>
+          <Link to="/products/sett">
+            <span>Подробнее</span>
+          </Link>
         </S.DiscoverNumbers>
       </S.DiscoverPriceRow>
     </S.PageWrapper>
