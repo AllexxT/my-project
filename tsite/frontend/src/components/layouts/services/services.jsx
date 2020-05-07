@@ -3,6 +3,7 @@ import { default as S } from "./servicesStyle";
 import { Link } from "react-router-dom";
 import placeholder from "../products/placeholder.jpeg";
 import manipulator from "./manipul.jpg";
+import instSett from "./укладка тротуарной плитки в запорожье цена чп джас фэм ритм элитбрук брук хаус.jpg"
 
 const Services = () => {
   return (
@@ -27,7 +28,7 @@ const Services = () => {
           <S.ImageBlock>
             <Link to="/services/sett">
               <img
-                src="https://anvigroup.com.ua/wp-content/uploads/2017/02/ukladka-trotuarnoj-plitki-1.jpg"
+                src={instSett}
                 alt="Укладка тротуарной плитки"
               />
             </Link>
