@@ -67,6 +67,9 @@ const C_ExpandableName = styled.div`
 `;
 const C_Image = styled.img`
   max-width: 100%;
+  &:hover {
+    width: 500px;
+  }
 `;
 const C_StockImg = styled.img`
   position: absolute;

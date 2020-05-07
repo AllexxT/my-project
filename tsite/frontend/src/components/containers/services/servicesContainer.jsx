@@ -12,7 +12,6 @@ const ServicesContainer = ({ page }) => {
   useEffect(() => {
     dispatch(getServices(page));
   }, []);
-  // console.log(services)
   return <>
   {services.fetching && <p>loading</p> ||
     (

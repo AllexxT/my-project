@@ -13,7 +13,6 @@ const Products = ({ data }) => {
       window.location.href = location.hash;
     }
   }, []);
-  console.log(localStorage)
   return (
     <S.PWrapper>
       <S.PTitle id={articleAnchor}>{title}</S.PTitle>

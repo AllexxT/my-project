@@ -3,7 +3,6 @@ import { default as S } from "./installSettStyle";
 import { Link } from "react-router-dom";
 
 const InstallationSett = ({ data }) => {
-  console.log(data);
   return (
     <S.PageWrapper>
       <S.Block>
@@ -31,7 +30,7 @@ const InstallationSett = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data.servprices.map((item, index)=> (
+          {data.length > 0 && data.servprices.map((item, index)=> (
             <tr key={index}>
               <th>{index+1}</th>
               <td>{item.description}</td>

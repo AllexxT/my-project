@@ -1,7 +1,8 @@
 import React from "react";
 import { default as S } from "./servicesStyle";
 import { Link } from "react-router-dom";
-import placeholder from "../products/placeholder.jpeg"
+import placeholder from "../products/placeholder.jpeg";
+import manipulator from "./manipul.jpg";
 
 const Services = () => {
   return (
@@ -13,10 +14,7 @@ const Services = () => {
         <S.Item>
           <S.ImageBlock>
             <Link to="/services/delivery">
-              <img
-                src="https://anvigroup.com.ua/wp-content/uploads/2017/02/manipulator.jpg"
-                alt="Доставка"
-              />
+              <img src={manipulator} alt="Доставка" />
             </Link>
           </S.ImageBlock>
           <S.ButtonBlock>
@@ -43,10 +41,7 @@ const Services = () => {
         <S.Item>
           <S.ImageBlock>
             <Link to="/services/fence">
-              <img
-                src={placeholder}
-                alt="Установка еврозабора"
-              />
+              <img src={placeholder} alt="Установка еврозабора" />
             </Link>
           </S.ImageBlock>
           <S.ButtonBlock>
@@ -58,10 +53,7 @@ const Services = () => {
         <S.Item>
           <S.ImageBlock>
             <Link to="/services/monuments">
-              <img
-                src={placeholder}
-                alt="Установка памятников"
-              />
+              <img src={placeholder} alt="Установка памятников" />
             </Link>
           </S.ImageBlock>
           <S.ButtonBlock>
@@ -95,9 +87,12 @@ const Services = () => {
             </Link>
           </S.ImageBlock>
           <S.ButtonBlock>
-            <Link to="/services/consultation">
+            {/* <Link to="/services/consultation">
               <span>КОНСУЛЬТАЦИЯ</span>
-            </Link>
+            </Link> */}
+            <a href="" onClick={(e) => e.preventDefault()}>
+              <span>КОНСУЛЬТАЦИЯ</span>
+            </a>
           </S.ButtonBlock>
         </S.Item>
       </S.Content>

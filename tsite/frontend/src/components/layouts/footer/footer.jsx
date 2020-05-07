@@ -18,9 +18,9 @@ const Footer = () => {
             <S.ContactsText>
               <S.FooterTitle>Контакты</S.FooterTitle>
               <a href="mailto:pan2404@rambler.ru">pan2404@rambler.ru</a>
-              <a href="tel:+380638086001">+38 (063) 80-86-001</a>
-              <a href="tel:+380634566205">+38 (063) 45-66-205</a>
-              <a href="tel:+380503419001">+38 (050) 34-19-001</a>
+              <a href="tel:+380638086001">+38 (063) 808-60-01</a>
+              <a href="tel:+380675273100">+38 (067) 527-31-00</a>
+              <a href="tel:+380503419001">+38 (050) 341-90-01</a>
               <p>c 8-00 до 16-00</p>
             </S.ContactsText>
             <S.ContactsText>
