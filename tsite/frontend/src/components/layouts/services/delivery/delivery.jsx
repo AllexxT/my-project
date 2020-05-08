@@ -1,6 +1,7 @@
 import React from "react";
 import { default as S } from "./deliveryStyle";
 import { Link } from "react-router-dom";
+import placeholder from "../../products/placeholder.jpeg"
 
 const Delivery = () => {
   return (
@@ -26,7 +27,7 @@ const Delivery = () => {
         <S.Box>
           <S.PhotoBox>
             <img
-              src="https://anvigroup.com.ua/wp-content/uploads/2017/02/perevozka-manipulyatorom-plitki-anvigroup-5t.jpg"
+              src={placeholder}
               alt="Манипулятор"
             />
           </S.PhotoBox>
@@ -38,7 +39,7 @@ const Delivery = () => {
         <S.Box>
           <S.PhotoBox>
             <img
-              src="https://anvigroup.com.ua/wp-content/uploads/2017/02/perevozka-manipulyatorom-plitki-anvigroup-15t.jpg"
+              src={placeholder}
               alt="Манипулятор"
             />
           </S.PhotoBox>
@@ -50,7 +51,7 @@ const Delivery = () => {
         <S.Box>
           <S.PhotoBox>
             <img
-              src="https://anvigroup.com.ua/wp-content/uploads/2017/02/dostavka-trotuarnoy-plitki-anvigroup.jpg"
+              src={placeholder}
               alt="Манипулятор"
             />
           </S.PhotoBox>

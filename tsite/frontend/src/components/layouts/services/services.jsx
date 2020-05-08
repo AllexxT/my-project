@@ -67,7 +67,7 @@ const Services = () => {
           <S.ImageBlock>
             <Link to="/services/calculate">
               <img
-                src="https://anvigroup.com.ua/wp-content/uploads/2017/02/trotuarnaja_plitka_zamer-1.jpg"
+                src={placeholder}
                 alt="Заказать замер"
               />
             </Link>
@@ -82,7 +82,7 @@ const Services = () => {
           <S.ImageBlock>
             <Link to="/services/consultation">
               <img
-                src="https://anvigroup.com.ua/wp-content/uploads/2017/02/texnicheskaja_podderjka.jpg"
+                src={placeholder}
                 alt="Доставка"
               />
             </Link>

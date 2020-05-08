@@ -36,10 +36,11 @@ const C_ImageBlock = styled.div`
     justify-content: center;
     cursor: pointer;
     max-height: 165px;
+    overflow: hidden; /* new */
   }
 `;
 const C_LinkHolder = styled.div`
-  flex: 1 1 35px;
+  flex: 1 1 52px;
 `;
 const C_ExpandableName = styled.div`
   position: absolute;
@@ -66,10 +67,11 @@ const C_ExpandableName = styled.div`
   }
 `;
 const C_Image = styled.img`
-  max-width: 100%;
-  &:hover {
-    width: 500px;
-  }
+  transform: scale(1.05);
+  /* height: 169px;   */      /*  new */
+  /* width: 100%;   */       /* new */
+  object-fit: contain;     /* new */
+  /* height: 180px; */
 `;
 const C_StockImg = styled.img`
   position: absolute;
@@ -79,7 +81,7 @@ const C_StockImg = styled.img`
 const C_SertifImg = styled.img`
   position: absolute;
   top: -5px;
-  right: -7px;
+  right: 5px;
   width: 30px;
   filter: drop-shadow(3px 4px 3px gray);
 `;

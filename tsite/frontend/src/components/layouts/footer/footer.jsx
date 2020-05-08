@@ -9,7 +9,7 @@ const Footer = () => {
         <S.FooterMap>
           {/* <img src={gmap} alt="Google map" /> */}
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9011.118608897961!2d35.280315132447456!3d47.81979911343967!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dc5c64049c75d9%3A0x1885f99fb5717a4a!2z0JzQvtC60YDRj9C90YHRjNC60LjQuSDQutCw0Lwn0Y_QvdC40Lkg0LrQsNGAJ9GU0YAg4oSWMg!5e0!3m2!1sru!2sus!4v1587732663712!5m2!1sru!2sus"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2252.6643797090883!2d35.28376216223628!3d47.822455577584876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x692a9f0aff452ff6!2z0KfQnyDQlNC20LDRgSDRgtGA0L7RgtGD0LDRgNC90LDRjyDQv9C70LjRgtC60LAg0LIg0JfQsNC_0L7RgNC-0LbRjNC1!5e0!3m2!1sru!2sua!4v1588963597703!5m2!1sru!2sua"
             style={{border:"0"}}
           />
         </S.FooterMap>

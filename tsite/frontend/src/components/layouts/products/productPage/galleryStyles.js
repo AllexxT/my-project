@@ -22,6 +22,14 @@ const MainF__row = styled.div`
         margin-bottom: 10px;
         width: fit-content;
     }
+    & .image-gallery{
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+    }
+    & .image-gallery-content.fullscreen {
+        z-index: 2000;
+    }
 `
 
 

@@ -17,7 +17,7 @@ class MyTextBox extends React.Component {
   }
 }
 
-const MyTxtBox = ellipsis(MyTextBox, 1, "");
+const MyTxtBox = ellipsis(MyTextBox, 2, "");
 
 export const Card = ({ card }) => {
   const [expand, setExpand] = useState(false); // local state of expandable {name} block
