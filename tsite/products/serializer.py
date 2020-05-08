@@ -4,12 +4,25 @@ from versatileimagefield.serializers import VersatileImageFieldSerializer
 from drf_writable_nested.mixins import UniqueFieldsMixin
 from products.models import (
     ProductCard, Prices, Photos, News, Page, Article, Depth, DepthPrice,
-    Exposition, ExpositionPhotos, ServicePage, ServicePrices
+    Exposition, ExpositionPhotos, ServicePage, ServicePrices, Sertificat
 )
 
 
 ##############################################################################
 # ServicePrices #
+
+class SertificatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sertificat
+        fields = [
+            'id',
+            'name',
+            'docFile',
+            'photo'
+        ]
+##############################################################################
+# ServicePrices #
+
 
 class ServicePricesSerializer(WritableNestedModelSerializer):
     class Meta:

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from products.models import (
     ProductCard, Prices, Photos, News, Page, Article, DepthPrice, Depth,
-    Exposition, ExpositionPhotos, ServicePage, ServicePrices
+    Exposition, ExpositionPhotos, ServicePage, ServicePrices, Sertificat
 )
 
 
@@ -195,4 +195,19 @@ class ServicePageAdmin(admin.ModelAdmin):
     list_display = (
         'page',
         'pageText',
+    )
+
+
+@admin.register(Sertificat)
+class SertificatAdmin(admin.ModelAdmin):
+
+    fields = (
+        'name',
+        'docFile',
+        'photo'
+    )
+    list_display = (
+        'name',
+        'docFile',
+        'photo'
     )

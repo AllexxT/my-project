@@ -1,11 +1,22 @@
-from products.models import ProductCard, News, Exposition, ServicePage
+from products.models import (
+    ProductCard, News, Exposition, ServicePage, Sertificat)
 from rest_framework import viewsets, permissions, generics
 from .serializer import (
     ProductCardSerializer, NewsSerializer, NewsPostSerializer,
     ProductCardUpdateSerializer,
     ExpositionSerializer,
-    ServicePageSerializer
+    ServicePageSerializer, SertificatSerializer
 )
+
+
+class SertificatViewSet(viewsets.ModelViewSet):
+    queryset = Sertificat.objects.all()
+    permissions_classes = [
+        permissions.AllowAny
+    ]
+
+    def get_serializer_class(self):
+        return SertificatSerializer
 
 
 class ServicePageViewSet(viewsets.ModelViewSet):

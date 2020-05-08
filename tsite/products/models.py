@@ -38,7 +38,7 @@ class ProductCard(models.Model):
     )
     owner = models.ForeignKey(
         User, related_name="Description", on_delete=models.CASCADE, null=True)
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=200, unique=True)
     description = models.TextField(null=True, blank=True)
     discount = models.BooleanField('Скидка', blank=True)
     sertificate = models.BooleanField('Сертификат', blank=True, default=False)
@@ -148,8 +148,8 @@ class News(models.Model):
         ProductCard, on_delete=models.CASCADE, null=True
     )
 
-    title = models.CharField(max_length=50, null=True)
-    body = models.TextField(max_length=500, null=True)
+    title = models.CharField(max_length=100, null=True)
+    body = models.TextField(max_length=500, null=True, blank=True)
     changed = models.DateTimeField(auto_now=True, blank=True)
     created = models.DateField(auto_now_add=True, blank=True)
 
@@ -232,3 +232,19 @@ class ServicePrices(models.Model):
 
     def __str__(self):
         return self.description
+
+
+##############################################################################
+# Sertificate #
+
+class Sertificat(models.Model):
+    name = models.CharField(max_length=200, unique=True, blank=True, null=True)
+    photo = models.ImageField(blank=True, null=True)
+    docFile = models.FileField(blank=True, null=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = 'Сертификаты'
+        verbose_name = 'Сертификат'
