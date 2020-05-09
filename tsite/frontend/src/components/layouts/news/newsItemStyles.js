@@ -4,14 +4,17 @@ const Container = styled.div`
     line-height: 16pt;
     position: relative;
     display: flex;
-    margin: 0 0 25pt 0;
+    padding: 10px;
     max-width: 1060px;
+    flex: 0 1 50%;
+    justify-self: center;
+    min-width: 360px;
 `
 const Container__row = styled.div`
     background-color: #f1f0ef;
     display: flex;
     width: 100%;
-    @media (max-width: 576px) {
+    @media (max-width: 420px) {
         display: flex;
         flex-direction: column-reverse;
     }

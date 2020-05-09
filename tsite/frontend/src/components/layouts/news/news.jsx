@@ -4,8 +4,11 @@ import NewsItem from "./newsItem";
 
 const N_Box = styled.div`
   display: flex;
-  flex-direction: column;
   /* z-index:-50; */
+  flex-wrap: wrap;
+  @media(max-width:950px) {
+    flex-direction: column;
+  }
 `;
 const PageTitle = styled.div`
   position: relative;
