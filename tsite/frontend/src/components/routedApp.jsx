@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import App from "./layouts/App";
 import NewsContainer from "./containers/news/newsContainer";
@@ -12,7 +12,6 @@ import ExpositionContainer from "./containers/exposition/expositionContainer";
 import Register from "./accounts/Register";
 import Login from "./accounts/Login";
 import Services from "./layouts/services/services";
-import Sertificates from "./layouts/sertificates/sertificates";
 import Delivery from "./layouts/services/delivery/delivery";
 import Calculate from "./layouts/services/calculate/calculate";
 import Consultation from "./layouts/services/consultation/consultation";
@@ -22,6 +21,7 @@ import Consultation from "./layouts/services/consultation/consultation";
 import InstallSett from "./containers/services/installSett";
 import InstallMonuments from "./containers/services/installMonuments";
 import InstallFence from "./containers/services/installFence";
+import SertificatesContainer from "./containers/sertificates/sertificatesContainer";
 //  // CHECKING IS USER LOGGED IN
 // import { useEffect } from "react";
 // import { loadUser } from "../actions/auth";
@@ -66,7 +66,7 @@ const RoutedApp = () => {
           <Route exact path="/services/calculate" component={Calculate} />
           <Route exact path="/services/consultation" component={Consultation} />
           <Route exact path="/services" component={Services} />
-          <Route exact path="/sertificates" component={Sertificates} />
+          <Route exact path="/sertificates" component={SertificatesContainer} />
           <Route exact path="/" component={NewsContainer} />
           <Route path="/*" component={Error} />
         </Switch>
