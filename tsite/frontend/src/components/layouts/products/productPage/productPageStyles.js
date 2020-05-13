@@ -47,6 +47,7 @@ const Sizes = styled.div`
     padding: 5pt 0 5pt 0;
     font-size: 12pt;
     flex: 1 1 auto;
+    text-align: center;
 `
 const DescriptionWrapper = styled.div`
     max-width: 100vw;

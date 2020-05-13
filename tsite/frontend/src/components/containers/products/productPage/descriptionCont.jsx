@@ -29,7 +29,9 @@ const DescriptionContainer = ({ product }) => {
 
   const updateDescription = descriptionHTML => {
     let productToUpdate = product
-    productToUpdate.description = descriptionHTML;
+    // clean description data from bad whitespaces
+    let cleanDescrHTML = descriptionHTML.replace( /&nbsp;/g, " " )
+    productToUpdate.description = cleanDescrHTML;
     axios
       .put(`/api/products/${productId}/`, JSON.stringify(product), {
         headers: {

@@ -4,8 +4,6 @@ const Btn = styled.button`
     padding: 3px;
     border: 1px solid #000;
     height: 30px;
-    background-color:
-    linear-gradient(to top; rgb(207; 207; 207) 16%; rgb(252; 252; 252) 79%);
     user-select: none;
     white-space: pre;
     align-items: flex-start;
@@ -71,6 +69,8 @@ ol, ul, dir,
 ol              { list-style-type: decimal }
 ol ul, ul ol,
 ul ul, ol ol    { margin-top: 0; margin-bottom: 0 }
+p, div          { font-size: 16px; line-height: 22px }
+/* strong          { overflow-wrap: break-word; } */
 
 
 /* ###################################################### */
