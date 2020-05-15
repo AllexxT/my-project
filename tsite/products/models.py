@@ -158,6 +158,8 @@ class News(models.Model):
 
     class Meta:
         ordering = ['-changed']
+        verbose_name_plural = 'Новости'
+        verbose_name = 'Новость'
 ##############################################################################
 # Exposition #
 
