@@ -2,7 +2,8 @@ from products.models import (
     ProductCard, News, Exposition, ServicePage, Sertificat)
 from rest_framework import viewsets, permissions, generics
 from .serializer import (
-    ProductCardSerializer, NewsSerializer, NewsPostSerializer,
+    ProductCardSerializer, NewsSerializer,
+    ProductCardsSerializer, NewsPostSerializer,
     ProductCardUpdateSerializer,
     ExpositionSerializer,
     ServicePageSerializer, SertificatSerializer
@@ -39,8 +40,9 @@ class ServicePageViewSet(viewsets.ModelViewSet):
             return ServicePageSerializer
 
 
-class ProductCardViewSet(viewsets.ModelViewSet):
-    queryset = ProductCard.objects.all()
+class ProductCardsViewSet(viewsets.ModelViewSet):
+    # queryset = ProductCard.objects.select_related().select_related('article')
+    # queryset = ProductCard.objects.all().prefetch_related('article')
     permissions_classes = [
         permissions.AllowAny
     ]
@@ -51,9 +53,37 @@ class ProductCardViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.request.query_params.get('page'):
             filter = self.request.query_params.get('page')
-            return ProductCard.objects.filter(article__page=filter)
+            return ProductCard.objects.filter(article__page=filter
+                                              ).prefetch_related(
+            ).prefetch_related('article')
         else:
-            return ProductCard.objects.all()
+            return ProductCard.objects.all().prefetch_related(
+            ).prefetch_related('article')
+
+    def get_serializer_class(self):
+        if self.action == 'update':
+            return ProductCardUpdateSerializer
+        else:
+            return ProductCardsSerializer
+
+
+class ProductCardViewSet(viewsets.ModelViewSet):
+    permissions_classes = [
+        permissions.AllowAny
+    ]
+
+    def perform_create(self, serializer):
+        return serializer.save(owner=self.request.user)
+
+    def get_queryset(self):
+        if self.request.query_params.get('page'):
+            filter = self.request.query_params.get('page')
+            return ProductCard.objects.filter(article__page=filter
+                                              ).prefetch_related(
+            ).prefetch_related('article')
+        else:
+            return ProductCard.objects.all().prefetch_related(
+            ).prefetch_related('article')
 
     def get_serializer_class(self):
         if self.action == 'update':

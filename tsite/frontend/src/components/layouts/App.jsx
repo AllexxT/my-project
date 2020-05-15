@@ -9,12 +9,18 @@ import addressLogo from "./address.png";
 import phone from "./phone2.png";
 import Footer from "./footer/footer";
 import Alerts from "./Alerts";
+import { useEffect } from "react";
 
 const Logo = ({ children }) => {
   return <S.CompanyTitle href="/">{children}</S.CompanyTitle>;
 };
 
 const App = ({ children }) => {
+  useEffect(() => {
+    document.addEventListener('touchmove', function (event) {
+      if (event.scale !== 1) { event.preventDefault(); }
+    }, false);
+  }, []);
   return (
     <S.Wrapper>
       <S.Company>

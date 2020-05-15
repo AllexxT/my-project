@@ -3,7 +3,6 @@ import { default as S } from "./installMonumentsStyle";
 import { Link } from "react-router-dom";
 
 const InstallationMonuments = ({data}) => {
-    console.log(data);
     return (
       <S.PageWrapper>
         <S.Block>

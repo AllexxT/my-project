@@ -5,7 +5,7 @@ export const getProduct = (id) => dispatch => {
     dispatch({
         type: GET_PRODUCT_REQUEST,
     })
-    axios.get(`/api/products/${id}/`)
+    axios.get(`/api/product/${id}/`)
         .then(res => {
             dispatch({
                 type: GET_PRODUCT_SUCCESS,

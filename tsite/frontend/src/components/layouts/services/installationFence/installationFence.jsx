@@ -3,7 +3,6 @@ import { default as S } from "./installFenceStyle";
 import { Link } from "react-router-dom";
 
 const InstallationFence = ({ data }) => {
-  console.log(data);
   return (
     <S.PageWrapper>
       <S.Block>

@@ -71,7 +71,7 @@ class ArticleSerializer(UniqueFieldsMixin, WritableNestedModelSerializer):
 
 
 ##############################################################################
-# ProductCard#
+# Photos Serializer #
 class PhotosSerializer(serializers.ModelSerializer):
     """Photos serializer"""
     photo = VersatileImageFieldSerializer(
@@ -146,6 +146,34 @@ class PriceUpdateSerializer(WritableNestedModelSerializer):
         ]
 ##############################################################################
 # ProductCard #
+
+
+class ProductCardsSerializer(WritableNestedModelSerializer):
+    # Prices serializer
+    prices = PriceSerializer(many=True, allow_null=True)
+    # Photos serializer
+    photos = PhotosSerializer(
+        many=True, allow_null=True, partial=True, required=False)
+
+    lowerPriceNoTable = serializers.FloatField()
+
+    article = ArticleSerializer(allow_null=True)
+
+    class Meta:
+        model = ProductCard
+        fields = (
+            'id',
+            'position',
+            'article',
+            'name',
+            'sertificate',
+            # 'sizes',
+            # 'description',
+            'discount',
+            'lowerPriceNoTable',
+            'prices',
+            'photos',
+        )
 
 
 class ProductCardSerializer(WritableNestedModelSerializer):
@@ -234,7 +262,7 @@ class ExpositionPhotosSerializer(serializers.ModelSerializer):
     photo = VersatileImageFieldSerializer(
         sizes=[
             ('full_size', 'url'),
-            # ('thumbnail', 'thumbnail__100x100'),
+            ('thumbnail', 'thumbnail__100x100'),
             ('medium_square_crop', 'crop__400x400'),
             ('small_square_crop', 'crop__50x50')
         ]
