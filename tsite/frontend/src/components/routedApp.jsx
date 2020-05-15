@@ -182,6 +182,8 @@ const RoutedApp = () => {
           <Route exact path="/" component={NewsComponent} />
 
           <Redirect from="/trotuarnaya-plitka-zaporozhe" to="/products/sett" />
+          <Redirect from="/evrozabory-zaporozhe" to="/products/fence" />
+          <Redirect from="/pamyatniki-zaporozhe" to="/products/monuments" />
 
           <Route path="/*" component={ErrorComponent} status={404} />
         </Switch>
