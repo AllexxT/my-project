@@ -7,20 +7,16 @@ import BurgerMenu from "./navigation/burgerMenu/burgerMenu";
 
 import addressLogo from "./address.png";
 import phone from "./phone2.png";
+import viber from "./v.png";
+
 import Footer from "./footer/footer";
 import Alerts from "./Alerts";
-import { useEffect } from "react";
 
 const Logo = ({ children }) => {
   return <S.CompanyTitle href="/">{children}</S.CompanyTitle>;
 };
 
 const App = ({ children }) => {
-  useEffect(() => {
-    document.addEventListener('touchmove', function (event) {
-      if (event.scale !== 1) { event.preventDefault(); }
-    }, false);
-  }, []);
   return (
     <S.Wrapper>
       <S.Company>
@@ -55,7 +51,7 @@ const App = ({ children }) => {
                 </li>
               </S.CompanyContactsUl>
               <S.ViberLogo>
-                <img src="https://graycitrus.com/template/images/social/v.png" alt="viber"/>
+                <img src={viber} alt="viber"/>
               </S.ViberLogo>
             </S.CompanyContacts>
           </S.CompanyRow>
