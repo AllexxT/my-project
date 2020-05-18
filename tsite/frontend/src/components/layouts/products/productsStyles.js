@@ -16,7 +16,7 @@ const PTitleAnimation = keyframes`
         top: 0px;
     }
 `;
-const PTitle = styled.div`
+const PTitle = styled.h2`
   padding: 10px 0 10px 13px;
   font-size: 32px;
   line-height: 28px;

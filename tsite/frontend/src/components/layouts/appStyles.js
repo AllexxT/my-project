@@ -126,6 +126,7 @@ const ContentMain = styled.main`
 const Footer = styled.footer`
   background-color: rgba(56, 56, 68, 1);
   box-shadow: 0px -5px 10px gray;
+  margin-top: 25px;
 `;
 
 

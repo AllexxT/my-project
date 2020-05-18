@@ -6,6 +6,7 @@ import { Switch, Route, useRouteMatch } from "react-router";
 import ProductPage from "./productPage/productPageCont";
 
 import prodPlaceHolder from "./no_product.gif";
+import ProductsDescr from "../../layouts/products/productsDescr";
 
 const Preloader = () => {
   return (
@@ -18,10 +19,10 @@ const Preloader = () => {
         style={{
           position: "relative",
           width: "100%",
-          fontSize: '40px',
-          textAlign: 'center',
-          margin: '40px 0 0 0',
-          color: '#525252'
+          fontSize: "40px",
+          textAlign: "center",
+          margin: "40px 0 0 0",
+          color: "#525252",
         }}
       >
         ЗАГРУЗКА...
@@ -53,7 +54,7 @@ const NoData = () => {
   );
 };
 
-const ProductsContainer = ({ page, categories }) => {
+const ProductsContainer = ({ page, categories, textOfPage }) => {
   const products = useSelector((state) => state.productsReducer);
   const dispatch = useDispatch();
   const match = useRouteMatch();
@@ -69,12 +70,12 @@ const ProductsContainer = ({ page, categories }) => {
   const data = products.products;
   let articlesArray = [];
   let productsArray = [];
-  
+
   data.forEach((product) => {
     const art = product.article.article;
     !articlesArray.includes(art) && articlesArray.push(art);
   });
-  
+
   articlesArray.forEach((article) => {
     let prodSubArray = [];
     data.forEach((product) => {
@@ -83,17 +84,17 @@ const ProductsContainer = ({ page, categories }) => {
     });
     productsArray.push(prodSubArray);
   });
-  
+
   ///////////////////////////////////////////////////////////////////
   // Filtering queue of categories from each page
   // const categories = ["vibropressed", "vibrocast", "borders", "gully"];
-  let filteredProdArr = []
-  categories.forEach(curCat =>{
-    productsArray.forEach(curAr =>{
-      curAr[0].article.article == curCat && filteredProdArr.push(curAr)
-    })
-  })
-  
+  let filteredProdArr = [];
+  categories.forEach((curCat) => {
+    productsArray.forEach((curAr) => {
+      curAr[0].article.article == curCat && filteredProdArr.push(curAr);
+    });
+  });
+
   return (
     <Switch>
       <Route path={`${match.path}/:productId`} component={ProductPage} />
@@ -104,9 +105,9 @@ const ProductsContainer = ({ page, categories }) => {
           (products.products.length > 0 &&
             filteredProdArr.map((product, index) => (
               <Products key={index} data={{ products: product }} />
-            ))) 
-            || <NoData />
+            ))) || <NoData />
         )}
+        <ProductsDescr {...{textOfPage}} />
       </Route>
     </Switch>
   );

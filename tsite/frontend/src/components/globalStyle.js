@@ -13,10 +13,13 @@ const GlobalStyle = createGlobalStyle`
     button::-moz-focus-inner{padding:0;border:0;}
     a,a:visited{text-decoration:none;}
     a:hover{text-decoration:none;}
-    ul li{list-style:none;}
+    ul li{font-size: 16px; line-height: 22px; list-style:none;}
     img{vertical-align:top;}
     h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;text-rendering: optimizeSpeed;}
     /* Custom settings */
+    h1 {font-size: 24px; line-height: 26px;}
+    p {font-size: 16px; line-height: 22px;}
+
     html { overflow-y: scroll; scroll-behavior: smooth; } /* static scrollbar */
 
     body {
