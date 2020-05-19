@@ -20,5 +20,5 @@ ReactDom.render(
                 <RoutedApp />
             </AlertProvider>
         </Provider>
-    ), document.getElementById('main')
+    ), document.getElementById('root')
 )
