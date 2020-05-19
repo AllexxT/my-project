@@ -32,14 +32,17 @@ const CompanyRow = styled.div`
   justify-content: space-around;
   padding: 3px 0 0 0;
   flex-wrap: wrap;
+  @media (max-width: 460px) {
+    flex-flow: column;
+    align-items: center;
+  }
 `;
 const CompanyLogo = styled.div`
   position: relative;
   top: 5pt;
   padding-left: 35pt;
-  @media (max-width: 425px) {
-    padding-left: 0;
-    padding-bottom: 5pt;
+  @media (max-width: 460px) {
+    padding: 0 0 10px 0;
   }
 `;
 const CompanyTitle = styled.a`
@@ -56,7 +59,7 @@ const CompanyAddress = styled.div`
   flex-direction: column;
   align-items: center;
   padding-bottom: 5px;
-  @media (min-width: 425px) and (max-width: 641px) {
+  @media (max-width: 688px) {
     order: 1;
   }
 `;
