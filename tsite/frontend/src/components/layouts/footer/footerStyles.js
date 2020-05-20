@@ -14,30 +14,24 @@ const FooterMap = styled.div`
     position: relative;
     flex: 0 0 60%;
     height: 300px;
-    /* overflow: hidden; */
     iframe {
-        /* object-fit: cover; */
         width: 100%;
         height: 100%;
     }
-    @media (max-width: 520px){
-        width: 100%;
-    }
     /* img {
-        position: absolute;
         object-fit: cover;
         width: 100%;
         height: 100%;
-        z-index: -1;
     } */
+    @media (max-width: 520px){
+        width: 100%;
+    }
 `;
 const FooterTextRow = styled.div`
     display: flex;
     flex: 1 1 auto;
     justify-content: center;
     width: 100%;
-    /* @media (min-width: 384px) and (max-width: 520px) {
-  } */
 `
 const FooterText = styled.address`
   color: whitesmoke;
