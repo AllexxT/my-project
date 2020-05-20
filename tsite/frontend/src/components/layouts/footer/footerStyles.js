@@ -11,9 +11,7 @@ const FooterRow = styled.div`
     }
 `;
 const FooterMap = styled.div`
-    flex: 0 0 60%;
-    /* height: 300px; */
-    & > div {position: relative;
+    position: relative;
     flex: 0 0 60%;
     height: 300px;
     iframe {
@@ -25,11 +23,30 @@ const FooterMap = styled.div`
         width: 100%;
         height: 100%;
     } */
-}
     @media (max-width: 520px){
         width: 100%;
     }
 `;
+// const FooterMap = styled.div`
+//     flex: 0 0 60%;
+//     /* height: 300px; */
+//     & > div {position: relative;
+//     flex: 0 0 60%;
+//     height: 300px;
+//     iframe {
+//         width: 100%;
+//         height: 100%;
+//     }
+//     /* img {
+//         object-fit: cover;
+//         width: 100%;
+//         height: 100%;
+//     } */
+// }
+//     @media (max-width: 520px){
+//         width: 100%;
+//     }
+// `;
 const FooterTextRow = styled.div`
     display: flex;
     flex: 1 1 auto;
