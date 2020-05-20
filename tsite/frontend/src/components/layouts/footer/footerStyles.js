@@ -11,7 +11,9 @@ const FooterRow = styled.div`
     }
 `;
 const FooterMap = styled.div`
-    position: relative;
+    flex: 0 0 60%;
+    /* height: 300px; */
+    & > div {position: relative;
     flex: 0 0 60%;
     height: 300px;
     iframe {
@@ -23,6 +25,7 @@ const FooterMap = styled.div`
         width: 100%;
         height: 100%;
     } */
+}
     @media (max-width: 520px){
         width: 100%;
     }
