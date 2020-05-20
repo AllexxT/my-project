@@ -44,10 +44,10 @@ const App = ({ children }) => {
               </S.CompanyContactsImg>
               <S.CompanyContactsUl>
                 <li>
-                  <a href="tel:+380638086001">+38 (063) 808-60-01</a>
+                  <a href="tel:+380638086001"><span>+38 (063) 808-60-01</span></a>
                 </li>
                 <li>
-                  <a href="tel:+380675273100">+38 (067) 527-31-00</a>
+                  <a href="tel:+380675273100"><span>+38 (067) 527-31-00</span></a>
                 </li>
               </S.CompanyContactsUl>
               <S.ViberLogo>

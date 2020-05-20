@@ -90,10 +90,21 @@ const CompanyContactsUl = styled.ul`
   flex-flow: column;
   height: 73%;
   justify-content: space-around;
-  li a {
+  li {
+    height: 100%;
+  }
+  a {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: white;
     font-size: 11.5pt;
+    height: 100%;
+    display: flex;
+  }
+  & li:first-child a {
+    align-items: center;
+  }
+  & li:last-child a {
+    padding-top: 3px;
   }
 `;
 const ViberLogo = styled.div`

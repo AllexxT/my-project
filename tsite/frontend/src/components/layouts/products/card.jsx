@@ -59,12 +59,12 @@ export const Card = ({ card }) => {
         <S.C_ImageBlock>
           <Link to={`/products/${article.page.page}/${id}`}>
             {/* Product image */}
-            <S.C_Image src={availablePhoto} alt="Card image" />
+            <S.C_Image src={availablePhoto} alt={name} />
             {/* Sertificate image */}
-            {sertificate && <S.C_SertifImg src={sertificated} />}
+            {sertificate && <S.C_SertifImg src={sertificated} alt="Сертифицированный товар"/>}
           </Link>
           {/* Discount image */}
-          {discount && <S.C_StockImg src={stock} alt="Discount" />}
+          {discount && <S.C_StockImg src={stock} alt="Скидка" />}
         </S.C_ImageBlock>
         <S.C_LinkHolder>
           <S.C_ExpandableName

@@ -15,8 +15,9 @@ const GlobalStyle = createGlobalStyle`
     a:hover{text-decoration:none;}
     ul li{font-size: 16px; line-height: 22px; list-style:none;}
     img{vertical-align:top;}
-    h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;text-rendering: optimizeSpeed;}
+    h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;text-rendering: optimizeSpeed;font-display: fallback;}
     /* Custom settings */
+    a, p {font-display: fallback;}
     h1 {font-size: 24px; line-height: 26px;}
     p {font-size: 16px; line-height: 22px;}
 
