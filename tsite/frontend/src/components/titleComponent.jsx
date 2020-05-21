@@ -7,6 +7,7 @@ const TitleComponent = ({ title, description }) => {
     "ЧП Джас - производитель тротуарной плитки, еврозабора, облицовочного блока, бетонных памятников в Запорожье и области";
   return (
     <Helmet>
+      <meta name="theme-color" content="#004ba0" />
       <meta
         name="description"
         content={description ? description : defaultDescription}
