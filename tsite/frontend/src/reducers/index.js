@@ -8,6 +8,7 @@ import errorsReducer from './errors'
 import messagesReducer from './messages'
 import servicesReducer from './services'
 import sertificateReducer from './sertificates'
+import headReducer from './head'
 
 export default combineReducers({
     productsReducer,
@@ -18,5 +19,6 @@ export default combineReducers({
     errorsReducer,
     messagesReducer,
     servicesReducer,
-    sertificateReducer
+    sertificateReducer,
+    headReducer
 })

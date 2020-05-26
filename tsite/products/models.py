@@ -8,13 +8,25 @@ from datetime import date
 
 
 class Page(models.Model):
-    page = models.CharField("Page", max_length=30, primary_key=True)
+    page = models.CharField("Страница", max_length=30, primary_key=True)
+    title = models.CharField(
+        "СЕО  Заголовок", max_length=165, null=True, blank=True)
+    description = models.TextField(
+        "СЕО Описание(скрытое)", blank=True, null=True)
+    keywords = models.TextField(
+        "СЕО Ключевые слова", blank=True, null=True)
+    body = models.TextField(
+        "СЕО Текст на странице", blank=True, null=True)
 
     def article(self):
         return self.article_set.all()
 
     def __str__(self):
         return str(self.page)
+
+    class Meta:
+        verbose_name_plural = 'Основные страницы СЕО'
+        verbose_name = 'Страницу СЕО'
 
 
 class Article(models.Model):
@@ -25,7 +37,10 @@ class Article(models.Model):
     unit = models.CharField('Единица измерения', max_length=10, blank=True)
 
     def __str__(self):
-        return f'{self.page}, {self.title}, {self.article}'
+        return f'{self.page}, {self.title}'  # , {self.article}
+
+    class Meta:
+        ordering = ['-page']
 ##############################################################################
 
 

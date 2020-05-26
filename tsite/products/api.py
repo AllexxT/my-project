@@ -1,13 +1,31 @@
 from products.models import (
-    ProductCard, News, Exposition, ServicePage, Sertificat)
+    ProductCard, News, Exposition, ServicePage, Sertificat,
+    Page)
 from rest_framework import viewsets, permissions, generics
 from .serializer import (
     ProductCardSerializer, NewsSerializer,
     ProductCardsSerializer, NewsPostSerializer,
     ProductCardUpdateSerializer,
     ExpositionSerializer,
-    ServicePageSerializer, SertificatSerializer
+    ServicePageSerializer, SertificatSerializer,
+    PageSeoSerializer
 )
+
+
+class PageViewSet(viewsets.ModelViewSet):
+    permissions_classes = [
+        permissions.AllowAny
+    ]
+
+    def get_serializer_class(self):
+        return PageSeoSerializer
+
+    def get_queryset(self):
+        if self.request.query_params.get('page'):
+            filter = self.request.query_params.get('page')
+            return Page.objects.filter(page=filter)
+        else:
+            return Page.objects.all()
 
 
 class SertificatViewSet(viewsets.ModelViewSet):

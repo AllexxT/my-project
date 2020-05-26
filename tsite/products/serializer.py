@@ -47,7 +47,20 @@ class ServicePageSerializer(WritableNestedModelSerializer):
 
 
 ##############################################################################
-# News #
+# Page #
+class PageSeoSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
+
+    class Meta:
+        model = Page
+        fields = [
+            'page',
+            'title',
+            'description',
+            'keywords',
+            'body',
+        ]
+
+
 class PageSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
 
     class Meta:

@@ -52,9 +52,17 @@ class PageAdmin(admin.ModelAdmin):
 
     fields = (
         'page',
+        'title',
+        'description',
+        'keywords',
+        'body'
     )
     list_display = (
         'page',
+        'title',
+        'description',
+        'keywords',
+        'body'
     )
 
 
