@@ -35,7 +35,6 @@ const ProductsDescrCont = () => {
   }, [update]);
 
   const updateDescription = (descriptionHTML) => {
-    console.log(head.head);
     let productToUpdate = head.head;
     // clean description data from bad whitespaces
     let cleanDescrHTML = descriptionHTML.replace(/&nbsp;/g, " ");
