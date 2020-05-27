@@ -16,7 +16,7 @@ class Page(models.Model):
     keywords = models.TextField(
         "СЕО Ключевые слова", blank=True, null=True)
     body = models.TextField(
-        "СЕО Текст на странице", blank=True, null=True)
+        "Текст на странице", blank=True, null=True)
 
     def article(self):
         return self.article_set.all()

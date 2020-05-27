@@ -6,7 +6,7 @@ import { Switch, Route, useRouteMatch } from "react-router";
 import ProductPage from "./productPage/productPageCont";
 
 import prodPlaceHolder from "./no_product.gif";
-import ProductsDescr from "../../layouts/products/productsDescr";
+import ProductsDescrCont from "./productsDescriptCont";
 
 const Preloader = () => {
   return (
@@ -107,7 +107,7 @@ const ProductsContainer = ({ page, categories, textOfPage }) => {
               <Products key={index} data={{ products: product }} />
             ))) || <NoData />
         )}
-        <ProductsDescr {...{textOfPage}} />
+        <ProductsDescrCont />
       </Route>
     </Switch>
   );

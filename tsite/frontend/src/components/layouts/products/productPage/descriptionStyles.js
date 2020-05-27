@@ -42,6 +42,7 @@ center,
 dir, hr, menu, pre  { display: block; unicode-bidi: embed }       
 li              { display: list-item }
 ul li           { list-style: square outside; margin-left: 3% }
+ol li           { list-style: decimal; margin-left: 3% }
 h1              { font-size: 2em; margin: .67em 0 }
 h2              { font-size: 1.5em; margin: .75em 0 }
 h3              { font-size: 1.17em; margin: .83em 0 }

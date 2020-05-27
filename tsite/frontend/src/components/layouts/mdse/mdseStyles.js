@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
+const Title = styled.h1`
+  text-align: center;
+  font-size: 28px;
+`;
 const Wrapper = styled.div`
     display: flex;
     flex-wrap: wrap-reverse;
-    max-width: 1060px;
+    /* max-width: 1060px; */
     justify-content: center;
     padding: 15pt 0 15pt 0;
 `;
@@ -59,6 +63,7 @@ const Label = styled.div`
 `;
 
 const Styles = {
+    Title,
     Wrapper,
     CategoryItem,
     Label,

@@ -3,16 +3,12 @@ import { Helmet } from "react-helmet";
 import { getHead } from "../../actions/head";
 import { useDispatch, useSelector } from "react-redux";
 
-const TitleComponent = ({ page }) => {
+const TitleComponent = ({ page, home }) => {
   const dispatch = useDispatch();
   const head = useSelector((state) => state.headReducer);
   useEffect(() => {
     dispatch(getHead(page));
   }, []);
-  // const defaultTitle = "ЧП Джас - Производство бетонных изделий в Запорожье";
-  // const defaultDescription =
-  // "ЧП Джас - производитель тротуарной плитки, еврозабора, облицовочного блока, бетонных памятников в Запорожье и области";
-
   return (
     head && (
       <Helmet>
@@ -26,6 +22,8 @@ const TitleComponent = ({ page }) => {
           content={head.head.keywords ? head.head.keywords : ""}
         />
         <title>{head.head.title}</title>
+        {home && <link rel="canonical" href="http://pasenko.zp.ua" /> || 
+        <link rel="canonical" href={document.location.href} />}
       </Helmet>
     )
   );

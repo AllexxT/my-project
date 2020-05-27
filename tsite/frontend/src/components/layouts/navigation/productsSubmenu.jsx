@@ -39,12 +39,12 @@ const ProductsSubmenu = () => {
       >
           <NavStyle.Nav__Submenu_icon />
         <PopUpMenu>
+          <PopUpLink to="/products/brick#facblock" label="Блок Облицовочный" />
           <PopUpLink to="/products/brick#baseblock" label="Фундаментный блок" />
           <PopUpLink
             to="/products/brick#buildblock"
             label="Блок Строительный"
           />
-          <PopUpLink to="/products/brick#facblock" label="Блок Облицовочный" />
           <PopUpLink
             to="/products/brick#facbrick"
             label="Кирпич Облицовочный"

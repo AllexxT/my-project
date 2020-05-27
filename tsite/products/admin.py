@@ -55,14 +55,14 @@ class PageAdmin(admin.ModelAdmin):
         'title',
         'description',
         'keywords',
-        'body'
+        'body',
     )
     list_display = (
         'page',
         'title',
         'description',
         'keywords',
-        'body'
+        'body',
     )
 
 

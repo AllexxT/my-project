@@ -27,21 +27,16 @@ import TitleComponent from "./containers/titleComponent";
 // import { useDispatch } from "react-redux";
 
 const Error = () => {
-  return (
-    <h1>
-      Ошибка: 404
-      <br /> Страница не найдена
-    </h1>
-  );
+  return <Mdse />;
 };
 
-const WithTitle = ({ component: Component, page }) => {
-  console.log(page)
+const WithTitle = ({ component: Component, page, home }) => {
+
   return class Title extends React.Component {
     render() {
       return (
         <>
-          <TitleComponent {...{ page }} />
+          <TitleComponent {...{ page, home }} />
           <Component />
         </>
       );
@@ -51,6 +46,7 @@ const WithTitle = ({ component: Component, page }) => {
 const NewsComponent = WithTitle({
   component: NewsContainer,
   page: "home",
+  home: true
 });
 const SettComponent = WithTitle({
   component: Sett,
