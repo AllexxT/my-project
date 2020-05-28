@@ -11,6 +11,12 @@ const Products = ({ data }) => {
   useEffect(() => {
     if (location.hash) {
       window.location.href = location.hash;
+    } else {
+        window.scroll({
+          top: 0,
+          left: 0,
+          behavior: "smooth",
+        });
     }
   }, []);
   return (

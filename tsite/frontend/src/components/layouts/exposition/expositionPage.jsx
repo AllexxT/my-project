@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { default as S } from "./expositionStyles";
 import ExpositionCategory from "./expositionCategory";
 import ProductsDescrCont from "../../containers/products/productsDescriptCont";
@@ -12,7 +12,13 @@ const ExpositionPage = ({ expositionArray }) => {
       curAr[0].category == curCat && filteredCategories.push(curAr);
     });
   });
-
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  });
   return (
     <>
       <S.PageWrapper>

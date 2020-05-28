@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { default as S } from "./sertificatesStyles";
 import ProductsDescrCont from "../../containers/products/productsDescriptCont";
 
 const Sertificates = ({ sertificates }) => {
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  });
   return (
     <>
       <S.PageWrapper>

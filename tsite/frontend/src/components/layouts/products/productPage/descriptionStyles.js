@@ -50,7 +50,7 @@ h4, p,
 blockquote, ul,
 fieldset, form,
 ol, dl, dir,
-menu            { margin: 1.12em 0 }
+menu            { margin-bottom: 10px}
 h5              { font-size: .83em; margin: 1.5em 0 }
 h6              { font-size: .75em; margin: 1.67em 0 }
 h1, h2, h3, h4,

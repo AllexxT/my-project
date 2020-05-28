@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { default as S } from "./mdseStyles";
 import sett from "./mdseMedia/sett2.jpeg";
 import fence from "./mdseMedia/fence2.jpeg";
@@ -13,6 +13,13 @@ const Mdse = () => {
   const link = (lnk) => {
     history.push(`/products/${lnk}`);
   };
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  });
   return (
     <>
       <S.Title>Выберите категорию которая вас интересует</S.Title>

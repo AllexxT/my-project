@@ -8,12 +8,8 @@ const InstallationMonuments = ({ data }) => {
     <>
       <S.PageWrapper>
         <S.Block>
-          <S.Title>Установка памятников</S.Title>
-          {/* <p>
-   
-          </p> */}
+          <S.Title>Установка памятников цена в Запорожье, прайс-лист на 2020 год.</S.Title>
         </S.Block>
-        <h2>Установка памятников цена в Запорожье, прайс-лист на 2020 год.</h2>
         <table>
           <thead>
             <tr>

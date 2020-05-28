@@ -11,6 +11,7 @@ const PageWrapper = styled.div`
   h2 {
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
     margin-bottom: 15px;
   }
   table {
@@ -64,6 +65,7 @@ const Title = styled.h1`
   font-weight: 900;
   line-height: 100%;
   color: #333;
+  text-align: center;
 `
 const DiscoverPriceRow = styled.div`
   display: flex;

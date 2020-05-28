@@ -2,15 +2,16 @@ import React, { useState } from "react";
 // import ScrollTrigger from "react-scroll-trigger";
 import { default as S } from "./footerStyles";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 // import gmap from "./gmap.png";
 // import mapImage from "./ЧП-Джас_на карте.jpeg";
 
 const Footer = () => {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
-    let id = setTimeout(()=>setVisible(true), 3000)
+    let id = setTimeout(() => setVisible(true), 3000);
     return () => {
-      clearTimeout(id)
+      clearTimeout(id);
     };
   }, []);
   return (
@@ -22,10 +23,12 @@ const Footer = () => {
             onEnter={() => setVisible(true)}
             onExit={() => setVisible(false)}
           > */}
-            {visible && <iframe
+          {visible && (
+            <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2252.6643797090883!2d35.28376216223628!3d47.822455577584876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x692a9f0aff452ff6!2z0KfQnyDQlNC20LDRgSDRgtGA0L7RgtGD0LDRgNC90LDRjyDQv9C70LjRgtC60LAg0LIg0JfQsNC_0L7RgNC-0LbRjNC1!5e0!3m2!1sru!2sua!4v1588963597703!5m2!1sru!2sua"
               style={{ border: "0" }}
-            />}
+            />
+          )}
           {/* </ScrollTrigger> */}
           {/* <a
             href="https://www.google.com/maps/place/%D0%A7%D0%9F+%D0%94%D0%B6%D0%B0%D1%81+%D1%82%D1%80%D0%BE%D1%82%D1%83%D0%B0%D1%80%D0%BD%D0%B0%D1%8F+%D0%BF%D0%BB%D0%B8%D1%82%D0%BA%D0%B0+%D0%B2+%D0%97%D0%B0%D0%BF%D0%BE%D1%80%D0%BE%D0%B6%D1%8C%D0%B5/@47.822872,35.284304,16z/data=!4m5!3m4!1s0x0:0x692a9f0aff452ff6!8m2!3d47.8228715!4d35.2843036?hl=ru"
@@ -35,6 +38,21 @@ const Footer = () => {
           </a> */}
         </S.FooterMap>
         <S.FooterTextRow>
+          <S.FooterMenu>
+            <S.FooterTitle>Меню сайта</S.FooterTitle>
+            <nav>
+              <Link to="/">Новости</Link>
+              <Link to="/products">Товары</Link>
+              {/* <Link to="">Тротуарная плитка</Link>
+            <Link to="">Еврозабор</Link>
+            <Link to="">Блок и Кирпич</Link>
+            <Link to="">Крышки Парапеты</Link>
+          <Link to="">Памятники</Link> */}
+              <Link to="/sertificates">Сертификаты</Link>
+              <Link to="/services">Услуги</Link>
+              <Link to="/exposition">Наши работы</Link>
+            </nav>
+          </S.FooterMenu>
           <S.FooterText>
             <S.ContactsText>
               <S.FooterTitle>Контакты</S.FooterTitle>

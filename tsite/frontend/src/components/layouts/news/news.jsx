@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import NewsItem from "./newsItem";
 import ProductsDescrCont from "../../containers/products/productsDescriptCont";
@@ -40,6 +40,13 @@ const PageTitle = styled.div`
 `;
 
 const News = ({ news }) => {
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  });
   return (
     <>
       <PageWrapper>
