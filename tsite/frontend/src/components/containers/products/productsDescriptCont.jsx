@@ -10,9 +10,9 @@ const ProductsDescrCont = () => {
   const textOfPage = head.head.body;
   const location = useLocation();
 
-  const allowToRender = location.pathname.split("/")[
-    location.pathname.split("/").length - 1
-  ];
+  // const allowToRender = location.pathname.split("/")[
+  //   location.pathname.split("/").length - 1
+  // ];
 
   function getCookie(name) {
     var cookieValue = null;
@@ -53,9 +53,9 @@ const ProductsDescrCont = () => {
       .catch((e) => console.log(e));
   };
   return (
-    allowToRender == head.head.page && (
+    // allowToRender == head.head.page && (
       <ProductsDescr textOfPage={textOfPage} callBack={updateDescription} />
-    )
+    // )
   );
 };
 

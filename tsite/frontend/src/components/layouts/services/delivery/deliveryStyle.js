@@ -32,11 +32,12 @@ const Box = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1 1 33%;
-  margin: 0 20px 15px 20px;
+  margin: 0 15px 15px 15px;
 `;
 const PhotoBox = styled.div`
   width: 100%;
   transition: all 0.2s linear;
+  margin-bottom: auto;
   &:hover {
     box-shadow: 0px 5px 10px gray;
   }

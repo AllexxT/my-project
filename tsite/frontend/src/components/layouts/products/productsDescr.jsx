@@ -27,6 +27,7 @@ const Container = styled.div`
   animation: ${slide} 1s ease-in;
   font-size: 16px;
   line-height: 22px;
+  box-shadow: 0px 5px 10px grey;
   h1 {
     padding-bottom: 15px;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);

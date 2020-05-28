@@ -1,12 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import NewsItem from "./newsItem";
+import ProductsDescrCont from "../../containers/products/productsDescriptCont";
 
+const PageWrapper = styled.div`
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 0 5pt;
+`;
 const N_Box = styled.div`
   display: flex;
   /* z-index:-50; */
   flex-wrap: wrap;
-  @media(max-width:950px) {
+  @media (max-width: 950px) {
     flex-direction: column;
   }
 `;
@@ -35,19 +42,22 @@ const PageTitle = styled.div`
 const News = ({ news }) => {
   return (
     <>
-      <PageTitle>
-        <h1>Новости и новинки</h1>
-      </PageTitle>
-      <N_Box>
-        {(news.news.length > 0 &&
-          news.news.map((newsData) => (
-            <NewsItem key={newsData.id} newsItem={newsData} />
-          ))) || (
-          <p style={{ color: "darkgoldenrod", fontSize: "16px" }}>
-            Нет новостей
-          </p>
-        )}
-      </N_Box>
+      <PageWrapper>
+        <PageTitle>
+          <h1>Новости и новинки</h1>
+        </PageTitle>
+        <N_Box>
+          {(news.news.length > 0 &&
+            news.news.map((newsData) => (
+              <NewsItem key={newsData.id} newsItem={newsData} />
+            ))) || (
+            <p style={{ color: "darkgoldenrod", fontSize: "16px" }}>
+              Нет новостей
+            </p>
+          )}
+        </N_Box>
+      </PageWrapper>
+      <ProductsDescrCont />
     </>
   );
 };

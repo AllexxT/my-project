@@ -1,9 +1,11 @@
-import React from 'react';
+import React from "react";
 import { default as S } from "./installMonumentsStyle";
 import { Link } from "react-router-dom";
+import ProductsDescrCont from "../../../containers/products/productsDescriptCont";
 
-const InstallationMonuments = ({data}) => {
-    return (
+const InstallationMonuments = ({ data }) => {
+  return (
+    <>
       <S.PageWrapper>
         <S.Block>
           <S.Title>Установка памятников</S.Title>
@@ -11,9 +13,7 @@ const InstallationMonuments = ({data}) => {
    
           </p> */}
         </S.Block>
-        <h2>
-          Установка памятников цена в Запорожье, прайс-лист на 2020 год.
-        </h2>
+        <h2>Установка памятников цена в Запорожье, прайс-лист на 2020 год.</h2>
         <table>
           <thead>
             <tr>
@@ -43,7 +43,9 @@ const InstallationMonuments = ({data}) => {
           </S.DiscoverNumbers>
         </S.DiscoverPriceRow>
       </S.PageWrapper>
-    );
-  };
+      <ProductsDescrCont />
+    </>
+  );
+};
 
 export default InstallationMonuments;

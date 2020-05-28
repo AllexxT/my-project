@@ -6,6 +6,7 @@ import brick from "./mdseMedia/brick2.jpeg";
 import monuments from "./mdseMedia/monuments.jpg";
 import parapet from "./mdseMedia/parapet.jpg";
 import { useHistory } from "react-router";
+import ProductsDescrCont from "../../containers/products/productsDescriptCont";
 
 const Mdse = () => {
   const history = useHistory();
@@ -47,6 +48,7 @@ const Mdse = () => {
           </S.Label>
         </S.CategoryItem>
       </S.Wrapper>
+      <ProductsDescrCont />
     </>
   );
 };
