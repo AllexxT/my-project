@@ -5,6 +5,7 @@ import Gallery from "./gallery";
 import Description from "./description";
 import { useEffect } from "react";
 import NoTablePrices from "./noTablePrices";
+import { Helmet } from "react-helmet";
 
 const ProductPage = ({ product, callBack }) => {
   const topOfContent = useRef();
@@ -19,6 +20,8 @@ const ProductPage = ({ product, callBack }) => {
     lowerPriceNoTable,
     prices,
     photos,
+    seoDescription,
+    keywords,
   } = product;
   useEffect(() => {
     window.scroll({
@@ -28,26 +31,38 @@ const ProductPage = ({ product, callBack }) => {
     });
   }, []);
   const isMonument = article != undefined && article.page.page == "monuments";
+
+  // Helmet location for canonical link
+  const location = document.location.href.replace("www.", "");
   return (
-    <S.Wrapper ref={topOfContent}>
-      <S.Gallery_Table__row>
-        <Gallery {...{ photos, isMonument }} />
-        <S.TableWrapper>
-          <S.TitleWrapper>
-            <S.Title__row>
-              <h1>{name}</h1>
-            </S.Title__row>
-          </S.TitleWrapper>
-          <S.Sizes>{sizes}</S.Sizes>
-          {(article != undefined && article.article == "vibropressed" && (
-            <PriceTable {...{ sizes, prices }} />
-          )) || <NoTablePrices {...{ prices }} />}
-        </S.TableWrapper>
-      </S.Gallery_Table__row>
-      <S.DescriptionWrapper>
-        <Description {...{ description, callBack }} />
-      </S.DescriptionWrapper>
-    </S.Wrapper>
+    <>
+      <Helmet>
+        <meta name="theme-color" content="r#de9c2a" />
+        {seoDescription && <meta name="description" content={seoDescription} />}
+        {keywords && <meta name="keywords" content={keywords} />}
+        <title>{`${name} Купить в Запорожье Цена — ЧП Джас`}</title>
+        <link rel="canonical" href={location} />
+      </Helmet>
+      <S.Wrapper ref={topOfContent}>
+        <S.Gallery_Table__row>
+          <Gallery {...{ photos, isMonument }} />
+          <S.TableWrapper>
+            <S.TitleWrapper>
+              <S.Title__row>
+                <h1>{name}</h1>
+              </S.Title__row>
+            </S.TitleWrapper>
+            <S.Sizes>{sizes}</S.Sizes>
+            {(article != undefined && article.article == "vibropressed" && (
+              <PriceTable {...{ sizes, prices }} />
+            )) || <NoTablePrices {...{ prices }} />}
+          </S.TableWrapper>
+        </S.Gallery_Table__row>
+        <S.DescriptionWrapper>
+          <Description {...{ description, callBack }} />
+        </S.DescriptionWrapper>
+      </S.Wrapper>
+    </>
   );
 };
 

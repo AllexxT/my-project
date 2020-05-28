@@ -53,13 +53,17 @@ class ProductCard(models.Model):
     )
     owner = models.ForeignKey(
         User, related_name="Description", on_delete=models.CASCADE, null=True)
-    name = models.CharField(max_length=200, unique=True)
-    description = models.TextField(null=True, blank=True)
+    name = models.CharField('Название', max_length=200, unique=True)
+    description = models.TextField(
+        'Описание на странице', null=True, blank=True)
     discount = models.BooleanField('Скидка', blank=True)
     sertificate = models.BooleanField('Сертификат', blank=True, default=False)
     sizes = models.TextField(max_length=400, null=True, blank=True)
     position = models.FloatField(
         'Позиция товара в списке товаров', blank=True, null=True, default=0)
+    seoDescription = models.TextField(
+        'СЕО описание страницы с товаром(скрытое)', null=True, blank=True)
+    keywords = models.TextField('СЕО ключевые слова', null=True, blank=True)
 
     # Return lower price from the all colors of product
     # (if "depthPrice" is empty)

@@ -25,10 +25,12 @@ class ProductCardAdmin(admin.ModelAdmin):
         'name',
         'position',
         'article',
-        'description',
         'discount',
-        'sizes',
         'sertificate',
+        'description',
+        'seoDescription',
+        'keywords',
+        'sizes',
     )
     list_display = (
         'name',

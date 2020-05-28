@@ -56,7 +56,6 @@ export const Card = ({ card }) => {
     <MyTxtBox article={article} id={id} text={name}></MyTxtBox>
   );
   const isMonument = card.article.page.page == "monuments";
-  console.log(isMonument);
   return (
     <S.C_Wrapper>
       <S.C_Content>

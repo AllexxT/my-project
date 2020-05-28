@@ -211,6 +211,8 @@ class ProductCardSerializer(WritableNestedModelSerializer):
             'sizes',
             'description',
             'discount',
+            'seoDescription',
+            'keywords',
             'lowerPriceNoTable',
             'prices',
             'photos',
