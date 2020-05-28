@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-
+    display: flex;
+    flex: ${({ isMonument }) => isMonument ? "1" : "auto"};
+    display: inherit;
 `
 const MainFrame = styled.div`
     @media (max-width: 768px){

@@ -13,6 +13,7 @@ const Preloader = () => {
     <div
       style={{
         position: "relative",
+        height: "100vh"
       }}
     >
       <div
@@ -25,7 +26,7 @@ const Preloader = () => {
           color: "#525252",
         }}
       >
-        ЗАГРУЗКА...
+        ЗАГРУЗКА ...
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import ExpositionPage from "../../layouts/exposition/expositionPage";
 
 // ###################################
 const Preloader = () => {
-  return <div>LOADING...</div>;
+  return <div>ЗАГРУЗКА...</div>;
 };
 
 const NotFound = () => {

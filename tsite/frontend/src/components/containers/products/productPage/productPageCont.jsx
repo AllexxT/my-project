@@ -6,7 +6,15 @@ import { getProduct } from "../../../../actions/product";
 import DescriptionContainer from "./descriptionCont";
 
 const Preloader = () => {
-  return <div>LOADING...</div>;
+  return (
+    <div
+      style={{
+        height: "100vh",
+      }}
+    >
+      LOADING...
+    </div>
+  );
 };
 
 const NotFound = () => {
@@ -16,7 +24,7 @@ const NotFound = () => {
 const ProductPageCont = () => {
   let { productId } = useParams();
   const dispatch = useDispatch();
-  const productState = useSelector(state => state.productReducer);
+  const productState = useSelector((state) => state.productReducer);
 
   const preloaderOr404 =
     productState.fetching == 404 ? <NotFound /> : <Preloader />;

@@ -26,12 +26,12 @@ const ProductPage = ({ product, callBack }) => {
       left: 0,
       behavior: "smooth",
     });
-    // window.scrollTo(0, 63);
   }, []);
+  const isMonument = article != undefined && article.page.page == "monuments";
   return (
     <S.Wrapper ref={topOfContent}>
       <S.Gallery_Table__row>
-        <Gallery {...{ photos }} />
+        <Gallery {...{ photos, isMonument }} />
         <S.TableWrapper>
           <S.TitleWrapper>
             <S.Title__row>

@@ -5,7 +5,7 @@ import { default as S } from "./galleryStyles";
 // import useWindowSize from "../../../getWindowSize";
 // import Cat from "../../../cat.jpg";
 
-const Gallery = ({ photos = [] }) => {
+const Gallery = ({ photos = [], isMonument }) => {
   const [images, setImages] = useState([]);
   // const windowSize = useWindowSize()
   // console.log(windowSize);
@@ -15,16 +15,15 @@ const Gallery = ({ photos = [] }) => {
       photos.map(item => {
         return {
           fullscreen: item.photo.full_size,
-          original: item.photo.medium_square_crop,
+          original: !isMonument ? item.photo.medium_square_crop : item.photo.full_size,
           thumbnail: item.photo.small_square_crop,
           // description: "Описание изображения"
         };
       })
     );
-  }, [photos]);
-
+  }, []);
   return (
-    <S.Wrapper>
+    <S.Wrapper isMonument={isMonument}>
       <S.MainFrame>
         {images.length > 0 && (
           <S.MainF__row>

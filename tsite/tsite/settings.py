@@ -181,5 +181,5 @@ VERSATILEIMAGEFIELD_SETTINGS = {
     'image_key_post_processor': None,
     # Whether to create progressive JPEGs. Read more about progressive JPEGs
     # here: https://optimus.io/support/progressive-jpeg/
-    'progressive_jpeg': False
+    'progressive_jpeg': True
 }

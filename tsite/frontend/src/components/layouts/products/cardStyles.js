@@ -14,7 +14,7 @@ const slide = keyframes`
 const C_Wrapper = styled.div`
   position: relative;
   min-height: 325px;
-  width: 230px;
+  width: 250px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -24,7 +24,7 @@ const C_Wrapper = styled.div`
   animation: ${slide} 0.2s linear;
 `;
 const C_Content = styled.div`
-  padding: 15px 15px 15px 15px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -35,7 +35,17 @@ const C_ImageBlock = styled.div`
     display: flex;
     justify-content: center;
     cursor: pointer;
-    max-height: 165px;
+    max-height: 220px;
+    overflow: hidden; /* new */
+  }
+`;
+const C_ImageBlockMonument = styled.div`
+  position: relative;
+  & a {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    max-height: 430px;
     overflow: hidden; /* new */
   }
 `;
@@ -52,7 +62,7 @@ const C_ExpandableName = styled.div`
     cursor: pointer;
     font-size: 18px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    margin: 15px 2px 0 0;
+    margin: 10px 2px 0 0;
     font-weight: bold;
     color: #323232;
     transition: color 0.2s linear;
@@ -67,7 +77,7 @@ const C_ExpandableName = styled.div`
   }
 `;
 const C_Image = styled.img`
-  transform: scale(1.05);
+  transform: ${(monument)=>(monument ? "none" : "scale(1.10)")};;
   /* height: 169px;   */      /*  new */
   /* width: 100%;   */       /* new */
   object-fit: contain;     /* new */
@@ -126,6 +136,7 @@ const Crd = {
   C_Wrapper,
   C_Content,
   C_ImageBlock,
+  C_ImageBlockMonument,
   C_LinkHolder,
   C_Image,
   C_StockImg,
