@@ -30,8 +30,12 @@ const ProductPage = ({ product, callBack }) => {
       behavior: "smooth",
     });
   }, []);
-  const isMonument = article != undefined && article.page.page == "monuments";
-
+  const isMonument =
+    article != undefined &&
+    article.page.page == "monuments" &&
+    article.article != "coverplate" &&
+    article.article != "nameplate";
+  console.log(article)
   // Helmet location for canonical link
   const location = document.location.href.replace("www.", "");
   return (
