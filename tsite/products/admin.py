@@ -41,6 +41,7 @@ class ProductCardAdmin(admin.ModelAdmin):
         'sizes',
         'sertificate',
     )
+    search_fields = ('article__title',)
 
 
 @admin.register(Page)
