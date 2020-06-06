@@ -47,6 +47,22 @@ const C_ImageBlockMonument = styled.div`
     cursor: pointer;
     max-height: 430px;
     overflow: hidden; /* new */
+    transition: all 3s;
+    &:hover {
+      overflow: unset;
+    }
+    & img:hover:first-child {
+      max-height: 431px;
+      position: relative;
+      z-index: 10;
+      /* border-right: 2px solid #f3cb55;
+      border-top: 2px solid #f3cb55;
+      border-bottom: 2px solid #535252;
+      border-left: 2px solid #535252; */
+      /* outline: 3px solid #535252; */
+      object-fit: unset;
+      box-shadow: 0px 10px 15px black;
+    }
   }
 `;
 const C_LinkHolder = styled.div`

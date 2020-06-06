@@ -95,7 +95,7 @@ const ProductsContainer = ({ page, categories, textOfPage }) => {
       curAr[0].article.article == curCat && filteredProdArr.push(curAr);
     });
   });
-
+  console.log(filteredProdArr)
   return (
     <Switch>
       <Route path={`${match.path}/:productId`} component={ProductPage} />
