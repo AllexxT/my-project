@@ -5,6 +5,7 @@ const PWrapper = styled.div`
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
+  position: relative;
 `;
 const PTitleAnimation = keyframes`
     from {

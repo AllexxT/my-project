@@ -35,7 +35,6 @@ const ProductPage = ({ product, callBack }) => {
     article.page.page == "monuments" &&
     article.article != "coverplate" &&
     article.article != "nameplate";
-  console.log(article)
   // Helmet location for canonical link
   const location = document.location.href.replace("www.", "");
   return (

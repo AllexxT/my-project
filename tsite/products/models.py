@@ -11,12 +11,19 @@ class Page(models.Model):
     page = models.CharField("Страница", max_length=30, primary_key=True)
     title = models.CharField(
         "СЕО  Заголовок", max_length=165, null=True, blank=True)
+    readableTitle = models.CharField(
+        "Читаемый заголовок", max_length=165, null=True, blank=True)
     description = models.TextField(
         "СЕО Описание(скрытое)", blank=True, null=True)
     keywords = models.TextField(
         "СЕО Ключевые слова", blank=True, null=True)
     body = models.TextField(
         "Текст на странице", blank=True, null=True)
+
+    def keywordsLength(self):
+        if len(self.keywords.split(',')) <= 1:
+            return "Нет ключевых фраз"
+        return f"Количество ключевых фраз - «{len(self.keywords.split(','))}»"
 
     def article(self):
         return self.article_set.all()

@@ -52,16 +52,17 @@ const C_ImageBlockMonument = styled.div`
       overflow: unset;
     }
     & img:hover:first-child {
-      max-height: 431px;
+      max-height: 490px;
       position: relative;
       z-index: 10;
+      max-width: 100vw;
       /* border-right: 2px solid #f3cb55;
       border-top: 2px solid #f3cb55;
       border-bottom: 2px solid #535252;
       border-left: 2px solid #535252; */
       /* outline: 3px solid #535252; */
-      object-fit: unset;
-      box-shadow: 0px 10px 15px black;
+      /* object-fit: unset; */
+      /* box-shadow: 0px 10px 15px black; */
     }
   }
 `;
@@ -136,14 +137,11 @@ const C_Button = styled.div`
     font-weight: 600;
     color: #2b2b2b;
     background: #d3a52e;
-
     text-align: center;
     transition: all 0.2s linear;
     &:hover {
       background: #fdc61d;
       color: #2b2b2b;
-    &:hover {
-    }
     }
   }
 `;

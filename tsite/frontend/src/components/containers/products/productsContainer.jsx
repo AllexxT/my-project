@@ -2,18 +2,19 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../../../actions/products";
 import Products from "../../layouts/products/products";
-import { Switch, Route, useRouteMatch } from "react-router";
+import { Switch, Route, useRouteMatch, useLocation } from "react-router";
 import ProductPage from "./productPage/productPageCont";
 
 import prodPlaceHolder from "./no_product.gif";
 import ProductsDescrCont from "./productsDescriptCont";
+import AnchMenu from "../../layouts/navigation/anchorMenu/anchMenu";
 
 const Preloader = () => {
   return (
     <div
       style={{
         position: "relative",
-        height: "100vh"
+        height: "100vh",
       }}
     >
       <div
@@ -59,6 +60,7 @@ const ProductsContainer = ({ page, categories, textOfPage }) => {
   const products = useSelector((state) => state.productsReducer);
   const dispatch = useDispatch();
   const match = useRouteMatch();
+  const location = useLocation();
 
   useEffect(() => {
     dispatch(getProducts(page));
@@ -95,22 +97,26 @@ const ProductsContainer = ({ page, categories, textOfPage }) => {
       curAr[0].article.article == curCat && filteredProdArr.push(curAr);
     });
   });
-  console.log(filteredProdArr)
   return (
-    <Switch>
-      <Route path={`${match.path}/:productId`} component={ProductPage} />
-      <Route path={match.path}>
-        {products.fetching ? (
-          <Preloader />
-        ) : (
-          (products.products.length > 0 &&
-            filteredProdArr.map((product, index) => (
-              <Products key={index} data={{ products: product }} />
-            ))) || <NoData />
-        )}
-        <ProductsDescrCont />
-      </Route>
-    </Switch>
+    <>
+      {location.pathname.split("/").length <= 3 && (
+        <AnchMenu items={filteredProdArr} />
+      )}
+      <Switch>
+        <Route path={`${match.path}/:productId`} component={ProductPage} />
+        <Route path={match.path}>
+          {products.fetching ? (
+            <Preloader />
+          ) : (
+            (products.products.length > 0 &&
+              filteredProdArr.map((product, index) => (
+                <Products key={index} data={{ products: product }} />
+              ))) || <NoData />
+          )}
+          <ProductsDescrCont />
+        </Route>
+      </Switch>
+    </>
   );
 };
 

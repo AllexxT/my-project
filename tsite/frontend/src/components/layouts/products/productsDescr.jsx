@@ -28,6 +28,10 @@ const Container = styled.div`
   font-size: 16px;
   line-height: 22px;
   box-shadow: 0px 5px 10px grey;
+  @media (max-width: 570px) {
+    max-height: 250px;
+    overflow: scroll;
+  }
   h1 {
     padding-bottom: 15px;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
