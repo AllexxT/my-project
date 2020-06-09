@@ -41,8 +41,8 @@ const Footer = () => {
           <S.FooterMenu>
             <S.FooterTitle>Меню сайта</S.FooterTitle>
             <nav>
-              <Link to="/">Новости</Link>
-              <Link to="/products">Товары</Link>
+              <Link to="/">Товары</Link>
+              <Link to="/news">Новости</Link>
               {/* <Link to="">Тротуарная плитка</Link>
             <Link to="">Еврозабор</Link>
             <Link to="">Блок и Кирпич</Link>

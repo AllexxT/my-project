@@ -4,9 +4,10 @@ import { default as S } from "./breadcrumbsStyles";
 
 const Pages = {
   Home: " ",
+  News: "Новости",
   Register: "Регистрация",
   Login: "Вход",
-  Products: "Товары",
+  // Products: "Товары",
   Services: "Услуги",
   Sett: "Тротуарная плитка и Бордюр",
   Sertificates: "Сертификаты",
@@ -50,7 +51,7 @@ const Breadcrumbs = () => {
             history.push("/");
           }}
         >
-          Новости
+          Товары
         </a>
       </S.Li_Container>
       {/* {SEPARATOP} */}
