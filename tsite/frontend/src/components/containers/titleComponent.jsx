@@ -9,7 +9,7 @@ const TitleComponent = ({ page, home }) => {
   useEffect(() => {
     dispatch(getHead(page));
   }, []);
-  const location = document.location.href.replace('www.', '')
+  // const location = document.location.href.replace('www.', '')
   return (
     head && (
       <Helmet>
@@ -23,8 +23,8 @@ const TitleComponent = ({ page, home }) => {
           content={head.head.keywords ? head.head.keywords : ""}
         />
         <title>{head.head.title}</title>
-        {home && <link rel="canonical" href="http://pasenko.zp.ua" /> || 
-        <link rel="canonical" href={location} />}
+        {/* {home && <link rel="canonical" href="http://pasenko.zp.ua" /> || 
+        <link rel="canonical" href={location} />} */}
       </Helmet>
     )
   );
