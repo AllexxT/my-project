@@ -37,7 +37,7 @@ const Services = () => {
           <S.Item>
             <S.ImageBlock>
               <Link to="/services/sett">
-                <img src={instSett} alt="Укладка тротуарной плитки" />
+                <img src={instSett} alt="Укладка тротуарной плитки" style={{ width: "103%" }}/>
               </Link>
             </S.ImageBlock>
             <S.ButtonBlock>
@@ -52,7 +52,7 @@ const Services = () => {
                 <img
                   src={instFence}
                   alt="Установка еврозабора"
-                  style={{ width: "70%" }}
+                  style={{ width: "75%" }}
                 />
               </Link>
             </S.ImageBlock>

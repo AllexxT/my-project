@@ -56,7 +56,7 @@ const ImageBlock = styled.div `
       display: inline-block;
       /* height: 100%;
       width: 100%; */
-      max-height: 171px;
+      max-height: 190px;
       overflow: hidden;
       img {
           height: 100%;
