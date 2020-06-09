@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import placeholder from "../products/placeholder.jpeg";
 import manipulator from "./manipul.jpg";
 import instSett from "./укладка тротуарной плитки в запорожье цена чп джас фэм ритм элитбрук брук хаус.jpg";
+import instFence from "./установка_еврозабора_чп-Джас.jpg";
 import ProductsDescrCont from "../../containers/products/productsDescriptCont";
 
 const Services = () => {
@@ -48,7 +49,11 @@ const Services = () => {
           <S.Item>
             <S.ImageBlock>
               <Link to="/services/fence">
-                <img src={placeholder} alt="Установка еврозабора" />
+                <img
+                  src={instFence}
+                  alt="Установка еврозабора"
+                  style={{ width: "70%" }}
+                />
               </Link>
             </S.ImageBlock>
             <S.ButtonBlock>
