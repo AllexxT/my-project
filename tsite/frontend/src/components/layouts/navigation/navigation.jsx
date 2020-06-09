@@ -12,8 +12,8 @@ const Menu = () => {
   return (
     <S.Nav>
       <ul>
-        <Styled_Link active={true} to="/" label="НОВОСТИ" />
-        <Styled_Link to="/products" label="ТОВАРЫ" />
+        <Styled_Link to="/news" label="НОВОСТИ" />
+        <Styled_Link active={true} to="/" label="ТОВАРЫ" />
         <li>
           <ProductsSubmenu />
         </li>

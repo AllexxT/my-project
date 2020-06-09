@@ -20,15 +20,14 @@ import InstallMonuments from "./containers/services/installMonuments";
 import InstallFence from "./containers/services/installFence";
 import SertificatesContainer from "./containers/sertificates/sertificatesContainer";
 import TitleComponent from "./containers/titleComponent";
+import Page404 from "./page404";
+
 
 //  // CHECKING IS USER LOGGED IN
 // import { useEffect } from "react";
 // import { loadUser } from "../actions/auth";
 // import { useDispatch } from "react-redux";
 
-const Error = () => {
-  return <Mdse />;
-};
 
 const WithTitle = ({ component: Component, page, home }) => {
 
@@ -43,10 +42,14 @@ const WithTitle = ({ component: Component, page, home }) => {
     }
   };
 };
+const MdseHome = WithTitle({
+  component: Mdse /* NewsContainer */,
+  page: "products" /* "home" */,
+  home: true
+});
 const NewsComponent = WithTitle({
   component: NewsContainer,
   page: "home",
-  home: true
 });
 const SettComponent = WithTitle({
   component: Sett,
@@ -67,10 +70,6 @@ const MonumentsComponent = WithTitle({
 const ParapetComponent = WithTitle({
   component: Parapet,
   page: "parapet",
-});
-const MdseComponent = WithTitle({
-  component: Mdse,
-  page: "products",
 });
 const ExpositionContainerComponent = WithTitle({
   component: ExpositionContainer,
@@ -109,7 +108,7 @@ const ConsultationComponent = WithTitle({
   page: "",
 });
 const ErrorComponent = WithTitle({
-  component: Error,
+  component: Page404,
   page: "error",
 });
 const RoutedApp = () => {
@@ -131,7 +130,7 @@ const RoutedApp = () => {
           <Route path="/products/monuments" component={MonumentsComponent} />
           <Route path="/products/parapet" component={ParapetComponent} />
 
-          <Route path="/products" component={MdseComponent} />
+          {/* <Route path="/products" component={MdseComponent} /> */}
 
           <Route
             exact
@@ -169,7 +168,9 @@ const RoutedApp = () => {
           />
           <Route exact path="/services" component={ServicesComponent} />
 
-          <Route exact path="/" component={NewsComponent} />
+          <Route exact path="/news" component={NewsComponent} />
+
+          <Route exact path="/" component={MdseHome} />
 
           <Redirect
             status={301}

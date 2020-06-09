@@ -3,7 +3,7 @@ import { default as S } from "./servicesStyle";
 import { Link } from "react-router-dom";
 import placeholder from "../products/placeholder.jpeg";
 import manipulator from "./manipul.jpg";
-import instSett from "./укладка тротуарной плитки в запорожье цена чп джас фэм ритм элитбрук брук хаус.jpg";
+import instSett from "./укладка тротуарной плитки в запорожье цена чп джас фэм ритм элитбрук брук хаус2.jpg";
 import instFence from "./установка_еврозабора_чп-Джас.jpg";
 import ProductsDescrCont from "../../containers/products/productsDescriptCont";
 
@@ -37,7 +37,12 @@ const Services = () => {
           <S.Item>
             <S.ImageBlock>
               <Link to="/services/sett">
-                <img src={instSett} alt="Укладка тротуарной плитки" style={{ width: "103%" }}/>
+                <img
+                  src={instSett}
+                  title="Укладка тротуарной плитки в Запорожье"
+                  alt="Укладка тротуарной плитки"
+                  style={{ width: "103%" }}
+                />
               </Link>
             </S.ImageBlock>
             <S.ButtonBlock>

@@ -6,11 +6,11 @@ const Menu = ({ open, setOpen }) => {
   return (
     <S.StaticWin open={open}>
       <S.StyledMenu open={open} onClick={() => setOpen(!open)}>
-        <Link to="/">
+        <Link to="/news">
           Новости
         </Link>
-        <Link to="/products">
-          Продукция
+        <Link to="/">
+          Товары
         </Link>
         <ul>
           <li>
