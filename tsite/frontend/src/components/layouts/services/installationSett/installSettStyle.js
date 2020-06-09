@@ -49,11 +49,17 @@ const PageWrapper = styled.div`
 const Block = styled.div`
   display: flex;
   flex-flow: column;
-  padding-bottom: 20px;
+  padding: 0 10px 20px 10px;
   p {
     font-size: ${Paragraph};
     line-height: ${Line_height};
   }
+  ul {
+    padding-left: 18px;
+    li {
+      list-style: circle outside;
+    }
+   }
 `;
 
 const Title = styled.h1`

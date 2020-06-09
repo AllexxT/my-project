@@ -19,12 +19,12 @@ const slide = keyframes`
 const Container = styled.div`
   background-color: whitesmoke;
   margin: 20px 10px 10px 10px;
-  padding: 10px 10px 10px 10px;
   border-left: 5px solid #f3cb55;
   border-top: 5px solid #f3cb55;
   border-bottom: 5px solid #535252;
   border-right: 5px solid #535252;
   animation: ${slide} 1s ease-in;
+  padding: 10px;
   font-size: 16px;
   line-height: 22px;
   box-shadow: 0px 5px 10px grey;
