@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development --watch ./tsite/frontend/src/index.js --output ./tsite/frontend/static/frontend/main.js",
-    "build": "webpack --mode production ./tsite/frontend/src/index.js --output ./tsite/frontend/static/frontend/main.js"
+    "start": "webpack --mode development --watch",
+    "build": "webpack --mode production"
   },
   "keywords": [],
   "author": "",
@@ -26,9 +26,12 @@
     "@babel/plugin-transform-runtime": "^7.8.3",
     "@babel/runtime": "^7.8.4",
     "redux-devtools-extension": "^2.13.8",
+    "html-webpack-plugin": "^4.3.0",
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@loadable/component": "^5.12.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "axios": "^0.19.2",
     "html-to-react": "^1.4.2",
     "jodit-react": "^1.0.42",

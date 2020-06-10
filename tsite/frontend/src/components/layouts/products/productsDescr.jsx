@@ -1,6 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-import JoditEditor from "jodit-react";
+
+import loadable from '@loadable/component'
+const JoditEditor = loadable(() => import('jodit-react'))
+
+// import JoditEditor from "jodit-react";
 import { useSelector } from "react-redux";
 import { GlobalS } from "./productPage/descriptionStyles";
 // import SunEditor, { buttonList } from "suneditor-react";

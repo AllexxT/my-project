@@ -1,6 +1,10 @@
 import React from "react";
 import { default as S } from "./expositionStyles";
-import ExpositionItem from "./expositionItem";
+
+import loadable from '@loadable/component'
+const ExpositionItem = loadable(() => import('./expositionItem'))
+
+// import ExpositionItem from "./expositionItem";
 
 const titles = {
   sett: "Тротуарная плитка",

@@ -1,4 +1,17 @@
+const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
 module.exports = {
+    entry: "./tsite/frontend/src/index.js",
+    output: {
+        path: path.join(__dirname, "./tsite/frontend/static/frontend"),
+        filename: "main.js"
+    },
+    optimization: {
+        splitChunks: {
+            chunks: "all"
+        }
+    },
     module: {
         rules: [
             {
@@ -31,5 +44,10 @@ module.exports = {
     // devtool: 'inline-source-map',
     resolve: {
         extensions: ['*', '.js', '.jsx']
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            filename: '../../templates/frontend/admin.html'
+        })
+  ]
 }
