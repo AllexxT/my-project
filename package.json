@@ -29,7 +29,6 @@
     "@babel/runtime": "^7.8.4",
     "axios": "^0.19.2",
     "html-to-react": "^1.4.2",
-    "jodit-react": "^1.0.42",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-alert": "^7.0.0",
@@ -48,6 +47,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.4.1",
+    "suneditor-react": "^2.11.3",
     "webpack-dev-server": "^3.11.0"
   }
 }
