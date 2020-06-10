@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-// import JoditEditor from "jodit-react";
+import JoditEditor from "jodit-react";
 import { useSelector } from "react-redux";
 import { GlobalS } from "./productPage/descriptionStyles";
-import SunEditor, { buttonList } from "suneditor-react";
-import "suneditor/dist/css/suneditor.min.css"; // Import Sun Editor's CSS File
+// import SunEditor, { buttonList } from "suneditor-react";
+// import "suneditor/dist/css/suneditor.min.css"; // Import Sun Editor's CSS File
 
 const slide = keyframes`
     from {
@@ -49,7 +49,7 @@ const Container = styled.div`
 
 const ProductsDescr = ({ textOfPage, callBack }) => {
   const authState = useSelector((state) => state.authReducer);
-  // const editor = useRef(null);
+  const editor = useRef(null);
   const [showEditor, setShowEditor] = useState(false);
   const [content, setContent] = useState("");
   useEffect(() => {
@@ -59,11 +59,11 @@ const ProductsDescr = ({ textOfPage, callBack }) => {
     setContent(textOfPage);
   }, [authState.user, textOfPage]);
 
-  // const config = {
-  //   readonly: false,
-  //   toolbarButtonSize: "large",
-  //   processPasteHTML: "false",
-  // };
+  const config = {
+    readonly: false,
+    toolbarButtonSize: "large",
+    processPasteHTML: "false",
+  };
   return (
     <GlobalS>
       {textOfPage != null && textOfPage != undefined && textOfPage != "" && (
@@ -71,21 +71,21 @@ const ProductsDescr = ({ textOfPage, callBack }) => {
       )}
       {showEditor && (
         <>
-{/*           <JoditEditor
+          <JoditEditor
             ref={editor}
             value={content}
             config={config}
             tabIndex={1} // tabIndex of textarea
             onBlur={(newContent) => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
             onChange={(newContent) => {}}
-          /> */}
-          <SunEditor
+          />
+          {/* <SunEditor
             onChange={(newContent) => setContent(newContent)}
             setContents={textOfPage}
             setOptions={{
               buttonList: buttonList.complex,
             }}
-          />
+          /> */}
           <button onClick={() => callBack(content)}>Сохранить</button>
         </>
       )}
