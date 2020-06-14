@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 
-import JoditEditor from "jodit-react";
+// import JoditEditor from "jodit-react";
 
-// import loadable from '@loadable/component'
-// const JoditEditor = loadable(() => import('jodit-react'))
+import loadable from '@loadable/component'
+const JoditEditor = loadable(() => import('jodit-react'))
 
 import Dscr, { GlobalS } from "./descriptionStyles";
 import { useSelector } from "react-redux";

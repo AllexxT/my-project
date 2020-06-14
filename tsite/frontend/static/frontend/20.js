@@ -1,1 +1,1 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[20],{132:function(e,n,a){"use strict";a.r(n);var t=a(0),c=a.n(t),o=a(102);n.default=function(){return c.a.createElement(o.a,{page:"fence"})}}}]);
+(window.webpackJsonp=window.webpackJsonp||[]).push([[20],{121:function(e,t,n){"use strict";n.r(t);var r=n(31),a=n.n(r),s=n(0),o=n.n(s),c=n(95);t.default=function(){return o.a.createElement(c.a,a()({page:"sett"},{categories:["vibropressed","vibrocast","borders","gully"],textOfPage:""}))}}}]);

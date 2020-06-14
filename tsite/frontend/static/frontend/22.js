@@ -1,1 +1,1 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[22],{130:function(e,n,t){"use strict";t.r(n);var a=t(0),c=t.n(a),o=t(102);n.default=function(){return c.a.createElement(o.a,{page:"sett"})}}}]);
+(window.webpackJsonp=window.webpackJsonp||[]).push([[22],{130:function(n,e,t){"use strict";t.r(e);var a=t(0),o=t.n(a),u=t(96);e.default=function(){return o.a.createElement(u.a,{page:"monuments"})}}}]);
