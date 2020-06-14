@@ -1,26 +1,68 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import loadable from '@loadable/component'
+
 import App from "./layouts/App";
-import NewsContainer from "./containers/news/newsContainer";
-import Sett from "./containers/products/sett";
-import Fence from "./containers/products/fence";
-import Brick from "./containers/products/brick";
-import Monuments from "./containers/products/monuments";
-import Parapet from "./containers/products/parapet";
-import Mdse from "./layouts/mdse/mdse";
-import ExpositionContainer from "./containers/exposition/expositionContainer";
-import Register from "./accounts/Register";
-import Login from "./accounts/Login";
-import Services from "./layouts/services/services";
-import Delivery from "./layouts/services/delivery/delivery";
-import Calculate from "./layouts/services/calculate/calculate";
-import Consultation from "./layouts/services/consultation/consultation";
-import InstallSett from "./containers/services/installSett";
-import InstallMonuments from "./containers/services/installMonuments";
-import InstallFence from "./containers/services/installFence";
-import SertificatesContainer from "./containers/sertificates/sertificatesContainer";
-import TitleComponent from "./containers/titleComponent";
-import Page404 from "./page404";
+
+const Page404 = loadable(() => import('./page404'))
+// import Page404 from "./page404"
+
+const NewsContainer = loadable(() => import("./containers/news/newsContainer"))
+// import NewsContainer from "./containers/news/newsContainer";
+
+const Sett = loadable(() => import("./containers/products/sett"))
+// import Sett from "./containers/products/sett";
+
+const Fence = loadable(() => import("./containers/products/fence"))
+// import Fence from "./containers/products/fence";
+
+const Brick = loadable(() => import("./containers/products/brick"))
+// import Brick from "./containers/products/brick";
+
+const Monuments = loadable(() => import("./containers/products/monuments"))
+// import Monuments from "./containers/products/monuments";
+
+const Parapet = loadable(() => import("./containers/products/parapet"))
+// import Parapet from "./containers/products/parapet";
+
+const Mdse = loadable(() => import("./layouts/mdse/mdse"))
+// import Mdse from "./layouts/mdse/mdse";
+
+const ExpositionContainer = loadable(() => import("./containers/exposition/expositionContainer"))
+// import ExpositionContainer from "./containers/exposition/expositionContainer";
+
+const Register = loadable(() => import("./accounts/Register"))
+// import Register from "./accounts/Register";
+
+const Login = loadable(() => import("./accounts/Login"))
+// import Login from "./accounts/Login";
+
+const Services = loadable(() => import("./layouts/services/services"))
+// import Services from "./layouts/services/services";
+
+const Delivery = loadable(() => import("./layouts/services/delivery/delivery"))
+// import Delivery from "./layouts/services/delivery/delivery";
+
+const Calculate = loadable(() => import("./layouts/services/calculate/calculate"))
+// import Calculate from "./layouts/services/calculate/calculate";
+
+const Consultation = loadable(() => import("./layouts/services/consultation/consultation"))
+// import Consultation from "./layouts/services/consultation/consultation";
+
+const InstallSett = loadable(() => import("./containers/services/installSett"))
+// import InstallSett from "./containers/services/installSett";
+
+const InstallMonuments = loadable(() => import("./containers/services/installMonuments"))
+// import InstallMonuments from "./containers/services/installMonuments";
+
+const InstallFence = loadable(() => import("./containers/services/installFence"))
+// import InstallFence from "./containers/services/installFence";
+
+const SertificatesContainer = loadable(() => import("./containers/sertificates/sertificatesContainer"))
+// import SertificatesContainer from "./containers/sertificates/sertificatesContainer";
+
+const TitleComponent = loadable(() => import("./containers/titleComponent"))
+// import TitleComponent from "./containers/titleComponent";
 
 
 //  // CHECKING IS USER LOGGED IN

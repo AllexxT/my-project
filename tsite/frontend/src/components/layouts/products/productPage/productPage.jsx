@@ -2,10 +2,10 @@ import React, { useRef } from "react";
 import S from "./productPageStyles";
 import PriceTable from "./table";
 
-import loadable from '@loadable/component'
-const Gallery = loadable(() => import('./gallery'))
+// import loadable from '@loadable/component'
+// const Gallery = loadable(() => import('./gallery'))
 
-// import Gallery from "./gallery";
+import Gallery from "./gallery";
 
 import Description from "./description";
 import { useEffect } from "react";

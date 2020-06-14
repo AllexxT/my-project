@@ -5,13 +5,15 @@ module.exports = {
     entry: "./tsite/frontend/src/index.js",
     output: {
         path: path.join(__dirname, "./tsite/frontend/static/frontend"),
-        filename: "main.js"
+        filename: '[name].js',
+        chunkFilename: '[name].js',
+        publicPath: '/static/frontend/'
     },
-    optimization: {
-        splitChunks: {
-            chunks: "all"
-        }
-    },
+    // optimization: {
+    //     splitChunks: {
+    //         chunks: "all"
+    //     }
+    // },
     module: {
         rules: [
             {
@@ -38,9 +40,9 @@ module.exports = {
             },
         ]
     },
-    watchOptions: {
-        poll: true
-    },
+    // watchOptions: {
+    //     poll: true
+    // },
     // devtool: 'inline-source-map',
     resolve: {
         extensions: ['*', '.js', '.jsx']
