@@ -13,7 +13,7 @@ import { GlobalS } from "./productPage/descriptionStyles";
 const slide = keyframes`
     from {
         opacity: 0;
-        top: -20px;
+        top: -5px;
     }
 
     to {

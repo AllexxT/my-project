@@ -3,7 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../../../actions/products";
 import Products from "../../layouts/products/products";
 import { Switch, Route, useRouteMatch, useLocation } from "react-router";
-import ProductPage from "./productPage/productPageCont";
+
+import loadable from '@loadable/component'
+const ProductPage = loadable(() => import("./productPage/productPageCont"))
+// import ProductPage from "./productPage/productPageCont";
 
 import prodPlaceHolder from "./no_product.gif";
 import ProductsDescrCont from "./productsDescriptCont";

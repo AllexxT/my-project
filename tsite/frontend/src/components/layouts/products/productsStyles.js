@@ -10,7 +10,7 @@ const PWrapper = styled.div`
 const PTitleAnimation = keyframes`
     from {
         opacity: 0;
-        top: -20px;
+        top: -5px;
     }
     to {
         opacity: 1;
@@ -21,7 +21,7 @@ const PTitle = styled.h2`
   padding: 10px 0 10px 13px;
   font-size: 32px;
   line-height: 28px;
-  animation: ${PTitleAnimation} 1s linear;
+  animation: ${PTitleAnimation} 0.5s linear;
   @media (max-width: 576px) {
     text-align: center;
     padding-left: 0;
