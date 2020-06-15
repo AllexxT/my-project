@@ -10,17 +10,6 @@ import { GlobalS } from "./productPage/descriptionStyles";
 // import SunEditor, { buttonList } from "suneditor-react";
 // import "suneditor/dist/css/suneditor.min.css"; // Import Sun Editor's CSS File
 
-const slide = keyframes`
-    from {
-        opacity: 0;
-        top: -5px;
-    }
-
-    to {
-        opacity: 1;
-        top: 0px;
-    }
-`;
 
 const Container = styled.div`
   background-color: whitesmoke;
@@ -29,7 +18,6 @@ const Container = styled.div`
   border-top: 5px solid #f3cb55;
   border-bottom: 5px solid #535252;
   border-right: 5px solid #535252;
-  animation: ${slide} 1s ease-in;
   padding: 10px;
   font-size: 16px;
   line-height: 22px;

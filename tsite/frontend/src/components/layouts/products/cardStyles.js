@@ -1,16 +1,5 @@
 import styled, { keyframes } from "styled-components";
 
-// const slide = keyframes`
-//     from {
-//         opacity: 0;
-//         top: -20px;
-//     }
-
-//     to {
-//         opacity: 1;
-//         top: 0px;
-//     }
-// `;
 const C_Wrapper = styled.div`
   position: relative;
   min-height: 325px;
@@ -21,7 +10,6 @@ const C_Wrapper = styled.div`
   background: #F5F5F5;
   justify-content: space-between;
   box-shadow: 0px 5px 10px gray;
-  /* animation: ${slide} 0.2s linear; */
 `;
 const C_Content = styled.div`
   padding: 10px;

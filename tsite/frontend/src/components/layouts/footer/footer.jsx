@@ -3,15 +3,15 @@ import React, { useState } from "react";
 import { default as S } from "./footerStyles";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-// import gmap from "./gmap.png";
-// import mapImage from "./ЧП-Джас_на карте.jpeg";
+import Map from './Map'
 
-const ldng = () => <div>loading</div>
 
-import loadableVisibility from "react-loadable-visibility/loadable-components";
-const Map = loadableVisibility(() => import("./Map"), {
-  fallback: <ldng />
-});
+// const ldng = () => <div>loading</div>
+
+// import loadableVisibility from "react-loadable-visibility/loadable-components";
+// const Map = loadableVisibility(() => import("./Map"), {
+//   fallback: <ldng />
+// });
 
 
 const Footer = () => {
