@@ -23,6 +23,7 @@ const TitleComponent = ({ page, home }) => {
           content={head.head.keywords ? head.head.keywords : ""}
         />
         <title>{head.head.title}</title>
+        {page == 'error' && <meta name="robots" content="noindex"/>}
         {/* {home && <link rel="canonical" href="http://pasenko.zp.ua" /> || 
         <link rel="canonical" href={location} />} */}
       </Helmet>

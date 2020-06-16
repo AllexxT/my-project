@@ -5,8 +5,8 @@ module.exports = {
     entry: "./tsite/frontend/src/index.js",
     output: {
         path: path.join(__dirname, "./tsite/frontend/static/frontend"),
-        filename: '[name].js',
-        chunkFilename: '[name].js',
+        filename: '[name]-[name].js',
+        chunkFilename: '[name]-[name].js',
         publicPath: '/static/frontend/'
     },
     // optimization: {
