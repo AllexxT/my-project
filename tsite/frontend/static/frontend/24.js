@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[24],{127:function(e,n,t){"use strict";t.r(n);var a=t(0),c=t.n(a),o=t(99);n.default=function(){return c.a.createElement(o.a,{page:"sett"})}}}]);

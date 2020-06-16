@@ -10,8 +10,8 @@ const Page404 = loadable(() => import('./page404'))
 const NewsContainer = loadable(() => import("./containers/news/newsContainer"))
 // import NewsContainer from "./containers/news/newsContainer";
 
-const Sett = loadable(() => import("./containers/products/sett"))
-// import Sett from "./containers/products/sett";
+// const Sett = loadable(() => import("./containers/products/sett"))
+import Sett from "./containers/products/sett";
 
 const Fence = loadable(() => import("./containers/products/fence"))
 // import Fence from "./containers/products/fence";
