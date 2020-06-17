@@ -7,6 +7,15 @@ from datetime import date
 ##############################################################################
 
 
+# class PageImage(models.Model):
+#     page = models.ForeignKey('Page', on_delete=models.CASCADE)
+#     image = models.ImageField(null=True, blank=True)
+#     imageName = models.CharField("название", max_length=50)
+
+#     def __str__(self):
+#         return self.imageName
+
+
 class Page(models.Model):
     page = models.CharField("Страница", max_length=30, primary_key=True)
     title = models.CharField(
@@ -27,6 +36,9 @@ class Page(models.Model):
 
     def article(self):
         return self.article_set.all()
+
+    # def pageImage(self):
+    #     return self.pageimage_set.all()
 
     def __str__(self):
         return str(self.page)

@@ -4,7 +4,8 @@ from versatileimagefield.serializers import VersatileImageFieldSerializer
 from drf_writable_nested.mixins import UniqueFieldsMixin
 from products.models import (
     ProductCard, Prices, Photos, News, Page, Article, Depth, DepthPrice,
-    Exposition, ExpositionPhotos, ServicePage, ServicePrices, Sertificat
+    Exposition, ExpositionPhotos, ServicePage, ServicePrices, Sertificat,
+    # PageImage
 )
 
 
@@ -48,7 +49,19 @@ class ServicePageSerializer(WritableNestedModelSerializer):
 
 ##############################################################################
 # Page #
+# class PageImageSerializer(serializers.ModelSerializer):
+
+#     class Meta:
+#         model = PageImage
+#         fields = [
+#             'page',
+#             'imageName',
+#             'image'
+#         ]
+
+
 class PageSeoSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
+    # pageImage = PageImageSerializer(many=True)
 
     class Meta:
         model = Page
@@ -58,6 +71,7 @@ class PageSeoSerializer(UniqueFieldsMixin, serializers.ModelSerializer):
             'description',
             'keywords',
             'body',
+            'pageImage'
         ]
 
 

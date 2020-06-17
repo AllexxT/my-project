@@ -1,7 +1,8 @@
 from django.contrib import admin
 from products.models import (
     ProductCard, Prices, Photos, News, Page, Article, DepthPrice, Depth,
-    Exposition, ExpositionPhotos, ServicePage, ServicePrices, Sertificat
+    Exposition, ExpositionPhotos, ServicePage, ServicePrices, Sertificat,
+    # PageImage
 )
 
 
@@ -44,6 +45,15 @@ class ProductCardAdmin(admin.ModelAdmin):
     search_fields = ('article__title',)
 
 
+# @admin.register(PageImage)
+# class PageImageAdmin(admin.ModelAdmin):
+#     fields = (
+#         'page',
+#         'imageName',
+#         'image'
+#     )
+
+
 @admin.register(Page)
 class PageAdmin(admin.ModelAdmin):
 
@@ -51,7 +61,10 @@ class PageAdmin(admin.ModelAdmin):
         model = Article
         extra = 0
 
-    inlines = [ArticleInline]
+    # class PageImageAdmin(admin.TabularInline):
+    #     model = PageImage
+    #     extra = 0
+    # inlines = [PageImageAdmin]
 
     fields = (
         'page',
